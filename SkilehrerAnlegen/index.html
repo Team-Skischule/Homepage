@@ -10,9 +10,36 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="fontawesome-5.15.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        function test(){
+            //LoadingSpinner einschalten
+           var data = {
+               vorname: document.getElementById('formVorname').value
+           }
+           console.log(data);
+           
+           //var response = fetch("http://localhost/backend.php", {
+           //    method: POST,
+           //    body: JSON.stringify(data)
+           //});
+           //prüfen ob erfolgreich
+           //Spinner deaktivieren oder weiterleiten auf andere seite
+           //json mit schilehrern
+           var liste = document.getElementById('test');
+           for(var i = 0; i<10;i++) {
+                var text = document.createTextNode("Hallo "+i);
+                liste.appendChild(text);
+                liste.appendChild(document.createElement('br'));
+            }
+        } 
+    </script>
 </head>
 
 <body>
+    <div id="test">
+
+    </div>
     <div class="UserMenu">
         <a class="navbar-brand" href="#">
           <img src="Profilpic.png" width="30" height="30" alt="" loading="lazy">
@@ -25,7 +52,7 @@
         </ol>
     </nav>
 
-    <form>
+    <form class="content-container" action="api/create.php" method="POST">
         <div class="row">
             <div class="col-md-2">
                 <div class="row">
@@ -53,7 +80,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="formVorname">
+                        <input type="text" class="form-control" name="formVorname" id="formVorname">
                     </div>
                 </div>
 
@@ -63,7 +90,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="formNachname">
+                        <input type="text" class="form-control" name="formNachname" id="formNachname">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -72,7 +99,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="tel" class="form-control" id="formMobil">
+                        <input type="tel" class="form-control" name="formMobil" id="formMobil">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -81,7 +108,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="formEmail">
+                        <input type="email" class="form-control" name="formEmail" id="formEmail">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -90,18 +117,18 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" id="formGeburtsdatum">
+                        <input type="date" class="form-control" name="formGeburtsdatum" id="formGeburtsdatum">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="formStraße" class="col-sm-3 col-form-label">
+                    <label for="formStrasse" class="col-sm-3 col-form-label">
                         Straße
                     </label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="formStraße">
+                    <div class="col-8 col-sm-7">
+                        <input type="text" class="form-control" name="formStrasse" id="formStrasse">
                     </div>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" placeholder="Nr." id="formNr">
+                    <div class="col-4 col-sm-2">
+                        <input type="text" class="form-control" placeholder="Nr." name="formNr" id="formNr">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -109,11 +136,11 @@
                         Wohnort
                     </label>
 
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" placeholder="PLZ" id="formPLZ">
+                    <div class="col-4 col-sm-2">
+                        <input type="text" class="form-control" placeholder="PLZ" name="formPLZ" id="formPLZ">
                     </div>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="formWohnort">
+                    <div class="col-8 col-sm-7">
+                        <input type="text" class="form-control" name="formWohnort" id="formWohnort">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -122,13 +149,13 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="formSki">
+                            <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
                             <label class="form-check-label checkbox-label" for="formSki">
                                 Ski
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="formSnowboard">
+                            <input class="form-check-input" type="checkbox" name="formSnowboard" id="formSnowboard">
                             <label class="form-check-label checkbox-label" for="formSnowboard">
                                 Snowboard
                             </label>
@@ -141,7 +168,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <select class="form-control" name="Level" id="formLevel">
+                        <select class="form-control" name="formLevel" id="formLevel">
                             <option value="1">Level-1</option>
                             <option value="2">Level-2</option>
                             <option value="3">Level-3</option>
@@ -156,7 +183,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="formIBAN">
+                        <input type="text" class="form-control" name="formIBAN" id="formIBAN">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -165,7 +192,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <textarea id="formKommentar" name="Kommentar" class="form-control" rows="5">
+                        <textarea id="formKommentar" name="formKommentar" class="form-control" rows="5">
                     </textarea>
                     </div>
                 </div>
@@ -173,7 +200,8 @@
                     <div class="col-sm-3">
                     </div>
                     <div class="col-sm-9">
-                <button type="submit" class="btn btn-primary">Speichern</button>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
+                        <!-- <button type="button" class="btn btn-primary" onclick="test()">Speichern</button> -->
                     </div>
                 </div>
 

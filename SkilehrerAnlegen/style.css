@@ -18,6 +18,11 @@ a {
     margin-right: 10px;
 }
 
+.content-container {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
 .form-field{
     margin-bottom: 10px;
 }
@@ -27,7 +32,7 @@ a {
 }
 
 .col-form-label {
-    text-align: right;
+    text-align: left;
 }
 
 .form-control {
