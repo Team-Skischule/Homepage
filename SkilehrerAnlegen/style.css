@@ -1,0 +1,62 @@
+a {
+    color:#286090;
+}
+
+#formbreadcrumb {
+    margin-bottom: 90px;
+}
+
+.breadcrumb {
+    background-color:#e2e9f0;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.content-container {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.form-field{
+    margin-bottom: 10px;
+}
+
+.col-form-label, .checkbox-label {
+    color:#a1b9ce;
+}
+
+.col-form-label {
+    text-align: left;
+}
+
+.form-control {
+    border-color: #a1b9ce;
+}
+
+.profile-pic-upload {
+    color:#286090;
+    cursor: pointer;
+}
+
+.breadcrumb-item.active{
+    color:#de303a;
+}
+
+.UserMenu {
+    position: absolute;
+    right: 16px;
+    top: 0px;
+}
+
+.btn-primary {
+    background-color:#286090;
+    border-color: #286090;
+    color: white;
+}
+
