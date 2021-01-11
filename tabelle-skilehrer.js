@@ -53,6 +53,7 @@
     getTermineData();
     var skilehrer = [] ;
     var termine = [] ;
+    var table = document.querySelector("table");
     
     function valueCallBackSkilehrer(skilehrerJson) {
         skilehrer = skilehrerJson;
@@ -152,45 +153,42 @@
 
         1.  Array mit TableRows erstellen
         2.  TermineJson wird mit foreach iteriert
-        2.a     In jeder iteration wird überprüft ob
-                die SkilehrerId im Terminjson mit der SkilehrerID in der Zeile identisch ist
-        3.  Wenn ja,       
+        2.a     In jeder Iteration wird überprüft ob:
+                die SkilehrerId im Terminjson mit der SkilehrerID in der TableRow identisch ist
+        3.  Wenn ja,  wird die tableCell (td) markiert
+        3.a Mehrtägige Termine werden mit einer Schleife hochgezählt und der jeweilige Tag markiert
+
+        Hinweis: setTimeout weil: zuerst muss die Tabelle erstellt sein, dann wird sie mit Terminen befüllt
 ---------------------------------------------------- */
 
     setTimeout(
-
-    // wenn Zahl nach klasse "slid_ ""  gleich ist wie die SkilehrerID im TerminJson
-    // dann wird eine Info in der Datumsspalte eingefügt
     function addTermineToTable () {
         var rows = document.querySelectorAll('tbody > tr'); 
         
         for (row = 0; row < rows.length; row++) {
            let rowId = rows[row].className.substr(5) 
-           console.log('');
-           console.log('------------ rowID: ' + rowId)
            
            for (const termin of termine) {
-                let slId = termin.skilehrerid;
-
-                // Prüfen ob es für einen Skilehrer einträge im TerminJson gibt:
-                if (slId == rowId) {
+               let slId = termin.skilehrerid;
+               
+               // Prüfen ob es für einen Skilehrer einträge im TerminJson gibt:
+               if (slId == rowId) {
 
                     let datumBeginn = termin.datumBeginn;
                     let termindauer = termin.timeDiff;
                     let getslid = document.querySelectorAll('.sLid_' + termin.skilehrerid + '> td')
                    
                     for (i = 1; i<= days ; i++) { // Schleife läuft für die Länge der Tage in der Tabelle (days)
-                        // hier abgleichen datumBeginn + termindauer mit id
-                        
                         // Hier werden die Tage mit der Termindauer hochgezählt. . Diese müssen noch markiert werden.
-                        for (let k = 0; k < termindauer ; k++ ) {
-                            console.log('termindauer > 0 : ' + termindauer + ' datumbeginn: ' + datumBeginn)
-                           
+                        for (let k = 0; k <= termindauer ; k++ ) {
+                            let additionalDays = addDays(datumBeginn, k)
+                            //console.log('termindauer > 0 : ' + termindauer + ' datumbeginn: ' + datumBeginn + ' AdditionalDays: ' +additionalDays );
+                          
                             // hier wird für jeden Tag des Termins eine Markierung eingefügt:
-                            if (getslid[i].className == datumBeginn  ) { // wenn datum mit id übereinstimmt dann markieren
+                            if (getslid[i].className == additionalDays  ) { // wenn datum mit id übereinstimmt dann markieren
                                let tdClassNameDatumArray =  document.getElementsByClassName(getslid[i].className)
                                tdClassNameDatumArray[row].style.backgroundColor = "red";
-                            }      
+                            }    
                         }
                     }
                 } 
@@ -198,6 +196,13 @@
         }
     } , 100);
 
+/* --- Tage zu Datum zufügen --- */ 
+
+    function addDays(myDate, days) {
+        const newDate = new Date((myDate))
+        newDate.setDate(newDate.getDate() + days)
+        return newDate.getFullYear() + '-' + monthTwoDigit(newDate) + '-' + dayTwoDigit(newDate)
+    }
 
 
 /* ----------------------------------------------------
@@ -213,13 +218,14 @@ monthTwoDigit = (date) => ("0" + (date.getMonth() + 1)).slice(-2)
     // Next & prev Week: add or substract one Week
     function next_week(startDate) {
         let newStartDate = new Date(startDate.setDate(startDate.getDate() + 7)); 
-        fillDateColumns(newStartDate); 
+        fillDateColumns(newStartDate);
     }
-
+    
     function prev_week(startDate) {
         let newStartDate = new Date(startDate.setDate(startDate.getDate() - 7)); 
+        generateTable(table, skilehrer, days)
         fillDateColumns(newStartDate);
-        console.log();
+        addTermineToTable();
     }
 
 /* ----------------------------------------------------
@@ -246,12 +252,7 @@ monthTwoDigit = (date) => ("0" + (date.getMonth() + 1)).slice(-2)
     
     function myStopFunction() {
         clearInterval(myVar);
-      }
-
-/* ----------------------------------------------------
------ Skilehrer Kalender anzeigen
----------------------------------------------------- */
-    var table = document.querySelector("table");
+      } 
 
    
 
