@@ -1,14 +1,8 @@
 <?php
-    include "SkilehrerAnlegen/api/dbConfig.php";
+    include "config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $conn = new mysqli($host, $db_username, $db_password, $db_name);
-    $stmt = $conn->prepare("SELECT firstName, lastName, id FROM skilehrer");
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    $stmt = $link->prepare("SELECT firstName, lastName, id FROM skilehrer");
 
     $stmt->execute();
     $result = $stmt->get_result();

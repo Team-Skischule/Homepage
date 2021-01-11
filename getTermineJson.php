@@ -1,14 +1,8 @@
 <?php
-    include "SkilehrerAnlegen/api/dbConfig.php";
+    include "config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $conn = new mysqli($host, $db_username, $db_password, $db_name);
-    $stmt = $conn->prepare("SELECT id, skilehrerid, status, datumBeginn, datumEnde,Datediff(datumEnde, datumBeginn) as timeDiff ,  kundenName, abholort FROM termine;");
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    $stmt = $link->prepare("SELECT id, skilehrerid, status, datumBeginn, datumEnde,Datediff(datumEnde, datumBeginn) as timeDiff ,  kundenName, abholort FROM termine;");
 
     $stmt->execute();
     $result = $stmt->get_result();
