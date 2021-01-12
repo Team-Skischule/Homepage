@@ -2,10 +2,8 @@
   --main-bg-color: rgb(240, 240, 240);
   --second-bg-color: rgb(120, 161, 221);
   font-size: 12px;
-  --std-border-radius: 0.5em;
+  --std-border-radius: 0.2em;
 }
-
-
 
 * {
     box-sizing: border-box;
@@ -13,16 +11,20 @@
   
   body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--second-bg-color) !important;
+    margin: 0 1em !important;
     
   }
   
   body .content {
-    width: 90%;
-    display: block;
-    margin: 2em auto;
+    background-color: white;
+    border-radius: var(--std-border-radius);
+    padding: 2em;
   }
+
   h1  {
     text-align: center;
+    padding: 1em 0;
   }
 
   section {
@@ -33,10 +35,9 @@
 
   /* Style the header */
   header {
-    background-color:var(--second-bg-color);
-    padding: 1em;
     text-align: center;
     font-size: 1.2em;
+    margin: 1em 0;
   }
 
   
@@ -52,25 +53,36 @@
   }
 
   header nav ul li {
-    margin-left: 0;
+    margin:0; 
+    padding: 0 0.2em;
+    /* border-right: 1px solid white; */
+    color: white !important;
+   
   }
-  
+
+  header nav ul li a {
+    color: white !important;
+    border: 1px solid transparent;
+    border-right: 1px solid white;
+    transition: border 0.2s ease-in-out;
+  }
+
+   header nav ul li a:hover {
+     border: 1px solid white;
+     border-radius: var(--std-border-radius);
+   }
   
   header nav ul{
       float: left;
       list-style-type: none;
       padding: 0m;
     }
-    header nav  li {
-      margin:0; 
-      padding: 0 ;
-  
-    }
 
     .calendar {
-      outline-offset: 0.5em;
       margin-top: 2em;
-      outline: 0.1em solid lightgray;
+      padding: 1em;
+      border-radius: var(--std-border-radius);
+      border: 0.1em solid lightgray; 
   }
   
   /* Clear floats after the columns */

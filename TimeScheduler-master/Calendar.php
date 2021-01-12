@@ -3,6 +3,8 @@
 <html>
     <head runat="server">
     
+    
+
         <title>Kalender</title>
         <link href="css/jquery-ui.css" rel="stylesheet" />
         <link href="css/jquery.ui.theme.css" rel="stylesheet" />
@@ -10,6 +12,7 @@
         <link href="css/timelineScheduler.css" rel="stylesheet" />
         <link href="css/timelineScheduler.styling.css" rel="stylesheet" />
         <link href="css/calendar.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../style.css" />
 
         <script src="js/moment.min.js"></script>
         <script src="js/jquery-1.9.1.min.js"></script>
@@ -17,6 +20,7 @@
     
         <script src="js/timelineScheduler.js"></script>
         <script src="js/calendar.js"></script>
+
          <?php include '../includes/header.php';?> 
 
     </head>
@@ -37,6 +41,9 @@
             </div>
         </div>
         
+
+
+      
     </body>
     
     
