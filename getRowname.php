@@ -4,10 +4,12 @@
 
     $stmt = $link->prepare("SELECT id, username as name FROM skischule.users");
 
-    
     $stmt->execute();
     $result = $stmt->get_result();
-    $outp = $result->fetch_all(MYSQLI_ASSOC);
+    $outp = array();
+    while ($row - $result->fetch_assoc()){
+        array_push($outp, array("id" -> $row['id'], "name" -> $row['name']));
+    }
 
     echo json_encode($outp);
 ?>
