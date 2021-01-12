@@ -63,7 +63,7 @@
                     
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="formVorname" id="formVorname" minlength="1">
+                        <input type="text" class="form-control" name="formVorname" id="formVorname"  required>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="formNachname" id="formNachname">
+                        <input type="text" class="form-control" name="formNachname" id="formNachname"minlength="1" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -82,7 +82,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="tel" class="form-control" name="formMobil" id="formMobil">
+                        <input type="tel" class="form-control" name="formMobil" id="formMobil" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -91,7 +91,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" name="formEmail" id="formEmail">
+                        <input type="email" class="form-control" name="formEmail" id="formEmail" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -100,7 +100,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" name="formGeburtsdatum" id="formGeburtsdatum">
+                        <input type="date" class="form-control" name="formGeburtsdatum" id="formGeburtsdatum" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -111,7 +111,7 @@
                         <input type="text" class="form-control" name="formStrasse" id="formStrasse">
                     </div>
                     <div class="col-4 col-sm-2">
-                        <input type="text" class="form-control" placeholder="Nr." name="formNr" id="formNr">
+                        <input type="text" class="form-control" placeholder="Nr." name="formNr" id="formNr" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -120,10 +120,10 @@
                     </label>
 
                     <div class="col-4 col-sm-2">
-                        <input type="text" class="form-control" placeholder="PLZ" name="formPLZ" id="formPLZ">
+                        <input type="text" class="form-control" placeholder="PLZ" name="formPLZ" id="formPLZ" required>
                     </div>
                     <div class="col-8 col-sm-7">
-                        <input type="text" class="form-control" name="formWohnort" id="formWohnort">
+                        <input type="text" class="form-control" name="formWohnort" id="formWohnort" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -166,7 +166,7 @@
                     </label>
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="formIBAN" id="formIBAN">
+                        <input type="text" class="form-control" name="formIBAN" id="formIBAN" required>
                     </div>
                 </div>
                 <div class="form-group row">
