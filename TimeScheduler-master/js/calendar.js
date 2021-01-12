@@ -105,7 +105,7 @@ var Calendar = {
         }
     ],
 
-    Sections: [
+    Sections: [/* 
         {
             id: 1,
             name: 'Skilehrer 1'
@@ -122,7 +122,7 @@ var Calendar = {
             id: 4,
             name: 'Skilehrer 4'
         }
-    ],
+     */],
 
     Init: function () {
         TimeScheduler.Options.GetSections = Calendar.GetSections;
@@ -230,9 +230,9 @@ var Calendar = {
         $('.realtime-info').hide();
     }
 };
-console.log('davor ' + Calendar.Sections[0].name);
 function getRowname() {
     // Server Abfrage
+    console.log(Calendar.Sections);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
 
@@ -241,14 +241,16 @@ function getRowname() {
             getRownamearr = JSON.parse(this.responseText);
             /* ---------------
              json ist in mit diesen Spalten befüllt:
-                firstName, 
-                lastName, 
-                id
+                id,
+                name
             ---------------- */
-            console.log(getRownamearr);
-            
+
+            //befüllt Calendar.Sections mit dem JSON Array
         Calendar.Sections = getRownamearr;
-        console.log('This is Calendar.Section ' + Calendar.Sections[0].name);
+        console.log(Calendar.Sections);
+        
+        //übernimmt die neuen Daten in die Tabelle
+        TimeScheduler.FillSections(true);
         }
     }
     xmlhttp.open("GET", "getRowname.php", true);
@@ -256,7 +258,6 @@ function getRowname() {
     xmlhttp.send();
 }
 getRowname();
-console.log('danach ' + Calendar.Sections[0].name);
-
+console.log(Calendar.Sections);
 
 $(document).ready(Calendar.Init);
