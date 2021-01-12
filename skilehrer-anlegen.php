@@ -40,7 +40,7 @@
     <?php include 'includes/navigation.php';?>
 
     <div class="content">
-    <form class="content-container" action="api/create.php" method="POST">
+    <form class="content-container" action="createSkilehrerDbEntry.php" method="POST">
         <div class="row">
             <div class="col-md-2">
                 <div class="row">
@@ -60,9 +60,10 @@
                     <label for="formVorname" class="col-sm-3 col-form-label">
                         Vorname
                     </label>
+                    
 
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="formVorname" id="formVorname">
+                        <input type="text" class="form-control" name="formVorname" id="formVorname" minlength="1">
                     </div>
                 </div>
 
@@ -183,7 +184,6 @@
                     </div>
                     <div class="col-sm-9">
                         <button type="submit" class="btn btn-primary">Speichern</button>
-                        <!-- <button type="button" class="btn btn-primary" onclick="test()">Speichern</button> -->
                     </div>
                 </div>
 
