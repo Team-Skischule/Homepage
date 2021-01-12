@@ -44,66 +44,13 @@ var Calendar = {
         }
     ],
 
-    Items: [
-        {
-            id: 20,
-            name: '<div>Familie Heinz<br>Privat</div>',
-            sectionID: 1,
-            start: moment(today).add('days', -1),
-            end: moment(today).add('days', 3),
-            classes: 'item-status-two',
-            /* events: [
-                {
-                    label: 'one',
-                    at: moment(today).add('hours', 6),
-                    classes: 'item-event-one'
-                },
-                {
-                    label: 'two',
-                    at: moment(today).add('hours', 10),
-                    classes: 'item-event-two'
-                },
-                {
-                    label: 'three',
-                    at: moment(today).add('hours', 11),
-                    classes: 'item-event-three'
-
-                }
-            ] */
-        },
-        {
-            id: 21,
-            name: '<div>Gruppe 3 Kinder</div><div>Gruppe</div>',
-            sectionID: 3,
-            start: moment(today).add('days', -1),
-            end: moment(today).add('days', 3),
-            classes: 'item-status-one',
-            events: [
-                {
-                    icon: '',
-                    label: 'one',
-                    at: moment(today).add('hours', 6),
-                    classes: 'item-event-one'
-                }
-            ]
-        },
-        {
-            id: 22,
-            name: '<div>Item 3</div>',
-            start: moment(today).add('days', 3).add('hours', 1),
-            end: moment(today).add('days', 6),
-            sectionID: 1,
-            classes: 'item-status-none'
-        },
-        {
-            id: 23,
-            name: '<div>Item 2</div><div>Test</div>',
-            start: moment(today).add('hours', 12),
-            end: moment(today).add('days', 3).add('hours', 4),
-            sectionID: 4,
-            classes: 'item-status-none'
-        }
-    ],
+    Items: [{
+        sectionID: 3,
+        name: 'Gruppe 3 Kinder',
+        classes: 'item-status-one',
+        start: moment(today).add('days', -1),
+        end: moment(today).add('days', 3),
+    }],
 
     Sections: [/* 
         {
@@ -230,9 +177,11 @@ var Calendar = {
         $('.realtime-info').hide();
     }
 };
+console.log("Anfang Inhalt Items");
+console.log(Calendar.Items);
+
 function getRowname() {
     // Server Abfrage
-    console.log(Calendar.Sections);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
 
@@ -247,10 +196,11 @@ function getRowname() {
 
             //befüllt Calendar.Sections mit dem JSON Array
         Calendar.Sections = getRownamearr;
+        console.log("Neuer Inhalt Sections");
         console.log(Calendar.Sections);
         
         //übernimmt die neuen Daten in die Tabelle
-        TimeScheduler.FillSections(true);
+        TimeScheduler.Init(true);
         }
     }
     xmlhttp.open("GET", "getRowname.php", true);
@@ -258,6 +208,51 @@ function getRowname() {
     xmlhttp.send();
 }
 getRowname();
-console.log(Calendar.Sections);
+
+
+function getItems() {
+    // Server Abfrage
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            var getItemsarray = [];
+            getItemsarray = JSON.parse(this.responseText);
+            /* ---------------
+             json ist in mit diesen Spalten befüllt:
+                id,
+                name
+            ---------------- */
+
+            //befüllt Calendar.Sections mit dem JSON Array
+            console.log(getItemsarray);
+            /* for(i=0; i<getItemsarray.length;i++)
+            {
+                Calendar.Items[i]["sectionID"] = getItemsarray[i][0];
+                Calendar.Items[i]["classes"] = getItemsarray[i][2];
+                Calendar.Items[i]["start"] = new Date('2021-01-15');
+                Calendar.Items[i]["end"] = new Date('2021-01-17');
+                Calendar.Items[i]["name"] = getItemsarray[i][1];
+            } */
+            //einzeln können Termine angepasst werden, muss noch rausfinden wie ich über eine Schleife die Daten einlesen kann (Hashmap in Array?!)
+
+                Calendar.Items[0]["sectionID"] = 1;
+                Calendar.Items[0]["classes"] = 'item-status-one';
+                Calendar.Items[0]["start"] = new Date('2021-01-15');
+                Calendar.Items[0]["end"] = new Date('2021-01-17');
+                Calendar.Items[0]["name"] = 'test';
+
+        console.log("Neuer Inhalt Items");
+        console.log(Calendar.Items);
+        
+        //übernimmt die neuen Daten in die Tabelle
+        TimeScheduler.Init(true);
+        }
+    }
+    xmlhttp.open("GET", "getItems.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+}
+getItems();
 
 $(document).ready(Calendar.Init);
