@@ -1,54 +1,77 @@
+:root {
+  --main-bg-color: rgb(240, 240, 240);
+  --second-bg-color: rgb(120, 161, 221);
+  font-size: 12px;
+  --std-border-radius: 0.5em;
+}
+
+
+
 * {
     box-sizing: border-box;
   }
   
   body {
     font-family: Arial, Helvetica, sans-serif;
+    
   }
   
-  
+  body .content {
+    width: 90%;
+    display: block;
+    margin: 2em auto;
+  }
+  h1  {
+    text-align: center;
+  }
 
   section {
     margin: 50px 0;
     padding: 50px;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--main-bg-color);
   }
 
   /* Style the header */
   header {
-    background-color: rgb(120, 161, 221);
+    background-color:var(--second-bg-color);
     padding: 1em;
     text-align: center;
-    font-size: 15px;
-    color: white;
+    font-size: 1.2em;
   }
+
   
-  nav {
-    padding: 10px 0px 0px 0px;
+  header nav {
+    padding: 0.8em 0 0 0;
+    border-radius: var(--std-border-radius);
   }
   
   /* Style the list inside the menu */
-  nav ul {
+  header nav ul {
     list-style-type: none;
     padding: 0;
   }
 
-  nav ul li {
+  header nav ul li {
     margin-left: 0;
   }
   
   
-  ul{
+  header nav ul{
       float: left;
-      width: 10%;
       list-style-type: none;
-      padding: 0px 0px 0px 80px;
+      padding: 0m;
     }
-    li {
+    header nav  li {
       margin:0; 
-      padding: 0px 0px 10px 0px;
+      padding: 0 ;
   
     }
+
+    .calendar {
+      outline-offset: 0.5em;
+      margin-top: 2em;
+      outline: 0.1em solid lightgray;
+  }
   
   /* Clear floats after the columns */
   section:after {
@@ -59,8 +82,8 @@
   
   /* Style the footer */
   footer {
-    background-color: rgb(120, 161, 221);
-    padding: 10px;
+    background-color:var(--second-bg-color);
+    padding: 1em;
     text-align: center;
     color: white;
   }

@@ -24,5 +24,5 @@
         }).parent().addClass('active');
     });
 </script> 
-  </body>
-</html>
+
+<!-- danach geht es mit dem </body> tag weiter -->
