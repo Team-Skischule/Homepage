@@ -176,6 +176,7 @@ var Calendar = {
 console.log("Anfang Inhalt Items");
 console.log(Calendar.Items);
 
+//Import der Zeilennamen (Sections) von der Datenbank
 function getRowname() {
   // Server Abfrage
   xmlhttp = new XMLHttpRequest();
@@ -204,21 +205,26 @@ function getRowname() {
 }
 getRowname();
 
+//Import der Termine (Items) von der Datenbank
 function getItemsTest() {
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var getItemsArray = JSON.parse(this.responseText);
 
-      console.log("Inhalt getItemsArray");
-      console.log(getItemsArray);
+      /* -------------------------------------------
+             json ist in mit diesen Spalten befüllt:
+                sectionID,
+                name,
+                classes,
+                start,
+                end
+            ---------------------------------------- */
 
-      console.log("sectionid test");
-      console.log(getItemsArray[0]["sectionID"]);
-
+        //alle Inhalte von Calendar.Items werden gelöscht und dann neu befüllt
       Calendar.Items = [];
       for (i = 0; i < getItemsArray.length; i++) {
-        
+        //es wird ein neues Objekt newItem mit den Attributen sectionID, classes... erstellt
         var newItem = [];
         newItem.sectionID = getItemsArray[i].sectionID;
         newItem.classes = getItemsArray[i].classes;
@@ -226,9 +232,8 @@ function getItemsTest() {
         newItem.end = new Date(getItemsArray[i].end);
         newItem.name = getItemsArray[i].name;
 
-        console.log("test");
-        console.log(newItem);
-
+        //newItems Objekt wird dem Array Calendar.Items hinzugefügt
+        //jedes Objekt entspricht einem neuen Termin
         Calendar.Items.push(newItem);
       }
 
