@@ -15,12 +15,7 @@ $birthDate = $levelErr = $comment = $iban = "";
 $canSki = $canSnowboard = 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    foreach($_POST as $x => $x_value) {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-    }
-
-    echo "<br>";
+ 
 
 
     if (empty($_POST["formVorname"])) {
@@ -78,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["formMobil"])) {
-        $errors["Mobilnummer"] = "Mobilnummer ist erforlderlich";
+        $errors["Mobilnummer"] = "Mobilnummer ist erforderlich";
         $validationFailed = true;
     } else {
         $mobile = test_input($_POST["formMobil"]);
@@ -90,14 +85,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["formGeburtsdatum"])) {
-        $errors["Geburtsdatum"] = "Geburtsdatum ist erforlderlich";
+        $errors["Geburtsdatum"] = "Geburtsdatum ist erforderlich";
         $validationFailed = true;
     } else {
         $birthDate = test_input($_POST["formGeburtsdatum"]);
     }
 
 /*     if (empty($_POST["formIBAN"])) {
-        $errors["IBAN"] = "IBAN ist erforlderlich";
+        $errors["IBAN"] = "IBAN ist erforderlich";
         $validationFailed = true;
     } else {
         $iban = test_input($_POST["formIBAN"]);
@@ -135,29 +130,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     date_default_timezone_set('Europe/Vienna');
 
     if ($validationFailed){
-        echo "Validierungsfehler:<br>";
-        echo "<ul>";
         foreach($errors as $x => $value) {
             $msg =  $x . " = " . $value;
-            echo "<li>" . $x . " = " . $value . "</li>" ;
             error_log(date("Y-F-j, G:i").": in CreateSkilehrerDbEntry.php: ".$msg."\n", 3,  "errors-log.log"); 
         }
-        echo "</ul>";
-       
     } else {
         include "config.php";
-
-
-        $stmt = $link->prepare("INSERT INTO skilehrer (firstName, lastName, mobile, email, street, houseNumber, zipCode, city, level, canSki, canSnowboard, iban, birthDate, comment)
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-        $stmt->bind_param("ssssssssiiisss", $firstName, $lastName, $mobile, $email, $street, $houseNumber, $zipCode, $city, $level, $canSki, $canSnowboard, $iban, $birthDate, $comment);
-        $stmt->execute();
-
-        $stmt->close();
-        $link->close();
-
-        echo "Skilehrer wurde angelegt!";
+        /* -- Check if E-Mail or Mobile-Telefonnummer already exists in database:
+            1. get all E-Mail from database
+            2. check if entered email is in it
+                2.a if yes return error
+                2.b if no safe to database and return angelegt
+        */
+        
+        // 1.
+        $emailInDB = "SELECT email, mobile From skilehrer where (email='$email' or mobile='$mobile');";
+        $result = mysqli_query($link,$emailInDB); 
+        
+        // 2a.        
+        if(mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            if ($email==$row['email']) {
+                print "E-Mail: " . $row['email'] . " wurde bereits verwendet!";
+            }
+            if ($mobile==$row['mobile']) {
+                print "Mobile: " . $row['mobile'] . " wurde bereits verwendet!";
+            } 
+        }
+        
+        // 2.b
+        else {
+            
+            $stmt = $link->prepare("INSERT INTO skilehrer (firstName, lastName, mobile, email, street, houseNumber, zipCode, city, level, canSki, canSnowboard, iban, birthDate, comment)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    
+            $stmt->bind_param("ssssssssiiisss", $firstName, $lastName, $mobile, $email, $street, $houseNumber, $zipCode, $city, $level, $canSki, $canSnowboard, $iban, $birthDate, $comment);
+            $stmt->execute();
+    
+            $stmt->close();
+            $link->close();
+    
+            echo "Skilehrer wurde angelegt!";
+        }
     }
 } else {
     echo "Nur POST Requests werden unterstützt!";
