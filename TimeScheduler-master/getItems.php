@@ -15,8 +15,8 @@
         array_push($outp, array("sectionID" => $row['skilehrerid'], 
                                 "name" => $row['kundenname'], 
                                 "classes" => ['item-status-one'], 
-                                "start" => moment("2021-01-13"), 
-                                "end" => "moment(today).add('days', 3)"));
+                                "start" => "2021-01-13", 
+                                "end" => "2021-01-16";
     }
 
     echo json_encode($outp);

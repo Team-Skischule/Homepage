@@ -211,21 +211,7 @@ getRowname();
 
 
 function getItems() {
-    // Server Abfrage
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-
-        if (this.readyState == 4 && this.status == 200) {
-            var getItemsarray = [];
-            getItemsarray = JSON.parse(this.responseText);
-            /* ---------------
-             json ist in mit diesen Spalten befüllt:
-                id,
-                name
-            ---------------- */
-
-            //befüllt Calendar.Sections mit dem JSON Array
-            console.log(getItemsarray);
+    
             /* for(i=0; i<getItemsarray.length;i++)
             {
                 Calendar.Items[i]["sectionID"] = getItemsarray[i][0];
@@ -247,11 +233,6 @@ function getItems() {
         
         //übernimmt die neuen Daten in die Tabelle
         TimeScheduler.Init(true);
-        }
-    }
-    xmlhttp.open("GET", "getItems.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send();
 }
 getItems();
 
