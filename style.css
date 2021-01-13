@@ -1,8 +1,11 @@
 :root {
+  font-size: 12px;
+  /* Set Design Standard Variables: */
   --main-bg-color: rgb(240, 240, 240);
   --second-bg-color: rgb(120, 161, 221);
-  font-size: 12px;
+  --item-bg-color: #0000ff2e;
   --std-border-radius: 0.2em;
+  --std-box-shadow:0px 0px 4px  #cdcdcd;
 }
 
 * {
@@ -84,6 +87,16 @@
       border-radius: var(--std-border-radius);
       border: 0.1em solid lightgray; 
   }
+
+  /* Formular Design */
+  .formularDesign {
+    border: 1px solid lightgray;
+    border-radius: var(--std-border-radius);
+    background: var(--item-bg-color);
+    box-shadow: var(--std-box-shadow);
+    padding: 1em;
+}
+
   
   /* Clear floats after the columns */
   section:after {
