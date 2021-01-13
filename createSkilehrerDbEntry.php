@@ -13,6 +13,7 @@ $errors = array();
 $firstName = $lastName = $mobile = $email = $street = $houseNumber = $zipCode = $city = "";
 $birthDate = $levelErr = $comment = $iban = "";
 $canSki = $canSnowboard = 0;
+$errorMail = $errorMobile = $message ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
@@ -134,7 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $msg =  $x . " = " . $value;
             error_log(date("Y-F-j, G:i").": in CreateSkilehrerDbEntry.php: ".$msg."\n", 3,  "errors-log.log"); 
         }
-    } else {
+    } // Validation OK
+    else {
         include "config.php";
         /* -- Check if E-Mail or Mobile-Telefonnummer already exists in database:
             1. get all E-Mail from database
@@ -147,20 +149,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailInDB = "SELECT email, mobile From skilehrer where (email='$email' or mobile='$mobile');";
         $result = mysqli_query($link,$emailInDB); 
         
-        // 2a.        
+        // 2a.    
+        
         if(mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if ($email==$row['email']) {
-                print "E-Mail: " . $row['email'] . " wurde bereits verwendet!";
+                $errorMail = "E-Mail: " . $row['email'] . " wurde bereits verwendet!";
             }
             if ($mobile==$row['mobile']) {
-                print "Mobile: " . $row['mobile'] . " wurde bereits verwendet!";
+                $errorMobile = "Mobile: " . $row['mobile'] . " wurde bereits verwendet!";
             } 
         }
-        
+
         // 2.b
         else {
-            
             $stmt = $link->prepare("INSERT INTO skilehrer (firstName, lastName, mobile, email, street, houseNumber, zipCode, city, level, canSki, canSnowboard, iban, birthDate, comment)
                         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
     
@@ -170,10 +172,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
             $link->close();
     
-            echo "Skilehrer wurde angelegt!";
+            $message = "Skilehrer wurde angelegt!";
         }
     }
-} else {
-    echo "Nur POST Requests werden unterstützt!";
-}
+} 
 ?>

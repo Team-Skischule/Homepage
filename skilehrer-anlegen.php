@@ -38,9 +38,11 @@
 <body>
 
     <?php include 'includes/navigation.php';?>
+    <?php include 'createSkilehrerDbEntry.php';?>
+    
 
     <div class="content">
-    <form class="content-container" action="createSkilehrerDbEntry.php" method="POST">
+    <form class="content-container" action="" method="POST">
         <div class="row">
             <div class="col-md-2">
                 <div class="row">
@@ -182,7 +184,14 @@
 
             </div>
             <div class="col-md-2">
-
+            <!-- Fehler und Erfolgsmeldung hier anzeigen -->
+            <?php 
+            if (!empty($errorMail)) {
+                ?>
+                    <span class="field-label">Website:  </span><a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website'); ?></a> 
+                <?php
+                }
+                ?>
             </div>
         </div>
     </form>
