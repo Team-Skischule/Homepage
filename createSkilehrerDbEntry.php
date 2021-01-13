@@ -33,34 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lastName = test_input($_POST["formNachname"]);
     }
 
-    /* if (empty($_POST["formStrasse"])) {
-        $errors["Straße"] = "Straße ist erforderlich";
-        $validationFailed = true;
-    } else {
-        $street = test_input($_POST["formStrasse"]);
-    }
-
-    if (empty($_POST["formNr"])) {
-        $errors["Hausnummer"] = "Hausnummer ist erforderlich";
-        $validationFailed = true;
-    } else {
-        $houseNumber = test_input($_POST["formNr"]);
-    }
-    
-    if (empty($_POST["formPLZ"])) {
-        $errors["PLZ"] = "PLZ ist erforderlich";
-        $validationFailed = true;
-    } else {
-        $zipCode = test_input($_POST["formPLZ"]);
-    }
-
-    if (empty($_POST["formWohnort"])) {
-        $errors["Wohnort"] = "Wohnort ist erforderlich";
-        $validationFailed = true;
-    } else {
-        $city = test_input($_POST["formWohnort"]);
-    } */
-
     if (empty($_POST["formEmail"])) {
         $errors["Email"] = "Email ist erforderlich";
         $validationFailed = true;
@@ -91,18 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $birthDate = test_input($_POST["formGeburtsdatum"]);
     }
-
-/*     if (empty($_POST["formIBAN"])) {
-        $errors["IBAN"] = "IBAN ist erforderlich";
-        $validationFailed = true;
-    } else {
-        $iban = test_input($_POST["formIBAN"]);
-        // check if IBAN is valid
-        if (!preg_match("/^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$/", $iban)) {
-            $errors["IBAN"] = "Ungültiger IBAN";
-            $validationFailed = true;
-        }
-    } */
     
     if (empty($_POST["formSki"])) {
         $canSki = 0;
@@ -130,10 +90,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     date_default_timezone_set('Europe/Vienna');
 
+    
+
     if ($validationFailed){
         foreach($errors as $x => $value) {
             $msg =  $x . " = " . $value;
             error_log(date("Y-F-j, G:i").": in CreateSkilehrerDbEntry.php: ".$msg."\n", 3,  "errors-log.log"); 
+            echo "Validierungsfehler: " . $msg;
         }
     } // Validation OK
     else {
@@ -150,29 +113,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($link,$emailInDB); 
         
         // 2a.    
-        
+        echo "vor 2.a";
         if(mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if ($email==$row['email']) {
                 $errorMail = "E-Mail: " . $row['email'] . " wurde bereits verwendet!";
+                echo $errorMail; 
             }
             if ($mobile==$row['mobile']) {
                 $errorMobile = "Mobile: " . $row['mobile'] . " wurde bereits verwendet!";
+                echo $errorMobile;
             } 
+            //header("Location: http://localhost/Homepage/skilehrer-anlegen.php");
         }
 
         // 2.b
         else {
-            $stmt = $link->prepare("INSERT INTO skilehrer (firstName, lastName, mobile, email, street, houseNumber, zipCode, city, level, canSki, canSnowboard, iban, birthDate, comment)
-                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt = $link->prepare("INSERT INTO skilehrer (firstName, lastName, mobile, email, level, canSki, canSnowboard, birthDate, comment)
+                        VALUES (?,?,?,?,?,?,?,?,?)");
     
-            $stmt->bind_param("ssssssssiiisss", $firstName, $lastName, $mobile, $email, $street, $houseNumber, $zipCode, $city, $level, $canSki, $canSnowboard, $iban, $birthDate, $comment);
+            $stmt->bind_param("ssssiiiss", $firstName, $lastName, $mobile, $email, $level, $canSki, $canSnowboard, $birthDate, $comment);
             $stmt->execute();
     
             $stmt->close();
             $link->close();
     
+            echo "Skilehrer angelegt";
             $message = "Skilehrer wurde angelegt!";
+            //header("Location: http://localhost/Homepage/skilehrer-anlegen.php");
         }
     }
 } 

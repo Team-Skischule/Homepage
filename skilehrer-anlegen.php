@@ -42,7 +42,7 @@
     
 
     <div class="content">
-    <form class="content-container" action="" method="POST">
+    <form class="content-container" action="createSkilehrerDbEntry.php" method="POST">
         <div class="row">
             <div class="col-md-2">
                 <div class="row">
@@ -58,6 +58,17 @@
             </div>
             <div class="col-md-8 formularDesign">
                 <h1>Neuen Skilehrer Anlegen:</h1>
+            <!-- Erfolgsmeldung hier anzeigen -->
+            <?php 
+            if (!empty($message )) {
+                ?>
+                    <span class="field-label">Website:  </span><a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website'); ?></a> 
+                <?php
+            }
+                ?>
+
+
+
                 <div class="form-group row">
                     <label for="formVorname" class="col-sm-2 col-form-label">
                         Vorname*
@@ -184,11 +195,11 @@
 
             </div>
             <div class="col-md-2">
-            <!-- Fehler und Erfolgsmeldung hier anzeigen -->
+            <!-- Fehlermeldungen hier anzeigen -->
             <?php 
-            if (!empty($errorMail)) {
+            if (!empty($errorMail )) {
                 ?>
-                    <span class="field-label">Website:  </span><a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website'); ?></a> 
+                    <span class="field-label">Mail schon vorhanden:<?php $errorMail ?> </span> 
                 <?php
                 }
                 ?>
