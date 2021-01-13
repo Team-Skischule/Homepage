@@ -54,56 +54,54 @@
                   </label> -->
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 formularDesign">
                 <h1>Neuen Skilehrer Anlegen:</h1>
                 <div class="form-group row">
-                    <label for="formVorname" class="col-sm-3 col-form-label">
-                        Vorname
+                    <label for="formVorname" class="col-sm-2 col-form-label">
+                        Vorname*
                     </label>
                     
 
-                    <div class="col-sm-9">
+                    <div class="col-sm-4">
                         <input type="text" class="form-control" name="formVorname" id="formVorname"  required>
                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="formNachname" class="col-sm-3 col-form-label">
-                        Nachname
+                
+                    <label for="formNachname" class="col-sm-2 col-form-label">
+                        Nachname*
                     </label>
 
-                    <div class="col-sm-9">
+                    <div class="col-sm-4">
                         <input type="text" class="form-control" name="formNachname" id="formNachname"minlength="1" required>
                     </div>
                 </div>
+                <!-- Neue Zeile -->
                 <div class="form-group row">
-                    <label for="formMobil" class="col-sm-3 col-form-label">
-                        Mobil
+                    <label for="formMobil" class="col-sm-2 col-form-label">
+                        Telefonnummer*
                     </label>
 
-                    <div class="col-sm-9">
-                        <input type="tel" class="form-control" name="formMobil" id="formMobil" required>
+                    <div class="col-sm-4">
+                        <input type="tel" class="form-control" name="formMobil" id="formMobil"  placeholder="+1234567890" required>
+                    </div>
+
+                    <label for="formEmail" class="col-sm-2 col-form-label">
+                        Email*
+                    </label>
+
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" name="formEmail" id="formEmail" placeholder="test@tester.at" required>
                     </div>
                 </div>
+                <!-- Neue Zeile -->
                 <div class="form-group row">
-                    <label for="formEmail" class="col-sm-3 col-form-label">
-                        Email
+                    <label for="formGeburtsdatum" class="col-sm-2 col-form-label">
+                        Geburtsdatum*
                     </label>
 
-                    <div class="col-sm-9">
-                        <input type="email" class="form-control" name="formEmail" id="formEmail" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="formGeburtsdatum" class="col-sm-3 col-form-label">
-                        Geburtsdatum
-                    </label>
-
-                    <div class="col-sm-9">
+                    <div class="col-sm-4">
                         <input type="date" class="form-control" name="formGeburtsdatum" id="formGeburtsdatum" required>
                     </div>
-                </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="formStrasse" class="col-sm-3 col-form-label">
                         Straße
                     </label>
@@ -125,12 +123,11 @@
                     <div class="col-8 col-sm-7">
                         <input type="text" class="form-control" name="formWohnort" id="formWohnort" required>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-3 col-form-label">
-                        Disziplin
+                </div> -->
+                    <div class="col-sm-1 col-form-label ">
+                        Disziplin*
                     </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-2">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
                             <label class="form-check-label checkbox-label" for="formSki">
@@ -144,14 +141,12 @@
                             </label>
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="formLevel" class="col-sm-3 col-form-label">
-                        Level
+                    <label for="formLevel" class="col-sm-1 col-form-label">
+                        Level*
                     </label>
 
-                    <div class="col-sm-9">
-                        <select class="form-control" name="formLevel" id="formLevel">
+                    <div class="col-sm-2">
+                        <select class="form-control" name="formLevel" id="formLevel" placeholder="Bitte wählen">
                             <option value="1">Level-1</option>
                             <option value="2">Level-2</option>
                             <option value="3">Level-3</option>
@@ -160,7 +155,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group row">
+               <!--  <div class="form-group row">
                     <label for="formIBAN" class="col-sm-3 col-form-label">
                         IBAN
                     </label>
@@ -168,21 +163,19 @@
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="formIBAN" id="formIBAN" required>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group row">
-                    <label for="formKommentar" class="col-sm-3 col-form-label">
+                    <label for="formKommentar" class="col-sm-2 col-form-label">
                         Kommentar
                     </label>
 
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <textarea id="formKommentar" name="formKommentar" class="form-control" rows="5">
                     </textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-12">
                         <button type="submit" class="btn btn-primary">Speichern</button>
                     </div>
                 </div>

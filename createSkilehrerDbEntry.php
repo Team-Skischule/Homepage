@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lastName = test_input($_POST["formNachname"]);
     }
 
-    if (empty($_POST["formStrasse"])) {
+    /* if (empty($_POST["formStrasse"])) {
         $errors["Straße"] = "Straße ist erforderlich";
         $validationFailed = true;
     } else {
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $validationFailed = true;
     } else {
         $city = test_input($_POST["formWohnort"]);
-    }
+    } */
 
     if (empty($_POST["formEmail"])) {
         $errors["Email"] = "Email ist erforderlich";
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $birthDate = test_input($_POST["formGeburtsdatum"]);
     }
 
-    if (empty($_POST["formIBAN"])) {
+/*     if (empty($_POST["formIBAN"])) {
         $errors["IBAN"] = "IBAN ist erforlderlich";
         $validationFailed = true;
     } else {
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errors["IBAN"] = "Ungültiger IBAN";
             $validationFailed = true;
         }
-    }
+    } */
     
     if (empty($_POST["formSki"])) {
         $canSki = 0;
