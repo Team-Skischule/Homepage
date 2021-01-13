@@ -8,6 +8,8 @@
     $result = $stmt->get_result();
 /*     $outp = $result->fetch_all(MYSQLI_ASSOC);
  */   
+
+ //sendet JSON als Array
  $outp = array();
     while ($row = $result -> fetch_assoc()){
         array_push($outp, array("id" => $row['id'], "name" => $row['fullname']));
