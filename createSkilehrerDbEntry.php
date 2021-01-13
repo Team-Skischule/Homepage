@@ -93,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors["Geburtsdatum"] = "Geburtsdatum ist erforlderlich";
         $validationFailed = true;
     } else {
-        // $birthDate = date_parse(test_input($_POST["formGeburtsdatum"]));
         $birthDate = test_input($_POST["formGeburtsdatum"]);
     }
 
@@ -133,14 +132,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $level = (int)test_input($_POST["formLevel"]);
     }
+    date_default_timezone_set('Europe/Vienna');
 
     if ($validationFailed){
         echo "Validierungsfehler:<br>";
         echo "<ul>";
         foreach($errors as $x => $value) {
-            echo "<li>" . $x . " = " . $value . "</li>";
+            $msg =  $x . " = " . $value;
+            echo "<li>" . $x . " = " . $value . "</li>" ;
+            error_log(date("Y-F-j, G:i").": in CreateSkilehrerDbEntry.php: ".$msg."\n", 3,  "errors-log.log"); 
         }
         echo "</ul>";
+       
     } else {
         include "config.php";
 

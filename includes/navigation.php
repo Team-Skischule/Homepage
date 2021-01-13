@@ -13,10 +13,7 @@
                     <a class="nav-link" href="/Homepage/TimeScheduler-master/Calendar.php">Skilehrer-Übersicht</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Homepage/ajax-abfrage.html">Ajax Abfrage</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/TimeScheduler-master/Calendar.html">Kalender</a>
+                    <a class="nav-link" href="">logout</a>
                 </li>
                 </ul>
             </div>
