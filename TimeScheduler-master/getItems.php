@@ -2,7 +2,7 @@
     include "config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $stmt = $link->prepare("SELECT skilehrerid, kundenname FROM skischule.termine");
+    $stmt = $link->prepare("SELECT skilehrerid, kundenname, datumbeginn, datumende FROM skischule.termine");
 
     $stmt->execute();
     $result = $stmt->get_result();
@@ -15,9 +15,10 @@
         array_push($outp, array("sectionID" => $row['skilehrerid'], 
                                 "name" => $row['kundenname'], 
                                 "classes" => ['item-status-one'], 
-                                "start" => "2021-01-13", 
-                                "end" => "2021-01-16";
+                                "start" => $row['datumbeginn'], 
+                                "end" => $row['datumende']));
     }
+
 
     echo json_encode($outp);
 ?>
