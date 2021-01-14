@@ -40,7 +40,7 @@ $(document).ready(function () {
       $.ajax
         ({
           type: "POST",
-          url: "form_submit.php",
+          url: "skilehrer_submit.php",
           data: { 
               "firstName": firstName, 
               "lastName": lastName, 
