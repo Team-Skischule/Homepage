@@ -2,7 +2,7 @@
     include "config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $stmt = $link->prepare("SELECT skilehrerid, kundenname, datumbeginn, datumende FROM skischule.termine");
+    $stmt = $link->prepare("SELECT skilehrerid, concat (kundenname, '<br>', abholort) as name, datumbeginn, datumende FROM skischule.termine");
 
     $stmt->execute();
     $result = $stmt->get_result();
@@ -15,7 +15,7 @@
 
         //array_push muss noch angepasst werden, start / end
         array_push($outp, array("sectionID" => $row['skilehrerid'], 
-                                "name" => $row['kundenname'], 
+                                "name" => $row['name'], 
                                 "classes" => ['item-status-one'], 
                                 "start" => $row['datumbeginn'], 
                                 "end" => $row['datumende']));
