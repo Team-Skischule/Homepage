@@ -79,7 +79,7 @@
                         Disziplin*
                     </div>
                     <div class="col-sm-2">
-                        <div class="form-check">
+                        <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
                             <label class="form-check-label checkbox-label" for="formSki">
                                 Ski
