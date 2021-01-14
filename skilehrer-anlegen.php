@@ -111,20 +111,15 @@
         </div>
     <div>
 
-   <!--  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        crossorigin="anonymous" /> -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
         integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" 
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-    
-
-
-
-<script src="newCreateSkilehrerDbEntry.js" crossorigin="anonymous"></script>
+    <script src="skilehrer-anlegen-process/CreateSkilehrerDbEntry.js" 
+        crossorigin="anonymous"></script>
 
 </body>
 

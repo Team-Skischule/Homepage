@@ -40,7 +40,7 @@ $(document).ready(function () {
       $.ajax
         ({
           type: "POST",
-          url: "skilehrer_submit.php",
+          url: "skilehrer-anlegen-process/skilehrer_submit.php",
           data: { 
               "firstName": firstName, 
               "lastName": lastName, 

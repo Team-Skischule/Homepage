@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } // Validation OK
     else {
 
-        include "config.php";
+        include "../config.php";
         
         /* -- Check if E-Mail or Mobile-Telefonnummer already exists in database:
             1. get all E-Mail from database
