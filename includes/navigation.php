@@ -7,7 +7,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Homepage/skilehrer-anlegen-2.php">Skilehrer Anlegen </a>
+                    <a class="nav-link" href="/Homepage/skilehrer-anlegen.php">Skilehrer Anlegen </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Homepage/TimeScheduler-master/Calendar.php">Skilehrer-Übersicht</a>
