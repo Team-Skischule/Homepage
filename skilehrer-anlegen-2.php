@@ -60,7 +60,7 @@
 
                             <div class="col-sm-1 col-form-label ">Disziplin*</div>
                             <div class="col-sm-2">
-                                <div class="form-check">
+                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
                                     <label class="form-check-label checkbox-label" for="formSki">Ski</label>
                                 </div>
@@ -93,8 +93,8 @@
 
                         <!-- Neue Zeile -->
                         <div class="row">
-                            <div class="col-sm-12">
-                                <button type="submit" name="submit" class="btn btn-primary" id="submit_btn" value="Send">Speichern</button>
+                            <div class="col-sm-12"> <!-- onclick="inputValidation()" -->
+                                <button type="submit" name="submit" class="btn btn-primary"  id="submit_btn" value="Send">Speichern</button>
                             </div>
                         </div>
                     </div>
@@ -106,16 +106,20 @@
         </div>
     <div>
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+   <!--  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
         rel="stylesheet" 
-        crossorigin="anonymous" />
+        crossorigin="anonymous" /> -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
         integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" 
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-    <script src="newCreateSkilehrerDbEntry.js" crossorigin="anonymous"></script>
+    
+
+
+
+<script src="newCreateSkilehrerDbEntry.js" crossorigin="anonymous"></script>
 
 </body>
 
