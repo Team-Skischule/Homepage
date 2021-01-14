@@ -16,8 +16,6 @@ $canSki = $canSnowboard = 0;
 $errorMail = $errorMobile = $message ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
- 
-
 
     if (empty($_POST["formVorname"])) {
         $errors["Vorname"] = "Vorname ist erforderlich";
@@ -124,7 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $errorMobile = "Mobile: " . $row['mobile'] . " wurde bereits verwendet!";
                 echo $errorMobile;
             } 
-            //header("Location: http://localhost/Homepage/skilehrer-anlegen.php");
         }
 
         // 2.b
@@ -140,7 +137,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
             echo "Skilehrer angelegt";
             $message = "Skilehrer wurde angelegt!";
-            //header("Location: http://localhost/Homepage/skilehrer-anlegen.php");
+
+         
         }
     }
 } 
