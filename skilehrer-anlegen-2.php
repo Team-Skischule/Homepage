@@ -16,7 +16,7 @@
     
     <div class="content">
         <div id="contact_form">
-            <form class="content-container" id="form" action="" name="contact" >
+            
                 <div class="row">
                     <div class="col-md-2">
                         <div class="row">  
@@ -24,6 +24,7 @@
                         </div>
                     </div>
                     <div class="col-md-8 formularDesign">
+                    <form class="content-container" id="form" action="" name="contact" >
                         <h1>Neuen Skilehrer Anlegen:</h1>
                         <div class="result">  </div>
                         <div class="form-group row">
@@ -58,20 +59,8 @@
                                 <input type="date" class="form-control" name="formGeburtsdatum" id="formGeburtsdatum" required>
                             </div>
 
-                            <div class="col-sm-1 col-form-label ">Disziplin*</div>
-                            <div class="col-sm-2">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
-                                    <label class="form-check-label checkbox-label" for="formSki">Ski</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="formSnowboard" id="formSnowboard">
-                                    <label class="form-check-label checkbox-label" for="formSnowboard">Snowboard</label>
-                                </div>
-                            </div>
-
-                            <label for="formLevel" class="col-sm-1 col-form-label">Level* </label>
-                            <div class="col-sm-2">
+                            <label for="formLevel" class="col-sm-2 col-form-label">Level* </label>
+                            <div class="col-sm-4">
                                 <select class="form-control" name="formLevel" id="formLevel" placeholder="Bitte wählen">
                                     <option value="1">Level-1</option>
                                     <option value="2">Level-2</option>
@@ -79,6 +68,21 @@
                                     <option value="4">Level-4</option>
                                     <option value="5">Level-5</option>
                                 </select>
+                            </div>
+                        </div>    
+                        
+                        <!-- Neue Zeile -->
+                        <div class="form-group row">
+                            <div class="col-sm-2 col-form-label ">Disziplin*</div>
+                            <div class="col-sm-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
+                                    <label class="form-check-label checkbox-label" for="formSki">Ski</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="formSnowboard" id="formSnowboard">
+                                    <label class="form-check-label checkbox-label" for="formSnowboard">Snowboard</label>
+                                </div>
                             </div>
                         </div>
 
@@ -97,12 +101,13 @@
                                 <button type="submit" name="submit" class="btn btn-primary"  id="submit_btn" value="Send">Speichern</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                     <div class="col-md-2">
                     <!-- leere Spalte -->
                     </div>
                 </div>
-            </form>
+            
         </div>
     <div>
 

@@ -118,11 +118,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             if ($email==$row['email']) {
-                $errorMail = "E-Mail: " . $row['email'] . " wurde bereits verwendet!". "\n";
+                $errorMail = "<li>E-Mail: " . $row['email'] . " wurde bereits verwendet!". "</li>";
                 echo $errorMail; 
             }
             if ($mobile==$row['mobile']) {
-                $errorMobile = "Mobile: " . $row['mobile'] . " wurde bereits verwendet!" ;
+                $errorMobile = "<li>Mobile: " . $row['mobile'] . " wurde bereits verwendet!</li>" ;
                 echo $errorMobile;
             } 
         }

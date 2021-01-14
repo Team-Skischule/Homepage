@@ -53,7 +53,7 @@ $(document).ready(function () {
               "comment": comment
             },
           success: function (data) {
-            $('.result').html(data);
+          $('.result').html("<div><ol>" + data + "</ol></div>");
             $('#form')[0].reset();
           }
         });
