@@ -30,7 +30,7 @@
             <h1>Skilehrer Tabelle</h1>
             <p>Hier können die Termine und Skilehrer Verwaltet werden</p>
             <div>
-                <button type="button" class="btn btn-outline-primary">Neuen Termin Anlegen</button>
+                <a href="/Homepage/termine-anlegen.php"> <button type="button" class="btn btn-outline-primary">Neuen Termin Anlegen</button></a> 
                 <a href="/Homepage/skilehrer-anlegen.php"> <button type="button" class="btn btn-outline-primary">Neuen Skilehrer Anlegen</button></a> 
             </div>
             <div class="calendar">
