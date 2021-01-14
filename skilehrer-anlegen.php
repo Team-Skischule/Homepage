@@ -10,29 +10,7 @@
     <link rel="stylesheet" href="../fontawesome-5.15.1/css/all.min.css"> -->
     <link rel="stylesheet" href="style.css"> 
 
-    <script>
-        function test(){
-            //LoadingSpinner einschalten
-           var data = {
-               vorname: document.getElementById('formVorname').value
-           }
-           console.log(data);
-           
-           //var response = fetch("http://localhost/backend.php", {
-           //    method: POST,
-           //    body: JSON.stringify(data)
-           //});
-           //prüfen ob erfolgreich
-           //Spinner deaktivieren oder weiterleiten auf andere seite
-           //json mit schilehrern
-           var liste = document.getElementById('test');
-           for(var i = 0; i<10;i++) {
-                var text = document.createTextNode("Hallo "+i);
-                liste.appendChild(text);
-                liste.appendChild(document.createElement('br'));
-            }
-        } 
-    </script>
+ 
 </head>
 
 <body>
@@ -42,38 +20,21 @@
     
 
     <div class="content">
-    <form class="content-container" action="createSkilehrerDbEntry.php" method="POST">
+    <form class="content-container" id="form" action="createSkilehrerDbEntry.php" method="POST">
         <div class="row">
             <div class="col-md-2">
-                <div class="row">
-                    <!-- <img src="Profilpic.png" alt="Profilbild" class="mx-auto d-block" width="150"> -->
+                <div class="row">  
                 </div>
-                <div class="form-group row">
-
-                   <!--  <label for="inputProfilbild" class="mx-auto d-block profile-pic-upload">
-                        <i class="fas fa-folder-open"></i>
-                        <input type="file" id="inputProfilbild" style="display:none">
-                  </label> -->
+                <div class="form-group row"> 
                 </div>
             </div>
             <div class="col-md-8 formularDesign">
                 <h1>Neuen Skilehrer Anlegen:</h1>
-            <!-- Erfolgsmeldung hier anzeigen -->
-            <?php 
-            if (!empty($message )) {
-                ?>
-                    <span class="field-label">Website:  </span><a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website'); ?></a> 
-                <?php
-            }
-                ?>
-
-
 
                 <div class="form-group row">
                     <label for="formVorname" class="col-sm-2 col-form-label">
                         Vorname*
                     </label>
-                    
 
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="formVorname" id="formVorname"  required>
@@ -114,29 +75,6 @@
                     <div class="col-sm-4">
                         <input type="date" class="form-control" name="formGeburtsdatum" id="formGeburtsdatum" required>
                     </div>
-                <!-- <div class="form-group row">
-                    <label for="formStrasse" class="col-sm-3 col-form-label">
-                        Straße
-                    </label>
-                    <div class="col-8 col-sm-7">
-                        <input type="text" class="form-control" name="formStrasse" id="formStrasse">
-                    </div>
-                    <div class="col-4 col-sm-2">
-                        <input type="text" class="form-control" placeholder="Nr." name="formNr" id="formNr" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="formWohnort" class="col-sm-3 col-form-label">
-                        Wohnort
-                    </label>
-
-                    <div class="col-4 col-sm-2">
-                        <input type="text" class="form-control" placeholder="PLZ" name="formPLZ" id="formPLZ" required>
-                    </div>
-                    <div class="col-8 col-sm-7">
-                        <input type="text" class="form-control" name="formWohnort" id="formWohnort" required>
-                    </div>
-                </div> -->
                     <div class="col-sm-1 col-form-label ">
                         Disziplin*
                     </div>
@@ -168,15 +106,6 @@
                         </select>
                     </div>
                 </div>
-               <!--  <div class="form-group row">
-                    <label for="formIBAN" class="col-sm-3 col-form-label">
-                        IBAN
-                    </label>
-
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="formIBAN" id="formIBAN" required>
-                    </div>
-                </div> -->
                 <div class="form-group row">
                     <label for="formKommentar" class="col-sm-2 col-form-label">
                         Kommentar
@@ -195,14 +124,6 @@
 
             </div>
             <div class="col-md-2">
-            <!-- Fehlermeldungen hier anzeigen -->
-            <?php 
-            if (!empty($errorMail )) {
-                ?>
-                    <span class="field-label">Mail schon vorhanden:<?php $errorMail ?> </span> 
-                <?php
-                }
-                ?>
             </div>
         </div>
     </form>
@@ -213,6 +134,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
