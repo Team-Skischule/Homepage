@@ -1,5 +1,5 @@
 <?php
-         include '/Homepage/includes/header.php';
+        //include '/Homepage/includes/header.php';
 
 
 // Include config file
@@ -96,47 +96,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body {
-            font: 14px sans-serif;
-        }
-
-        .wrapper {
-            width: 350px;
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="style-home-test.css"> 
 </head>
 
-<body>
-    <div class="wrapper">
-        <h2>Login</h2>
+<body class="home">
+    <div class="container">
+        <h2>Skischule Arlberg</h2>
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <img src="images/ski.svg">  
+            
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username/Email</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+               <!--  <label>Username/Email</label> -->
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder="skilehrer@arlberg.at">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
+
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
+                <!-- <label>Password</label> -->
+                <input type="password" name="password" class="form-control" placeholder="Passwort eingeben">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
-                <input type="button" class="btn btn-primary" value="Password Recovery" onclick="location.href='register.php';">
+                <input type="submit" class="btn btn-primary" value="Anmelden">
+                <input type="button" class="btn btn-primary" value="Passwort vergessen?" onclick="location.href='register.php';">
 
             </div>
 <!--             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
- -->        </form>
+ -->    </form>
     </div>
+    <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
 </body>
 
 </html>
