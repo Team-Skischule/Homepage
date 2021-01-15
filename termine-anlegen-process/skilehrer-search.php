@@ -34,10 +34,10 @@ if(isset($_REQUEST["term"])){
                 echo json_encode($rowsJson);
 
             } else{
-                echo "<p>Keinen Skilehrer mit diesen Buchstaben :-( </p>";
+                //echo " Error: Keinen Skilehrer mit diesen Buchstaben";
             }
         } else{
-            echo "ERROR: Could not be executed $sql. " . mysqli_error($link);
+            //echo "ERROR: Could not be executed $sql. " . mysqli_error($link);
         }
     }
      

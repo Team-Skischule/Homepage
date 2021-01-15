@@ -30,8 +30,8 @@
 
                             <label for="skilehrername" class="col-sm-2 col-form-label">Skilehrer* </label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
-                                <div class="result"></div>
+                                <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
+                                <div class="skilehrerResult liveSearchResultStyle"></div>
                                 <div id="skilehrerid"></div>
                             </div>
                         </div>

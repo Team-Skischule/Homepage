@@ -10,7 +10,7 @@ function test_input($data) {
 // define variables and set to empty values
 $validationFailed = false;
 $errors = array();
-$skilehrerid = $abholort = $kundenname = $beginn = $ende = "";
+//$skilehrerid = $abholort = $kundenname = $beginn = $ende = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -34,6 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $kundenname = test_input($_POST["kundenname"]);
     }
+    
+   /*  if (empty($_POST["skilehrerName"])) {
+        $errors["skilehrerName"] = "skilehrerName ist erforderlich";
+        $validationFailed = true;
+    } else {
+        $skilehrerName = test_input($_Post["skilehrerName"]);
+    } */
+
 
     if (empty($_POST["datumBeginn"])) {
         $errors["datumBeginn"] = "datumBeginn ist erforderlich";
@@ -98,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bind_param("issss", $skilehrerid, $abholort, $kundenname, $datumBeginn, $datumEnde);
                 $stmt->execute();
                 echo $stmt->error;
-                echo "Termin für: ".$skilehrerid." wurde angelegt";
+                echo "Termin für wurde angelegt";
                 error_log(date("Y-F-j, G:i").": in CreateTerminebEntry.php: ".$stmt->error."\n", 3,  "errors-log.log");
                     
                 $stmt->close();

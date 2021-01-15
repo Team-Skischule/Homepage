@@ -120,6 +120,35 @@ form .form-check-inline {
   height: 28px;
 }
 
+/* im Termine Anlegen Formular gibt es ein Vestecktes Feld deren Value in die Datenbank gespeichert wird.
+   dieses Feld soll nicht sichtbar sein */
+form div#skilehrerid {
+  height: 0;
+  color: transparent;
+}
+
+form .liveSearchResultStyle {
+  background: white;
+  border-radius: 5px;
+  max-height: 80px;
+  overflow: auto;
+}
+form .liveSearchResultStyle option {
+  padding: 0 .75rem;
+}
+form .liveSearchResultStyle option:first-child {
+  padding-top: .375rem;
+}
+form .liveSearchResultStyle option:last-child {
+    padding-bottom: .375rem;
+}
+
+form .liveSearchResultStyle p {
+  padding: .375rem  .75rem;
+  margin-bottom: 0;
+}
+
+
   
   /* Clear floats after the columns */
   section:after {

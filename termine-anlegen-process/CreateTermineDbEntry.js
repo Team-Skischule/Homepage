@@ -31,11 +31,10 @@ $(document).ready(function () {
         var skilehrerid = document.getElementById("skilehrerid").textContent;
         var abholort = $('#abholort').val();
         var kundenname = $('#kundenname').val();
-        /* var beginn = $('#beginn').val(); */
         var beginn = document.getElementById("beginn").value;
         var ende = document.getElementById("ende").value;
-        console.log('Begin: ' + beginn);
-        console.log('Ende: ' + ende);
+       // var skilehrername = document.getElementById('skilehrername').value;
+        
         $.ajax
           ({
             type: "POST",
@@ -45,7 +44,7 @@ $(document).ready(function () {
                 "abholort": abholort, 
                 "kundenname": kundenname, 
                 "datumBeginn": beginn, 
-                "datumEnde": ende
+                "datumEnde": ende,
               },
             success: function (data) {
             $('.result').html("<div><ol>" + data + "</ol></div>");
