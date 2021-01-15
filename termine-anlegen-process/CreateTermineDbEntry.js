@@ -28,7 +28,7 @@ $(document).ready(function () {
   
       if (checkInputValidity() == true) {
         e.preventDefault();
-        var skilehrerid = $('#skilehrerid').val();
+        var skilehrerid = document.getElementById("skilehrerid").textContent;
         var abholort = $('#abholort').val();
         var kundenname = $('#kundenname').val();
         /* var beginn = $('#beginn').val(); */

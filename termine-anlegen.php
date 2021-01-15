@@ -4,19 +4,14 @@
 <head>
 <?php include 'includes/header.php';?> 
     <title>Skilehrer anlegen</title>
-
     <link rel="stylesheet" href="style.css"> 
-
- 
 </head>
 
 <body>
-
     <?php include 'includes/navigation.php';?>
     
     <div class="content">
         <div id="contact_form">
-            
                 <div class="row">
                     <div class="col-md-2">
                         <div class="row">  
@@ -26,13 +21,20 @@
                     <div class="col-md-8 formularDesign">
                     <form class="content-container" id="form" action="" name="contact" >
                         <h1>Neuen Termine Anlegen:</h1>
-                        <div class="result">  </div>
-                        <div class="form-group row">
-                            <label for="skilehrerid" class="col-sm-2 col-form-label">SkilehrerID* </label>
+                        <div class="result"></div>
+                        <div class="form-group row search-box">
+                            <!-- <label for="skilehrerid" class="col-sm-2 col-form-label">SkilehrerID* </label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="skilehrerid" id="skilehrerid"  required>
+                            </div> -->
+
+                            <label for="skilehrername" class="col-sm-2 col-form-label">Skilehrer* </label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
+                                <div class="result"></div>
+                                <div id="skilehrerid"></div>
                             </div>
-                        </div>    
+                        </div>
 
                         <!-- Neue Zeile -->
                         <div class="form-group row">
@@ -72,10 +74,8 @@
                     <!-- leere Spalte -->
                     </div>
                 </div>
-            
         </div>
     <div>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
         integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" 
@@ -84,6 +84,8 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <script src="termine-anlegen-process/CreateTermineDbEntry.js" 
+        crossorigin="anonymous"></script>
+    <script src="termine-anlegen-process/skilehrer-live-search.js" 
         crossorigin="anonymous"></script>
 
 </body>

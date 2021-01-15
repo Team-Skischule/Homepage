@@ -1,0 +1,50 @@
+<?php
+/* ---
+
+--- */
+
+include "../config.php";
+ 
+if(isset($_REQUEST["term"])){
+    // Prepare a select statement
+    $sql = "SELECT firstName, lastName, id  FROM skischule.skilehrer WHERE lastName LIKE ?";
+    
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "s", $param_term);
+        
+        // Set parameters
+        $param_term = $_REQUEST["term"] . '%';
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            $result = mysqli_stmt_get_result($stmt);
+            $rowsJson = array();
+            
+            // Check number of rows in the result set
+            if(mysqli_num_rows($result) > 0){
+                // Fetch result rows as an associative array
+                /* while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ */
+                while ($row = $result -> fetch_assoc()){    
+                    array_push($rowsJson, array(
+                        "name" => $row['lastName'] . ' ' . $row['firstName'],
+                        "skilehrerid" => $row['id']
+                    ));
+                }
+                echo json_encode($rowsJson);
+
+            } else{
+                echo "<p>Keinen Skilehrer mit diesen Buchstaben :-( </p>";
+            }
+        } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+    }
+     
+    // Close statement
+    mysqli_stmt_close($stmt);
+}
+ 
+// close connection
+mysqli_close($link);
+?>
