@@ -37,7 +37,7 @@ if(isset($_REQUEST["term"])){
                 echo "<p>Keinen Skilehrer mit diesen Buchstaben :-( </p>";
             }
         } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            echo "ERROR: Could not be executed $sql. " . mysqli_error($link);
         }
     }
      
