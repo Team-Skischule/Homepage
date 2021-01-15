@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
+﻿<?php
+// Initialize the session
+session_start();
+
+echo "<h3> PHP List All Session Variables</h3>";
+foreach ($_SESSION as $key=>$val)
+echo $key." ".$val."<br/>";
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: /Homepage/login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
 
 <html>
     <head runat="server">
     
-    
-
         <title>Kalender</title>
         <link href="css/jquery-ui.css" rel="stylesheet" />
         <link href="css/jquery.ui.theme.css" rel="stylesheet" />
@@ -40,11 +52,7 @@
                 
             </div>
         </div>
-        
-
-
       
-    </body>
-    
+    </body> 
     
 </html>

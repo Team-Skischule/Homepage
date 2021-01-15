@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/Homepage/termine-anlegen.php">Termine Anlegen </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">logout</a>
+                    <a class="nav-link" href="/Homepage/logout.php">logout</a>
                 </li>
                 </ul>
             </div>

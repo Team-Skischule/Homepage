@@ -55,10 +55,7 @@
       $subject = "Password reset";
       $link = "http://localhost/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
       $message = "<a href='$link'>Click here to reset password</a>";
-
-
-
-
+      mail($user['email'], $subject, $message);
       if (!@mail($user['email'], $subject, $message)) {
         $result = "Failed to send email!";
       }
