@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Anmelden">
-                <input type="button" class="btn btn-primary" value="Passwort vergessen?" onclick="location.href='register.php';">
+                <input type="button" class="btn btn-secondary" value="Passwort vergessen?" onclick="location.href='register.php';">
 
             </div>
 <!--             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
