@@ -173,8 +173,8 @@ var Calendar = {
     $(".realtime-info").hide();
   },
 };
-console.log("Anfang Inhalt Items");
-console.log(Calendar.Items);
+/* console.log("Anfang Inhalt Items");
+console.log(Calendar.Items); */
 
 //Import der Zeilennamen (Sections) von der Datenbank
 function getRowname() {
@@ -192,8 +192,8 @@ function getRowname() {
 
       //befüllt Calendar.Sections mit dem JSON Array
       Calendar.Sections = getRownamearr;
-      console.log("Neuer Inhalt Sections");
-      console.log(Calendar.Sections);
+/*       console.log("Neuer Inhalt Sections");
+      console.log(Calendar.Sections); */
 
       //übernimmt die neuen Daten in die Tabelle
       TimeScheduler.Init(true);
@@ -237,8 +237,8 @@ function getItemsTest() {
         Calendar.Items.push(newItem);
       }
 
-      console.log("Neuer Inhalt Items");
-      console.log(Calendar.Items);
+/*       console.log("Neuer Inhalt Items");
+      console.log(Calendar.Items); */
 
       TimeScheduler.Init(true);
     }
