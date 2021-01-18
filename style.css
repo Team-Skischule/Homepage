@@ -49,6 +49,11 @@
     border-radius: var(--std-border-radius);
   }
 
+  .top-row {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
   h1  {
     text-align: center;
     margin: 0 0 0.6em;
@@ -108,7 +113,6 @@
     /* --- Kalender Design ---*/
 
   .calendar {
-    margin-top: 2em;
     border-radius: var(--std-border-radius);
     padding: 2em;
     background: rgba(255, 255, 255, 0.562);
@@ -139,8 +143,8 @@
   
   .tabs .tab-header {
     width: 100%;
-    height: 2.5em;
-    display: block;
+    height: 3.6em;
+    display: inline-block;
     border-bottom: 1px solid white;
     margin-bottom: 1em;
   }
@@ -161,7 +165,13 @@
 
   .tabs .tab-header div i {
     display: inline-block;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 0.3em 0.3em;
    }
+   .tabs .tab-header div i p{
+    font-size: 1em;
+    }
 
    .tabs .tab-header div i::before {
      margin-right: 0.2em;
@@ -181,6 +191,21 @@
      transition: display 500ms ease-in-out;
    }
 
+   .tabs .tab-content > div > i {
+    display: block;
+    width: 2.5em;
+    height: 2.5em;
+    color: none;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    line-height: 2.4em;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: var(--form-border);
+    margin: 0.5em auto;
+}
+  
    
 
 

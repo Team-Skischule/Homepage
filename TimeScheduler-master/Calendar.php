@@ -25,53 +25,48 @@
     <body>
     <!-- php include '../includes/navigation.php';?> -->
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 top-row">
                     <h1>Skilehrer Tabelle</h1>
                     <p>Hier können die Termine und Skilehrer Verwaltet werden</p>
                 </div>
-            </div>
             <div class="row">
                 <div class="col-sm-3">
                     <!-- https://www.youtube.com/watch?v=sn2hRCOR-Qg -->
                     <div class="tabs">
                         <div class="tab-header">
-                            <div class="active">
-                                <i class="far fa-calendar-plus">Termine neu</i>
+                            <div>
+                                <i class="active fa fa-calendar-plus-o" aria-hidden="true"><p>neu</p></i>
                             </div>
                             <div >
-                                <i class="far fa-calendar-minus">Termine bearbeiten</i>
+                                <i class="fa fa-calendar-minus-o" aria-hidden="true"><p>edit</p></i>
                             </div>
                             <div>
-                                <i class="fa fa-users">Mitarbeiter Neu</i>
+                                <i class="fa fa-user-plus" aria-hidden="true" ><p>neu</p></i>
                             </div>
                             <div>
-                                <i class="fa fa-bar-user-edit">Mitarbeiter bearbeiten</i>
-                            </div>
-                            <div>
-                                <i class="fa fa-bar-envelop">Contact</i>
+                                <i class="fa fa-users" aria-hidden="true"><p>edit</p></i>
                             </div>
                         </div>
                         <div class="tab-indicator"></div>
                         <div class="tab-content">
                             <div class="active">
-                                <i class="fa fa-code">Code</i>
-                                <h2>this is code section</h2>
+                                <i class="fa fa-calendar-plus-o"></i>
+                                <h2>Neuen Termin anlegen</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quperiores sint ducimus eum nam natus cupiditate magni quas nemo! Fugit.</p>
                             </div>
                             <div>
-                                <i class="fa fa-pencil-square">about</i>
-                                <h2>this is about section</h2>
+                                <i class="fa fa-calendar-minus-o"></i>
+                                <h2>Termin bearbeiten</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quperiores sint ducimus eum nam natus cupiditate magni quas nemo! Fugit.</p>
                             </div>
                             <div>
-                                <i class="fa fa-chart">Service</i>
-                                <h2>this is chart section</h2>
+                                <i class="fa fa-user-plus"></i>
+                                <h2>Mitarbeiter anlegen</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quperiores sint ducimus eum nam natus cupiditate magni quas nemo! Fugit.</p>
                             </div>
                             <div>
-                                <i class="fa fa-envelope">Contact</i>
-                                <h2>this is envelop section</h2>
+                                <i class="fa fa-users"></i>
+                                <h2>Mitarbeiter bearbeiten</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quperiores sint ducimus eum nam natus cupiditate magni quas nemo! Fugit.</p>
                             </div>
                         </div>
