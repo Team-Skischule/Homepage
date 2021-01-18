@@ -5,417 +5,364 @@
   --main-bg-color: rgb(240, 240, 240);
   --second-bg-color: rgb(120, 161, 221);
   --item-bg-color: #0000ff2e;
-  --bg-gradien-color-1:#000046;
-  --bg-gradien-color-2: #1CB5E0;
+  --bg-gradien-color-1: #000046;
+  --font-dark: #000046;
+  --bg-gradien-color-2: #1cb5e0;
   --std-border-radius: 0.2em;
-  --std-box-shadow:0px 0px 4px  #cdcdcd;
-  --form-bg-green:rgba( 43, 197, 56, 0.50 );
-  --form-bg-pink: rgba( 193, 0, 93, 0.55 );
-  --form-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  --form-backdrop-filter: blur( 4px );
-  --form-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  --std-box-shadow: 0px 0px 4px #cdcdcd;
+  --form-bg-green: rgba(43, 197, 56, 0.5);
+  --form-bg-pink: rgba(193, 0, 93, 0.55);
+  --form-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --form-backdrop-filter: blur(4px);
+  --form-border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
-    margin: 0 1em !important;
-    color: white!important;
-  }
-
-  body.home {
-    background: url(/Homepage/images/arlberg-mountains.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
-  
-  body:not(.home) {
-    background-color: #1CB5E0; 
-    background-image: 
-      url('images/bg-pattern-all-small.svg'), 
-      linear-gradient( 217deg, #1CB5E0, #000046);
-  }
-  
-  body .content {
-    border-radius: var(--std-border-radius);
-  }
 
-  .top-row {
-    padding: 3rem 0;
-    text-align: center;
-  }
-
-  h1  {
-    text-align: center;
-    margin: 0 0 0.6em;
-  }
-
-  section {
-    margin: 50px 0;
-    padding: 50px;
-    background-color: var(--main-bg-color);
-  }
-
-  /* Style the header */
-  header {
-    text-align: center;
-    font-size: 1.2em;
-    margin: 1em 0;
-  }
-
-  
-  header nav {
-    padding: 0.8em 0 0 0;
-    border-radius: var(--std-border-radius);
-  }
-  
-  /* Style the list inside the menu */
-  header nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  header nav ul li {
-    margin:0; 
-    padding: 0 0.2em;
-    color: white !important;
-   
-  }
-
-  header nav ul li a {
-    color: white !important;
-    border: 1px solid transparent;
-    border-right: 1px solid white;
-    transition: border 0.2s ease-in-out;
-  }
-
-   header nav ul li a:hover {
-     border: 1px solid white;
-     border-radius: var(--std-border-radius);
-   }
-  
-  header nav ul{
-      float: left;
-      list-style-type: none;
-      padding: 0m;
-    }
-
-
-    /* --- Kalender Design ---*/
-
-  .calendar {
-    border-radius: var(--std-border-radius);
-    padding: 2em;
-    background: rgba(255, 255, 255, 0.562);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border: var(--form-border);
-    color: #000;
-  }
-
-  .calendar tbody .time-sch-header-1-current-time {
-    color: #000;
-  }
-
-  /* --- Kalender Ende---*/
-
-  /* --- Menu Tabs ---*/
-
-  .tabs {
-    border-radius: var(--std-border-radius);
-    padding: 2em;
-    background: rgba(255, 255, 255, 0.562);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border: var(--form-border);
-  }
-  
-  .tabs .tab-header {
-    width: 100%;
-    height: 3.6em;
-    display: inline-block;
-    border-bottom: 1px solid white;
-    margin-bottom: 1em;
-  }
-
-  .tabs .tab-header div {
-    float: left;
-    padding: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .tabs .tab-header > div:hover,
-  .tabs .tab-header > div.active {
-    color: black;
-    font-weight: 700;
-  }
-
-  .tabs .tab-header div i {
-    display: inline-block;
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 0 0.3em 0.3em;
-   }
-   .tabs .tab-header div i p{
-    font-size: 1em;
-    }
-
-   .tabs .tab-header div i::before {
-     margin-right: 0.2em;
-   }
-
-   .tabs .tab-content {
-     position: relative;
-     height: 100%;
-   }
-
-   .tabs .tab-content > div {
-     display: none;
-   }
-
-   .tabs .tab-content > div.active {
-     display: block;
-     transition: display 500ms ease-in-out;
-   }
-
-   .tabs .tab-content > div > i {
-    display: block;
-    width: 2.5em;
-    height: 2.5em;
-    color: none;
-    font-size: 1em;
-    font-weight: 600;
-    text-align: center;
-    line-height: 2.4em;
-    border-radius: 50%;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border: var(--form-border);
-    margin: 0.5em auto;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  margin: 0 1em !important;
+  color: white !important;
 }
-  
-   
+
+body.home {
+  background: url(/Homepage/images/arlberg-mountains.jpg) no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body:not(.home) {
+  background-color: #1cb5e0;
+  background-image: url("images/bg-pattern-all-small.svg"),
+    linear-gradient(217deg, #1cb5e0, #000046);
+}
+
+body .content {
+  border-radius: var(--std-border-radius);
+}
+
+.top-row {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 0.6em;
+}
 
 
-  /* --- Menu Tabs Ende---*/
+/* --- Kalender Design ---*/
 
-  /* --- Formular Design ---*/
+.calendar {
+  border-radius: var(--std-border-radius);
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.562);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: var(--form-border);
+  color: var(--font-dark);
+}
 
-  form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    border-radius: var(--std-border-radius);
-    padding: 3em;
-    background: var(--form-bg-green);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border: var(--form-border);
-    }
+.calendar tbody .time-sch-header-1-current-time {
+  color: var(--font-dark);
+}
 
-  .home form {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    background: var(--form-bg-pink);
-    box-shadow: var(--form-box-shadow);
-    backdrop-filter: var(--form-backdrop-filter);
-    -webkit-backdrop-filter: var(--form-backdrop-filter);
+/* --- Kalender Ende---*/
 
+/* --- Menu Tabs ---*/
+
+.tabs {
+  border-radius: var(--std-border-radius);
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.562);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: var(--form-border);
+}
+
+.tabs .tab-header {
+  width: 100%;
+  height: 3.6em;
+  display: inline-block;
+  border-bottom: 1px solid white;
+}
+
+.tabs .tab-header div {
+  float: left;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabs .tab-header > div i:hover,
+.tabs .tab-header > div i.active {
+  color: var(--font-dark);
+  font-weight: 700;
+}
+
+.tabs .tab-header div i {
+  display: inline-block;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0 0.3em 0.3em;
+}
+.tabs .tab-header div i p {
+  font-size: 0.85rem;
+}
+
+.tabs .tab-header div i::before {
+  margin-right: 0.2em;
+}
+
+.tabs .tab-content {
+  position: relative;
+  height: 100%;
+}
+
+.tabs .tab-content > div {
+  display: none;
+}
+
+.tabs .tab-content > div.active {
+  display: block;
+  transition: display 500ms ease-in-out;
+}
+
+.tabs .tab-content > div > i {
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  color: none;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2.4em;
+  border-radius: 50%;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: var(--form-border);
+  margin: 0.5em auto;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
   }
-
-  form p {
-    color: #fff;
-    text-align: center;
+  to {
+    opacity: 1;
   }
+}
 
-  input.btn {
-    display: block;
-    width: 160px;
-    margin: 1em auto;
-    border: none!important;
-    color: white !important;
-    font-size: 1em;;
-  }
+/* --- Menu Tabs Ende---*/
 
-  form input.form-control {
-    background-color: transparent !important;
-    border-radius: 0;
-    border: 0;
-    border-bottom: 1px solid white;
-    box-shadow: none;
-    color: white !important;
-    font-weight: 500;
-    font-size: 0.8em;
-  }
-  .btn {
-      background-color:rgba(17, 51, 108);
-  }
-  .btn:hover {
-      background-color:rgb(22, 64, 138);
-  }
+/* --- Formular Design ---*/
 
-  input.btn.btn-secondary {
-      margin: 0.75em auto;
-      font-size: 0.75em;
-  }
+.home form {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background: var(--form-bg-pink);
+  box-shadow: var(--form-box-shadow);
+  backdrop-filter: var(--form-backdrop-filter);
+  -webkit-backdrop-filter: var(--form-backdrop-filter);
+}
 
+form p {
+  color: #fff;
+  text-align: center;
+}
 
-  form .result div {
-    border: 2px solid red;
-    background: transparent;
-    color: white;
-    display: inline-block;
-    width: 60%;
-    border-radius: 5px;
-    color: inherit;
-    margin: 0 20% 1em;
-    padding: 1em;
-    text-align: center;
-    font-weight: 600;
-    transition:  1s ease-in-out;
-  }
+form .col-sm-8 {
+  max-width: 60%;
+}
 
-  form .result div ol {
-    margin-bottom: 0;
-    padding: 0px 8px 0 16px;
-  }
+input.btn {
+  display: block;
+  width: 160px;
+  margin: 1em auto;
+  border: none !important;
+  color: white !important;
+  font-size: 1em;
+}
 
-  form .form-check-inline {
-    height: 28px;
-  }
+form input.form-control {
+  background-color: transparent !important;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid white;
+  box-shadow: none;
+  color: white !important;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+.btn {
+  background-color: rgba(17, 51, 108);
+}
+.btn:hover {
+  background-color: rgb(22, 64, 138);
+}
 
+input.btn.btn-secondary {
+  margin: 0.75em auto;
+  font-size: 0.75em;
+}
 
+form .result div {
+  border: 2px solid red;
+  background: transparent;
+  color: white;
+  display: inline-block;
+  width: 60%;
+  border-radius: 5px;
+  color: inherit;
+  margin: 0 20% 1em;
+  padding: 1em;
+  text-align: center;
+  font-weight: 600;
+  transition: 1s ease-in-out;
+}
 
+form .result div ol {
+  margin-bottom: 0;
+  padding: 0px 8px 0 16px;
+}
 
-  /* im Termine Anlegen Formular gibt es ein Vestecktes Feld deren Value in die Datenbank gespeichert wird.
+form .form-check-inline {
+  height: 28px;
+}
+
+/* im Termine Anlegen Formular gibt es ein Vestecktes Feld deren Value in die Datenbank gespeichert wird.
     dieses Feld soll nicht sichtbar sein */
-  form div#skilehrerid {
-    height: 0;
-    color: transparent;
-  }
+form div#skilehrerid {
+  height: 0;
+  color: transparent;
+}
 
-  form .liveSearchResultStyle {
-    background: var(--form-bg-green);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: var(--std-border-radius) !important;
-    max-height: 80px;
-    overflow: auto;
-  }
-  form .liveSearchResultStyle option {
-    padding: 0 .75rem;
-  }
-  form .liveSearchResultStyle option:first-child {
-    padding-top: .375rem;
-  }
-  form .liveSearchResultStyle option:last-child {
-      padding-bottom: .375rem;
-  }
+form .liveSearchResultStyle {
+  background: var(--form-bg-green);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: var(--std-border-radius) !important;
+  max-height: 80px;
+  overflow: auto;
+}
+form .liveSearchResultStyle option {
+  padding: 0 0.75rem;
+}
+form .liveSearchResultStyle option:first-child {
+  padding-top: 0.375rem;
+}
+form .liveSearchResultStyle option:last-child {
+  padding-bottom: 0.375rem;
+}
 
-  form .liveSearchResultStyle p {
-    padding: .375rem  .75rem;
-    margin-bottom: 0;
-  }
+form .liveSearchResultStyle p {
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+}
 
-  ::placeholder {
-    color: rgb(236, 235, 235) !important;
-    font-weight: 500;
-  }
+::placeholder {
+  color: rgb(236, 235, 235) !important;
+  font-weight: 500;
+}
 
-  ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
 
-  textarea, input[type=“text”] {
-    -webkit-appearance: none !important;
-  }
+textarea,
+input[type="“text”"] {
+  -webkit-appearance: none !important;
+}
 
-  input:focus {
-    background: var(--form-bg-green) !important;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-  }
+input:focus {
+  background: var(--form-bg-green) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
 
-  /* Home Form Specific styles: */
+/* Home Form Specific styles: */
 
-  .home form img {
-    width: 50px;
+.home form img {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin: 1em auto;
+  position: relative;
+  display: block;
+}
+
+form .btn {
+  display: block;
+  width: 160px;
+  margin: 1em auto;
+  border: none !important;
+}
+
+.home .form-control {
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid white;
+  box-shadow: none;
+  color: white !important;
+  padding-left: 0px;
+}
+.home .btn {
+  background-color: rgba(17, 51, 108);
+}
+.home .btn:hover {
+  background-color: rgb(22, 64, 138);
+}
+
+.home input.btn.btn-secondary {
+  margin: 0.75em auto;
+  font-size: 0.75em;
+}
+/* ------------ Form Styling Ende ------------ */
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: var(--second-bg-color);
+  padding: 1em;
+  text-align: center;
+  color: white;
+}
+
+/* ------------ Responsive ------------ */
+
+/* layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 1100px) {
+  nav,
+  article {
+    width: 100%;
     height: auto;
-    border-radius: 50%;
-    margin: 1em auto;
-    position: relative;
-    display: block;
   }
-
-  form .btn {
-    display: block;
-    width: 160px;
-    margin: 1em auto;
-    border: none!important;
-  }
-
-  .home .form-control {
-    background-color: transparent;
-    border-radius: 0;
-    border: 0;
-    border-bottom: 1px solid white;
-    box-shadow: none;
-    color: white !important;
-    padding-left: 0px;
-  }
-  .home .btn {
-    background-color:rgba(17, 51, 108);
-  }
-  .home .btn:hover {
-    background-color:rgb(22, 64, 138);
-  }
-
-  .home input.btn.btn-secondary {
-    margin: 0.75em auto;
-    font-size: 0.75em;
-  }
-  /* ------------ Form Styling Ende ------------ */
-
-    /* Clear floats after the columns */
-    section:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    
-    /* Style the footer */
-    footer {
-      background-color:var(--second-bg-color);
-      padding: 1em;
-      text-align: center;
-      color: white;
-    }
-
-
-    /* ------------ Responsive ------------ */
-    
-    /* layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-    @media (max-width: 1100px) {
-      nav, article {
-        width: 100%;
-        height: auto;
-      }
-    }
+}
