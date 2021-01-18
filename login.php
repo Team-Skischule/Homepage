@@ -102,14 +102,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" href="style-home-test.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 
 <body class="home">
-    <div class="container">
-        <h2>Skischule Arlberg</h2>
-        <p>Please fill in your credentials to login.</p>
+    <div class="form-container">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <h1>Skischule Arlberg</h2>
+            <p>Meldet euch an.</p>
             <img src="images/ski.svg">  
             
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
