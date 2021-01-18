@@ -40,7 +40,7 @@ $(document).ready(function () {
       $.ajax
         ({
           type: "POST",
-          url: "skilehrer-anlegen-process/skilehrer_submit.php",
+          url: "/Homepage/skilehrer-anlegen-process/skilehrer_submit.php",
           data: { 
               "firstName": firstName, 
               "lastName": lastName, 
@@ -54,7 +54,7 @@ $(document).ready(function () {
             },
           success: function (data) {
           $('.result').html("<div><ol>" + data + "</ol></div>");
-            $('#form')[0].reset();
+            // $('#form')[0].reset();
           }
         });
     }

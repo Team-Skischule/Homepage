@@ -10,7 +10,7 @@ $(document).ready(function(){
         var resultDropdown = $(this).siblings(".skilehrerResult");
         
         if(inputVal.length){ 
-            $.get("termine-anlegen-process/skilehrer-search.php", {term: inputVal}).done(function(data){
+            $.get("/Homepage/termine-anlegen-process/skilehrer-search.php", {term: inputVal}).done(function(data){
                 console.log('data: ' + data);
                 // Display the returned data in browser
                 if (data.length > 0) {    

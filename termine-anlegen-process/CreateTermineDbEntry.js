@@ -38,7 +38,7 @@ $(document).ready(function () {
         $.ajax
           ({
             type: "POST",
-            url: "termine-anlegen-process/termine_submit.php",
+            url: "/Homepage/termine-anlegen-process/termine_submit.php",
             data: { 
                 "skilehrerid": skilehrerid, 
                 "abholort": abholort, 
