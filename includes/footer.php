@@ -15,7 +15,7 @@
     ></script>
 
   <!-- Add active class to nav Element when on specific url -->
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
     $(document).ready(function () {
         var url = window.location;
         $('ul.navbar-nav a[href="'+ url +'"]').parent().addClass('active');
@@ -23,6 +23,6 @@
              return this.href == url;
         }).parent().addClass('active');
     });
-</script> 
+</script>  -->
 
 <!-- danach geht es mit dem </body> tag weiter -->
