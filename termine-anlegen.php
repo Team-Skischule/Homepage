@@ -13,23 +13,13 @@
     <div class="content">
         <div id="contact_form">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="row">  
-                        <!-- leere Spalte -->
-                        </div>
-                    </div>
-                    <div class="col-md-8 formularDesign">
+                    <div class="col-md-12 form-container">
                     <form class="content-container" id="form" action="" name="contact" >
-                        <h1>Neuen Termine Anlegen:</h1>
+                        <h1>Neuen Termin Anlegen:</h1>
                         <div class="result"></div>
                         <div class="form-group row search-box">
-                            <!-- <label for="skilehrerid" class="col-sm-2 col-form-label">SkilehrerID* </label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="skilehrerid" id="skilehrerid"  required>
-                            </div> -->
-
-                            <label for="skilehrername" class="col-sm-2 col-form-label">Skilehrer* </label>
-                            <div class="col-sm-4">
+                            <label for="skilehrername" class="col-sm-3 col-form-label">Skilehrer* </label>
+                            <div class="col-sm-9">
                                 <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
                                 <div class="skilehrerResult liveSearchResultStyle"></div>
                                 <div id="skilehrerid"></div>
@@ -38,26 +28,31 @@
 
                         <!-- Neue Zeile -->
                         <div class="form-group row">
-                            <label for="abholort" class="col-sm-2 col-form-label">Abholort*</label>
-                            <div class="col-sm-4">
+                            <label for="abholort" class="col-sm-3 col-form-label">Abholort*</label>
+                            <div class="col-sm-9">
                                 <input type="text" class="form-control" name="abholort" id="abholort"minlength="1" required>
                             </div>
-                            
-                            <label for="kundenname" class="col-sm-2 col-form-label">Kunde*</label> 
-                            <div class="col-sm-4">
+                        </div>
+                        <!-- Neue Zeile -->
+                        <div class="form-group row">    
+                            <label for="kundenname" class="col-sm-3 col-form-label">Kunde*</label> 
+                            <div class="col-sm-9">
                                 <input type="text" name="kundenname" id="kundenname" class="form-control"  required>
                             </div>
                         </div>
 
                         <!-- Neue Zeile -->
                         <div class="form-group row">
-                            <label for="beginn" class="col-sm-2 col-form-label">Beginn*</label>
-                            <div class="col-sm-4">
+                            <label for="beginn" class="col-sm-3 col-form-label">Beginn*</label>
+                            <div class="col-sm-9">
                                 <input type="date" class="form-control" name="beginn" id="beginn" required>
                             </div>
-                            
-                            <label for="ende" class="col-sm-2 col-form-label">Ende*</label>
-                            <div class="col-sm-4">
+                        </div> 
+
+                        <!-- Neue Zeile -->
+                        <div class="form-group row">
+                            <label for="ende" class="col-sm-3 col-form-label">Ende*</label>
+                            <div class="col-sm-9">
                                 <input type="date" class="form-control" name="ende" id="ende" required>
                             </div> 
                         </div>    
@@ -69,9 +64,6 @@
                             </div>
                         </div>
                         </form>
-                    </div>
-                    <div class="col-md-2">
-                    <!-- leere Spalte -->
                     </div>
                 </div>
         </div>
