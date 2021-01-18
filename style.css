@@ -175,6 +175,8 @@ h1 {
 /* --- Formular Design ---*/
 
 .home form {
+  position: absolute;
+  padding: 3em;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
