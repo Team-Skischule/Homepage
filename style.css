@@ -47,7 +47,6 @@
   
   body .content {
     border-radius: var(--std-border-radius);
-    padding: 2em;
   }
 
   h1  {
@@ -110,9 +109,8 @@
 
   .calendar {
     margin-top: 2em;
-    padding: 1em;
     border-radius: var(--std-border-radius);
-    padding: 3em;
+    padding: 2em;
     background: rgba(255, 255, 255, 0.562);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
@@ -121,11 +119,72 @@
     color: #000;
   }
 
-.calendar tbody .time-sch-header-1-current-time {
-  color: #000;
-}
+  .calendar tbody .time-sch-header-1-current-time {
+    color: #000;
+  }
 
   /* --- Kalender Ende---*/
+
+  /* --- Menu Tabs ---*/
+
+  .tabs {
+    border-radius: var(--std-border-radius);
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.562);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: var(--form-border);
+  }
+  
+  .tabs .tab-header {
+    width: 100%;
+    height: 2.5em;
+    display: block;
+    border-bottom: 1px solid white;
+    margin-bottom: 1em;
+  }
+
+  .tabs .tab-header div {
+    float: left;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .tabs .tab-header > div:hover,
+  .tabs .tab-header > div.active {
+    color: black;
+    font-weight: 700;
+  }
+
+  .tabs .tab-header div i {
+    display: inline-block;
+   }
+
+   .tabs .tab-header div i::before {
+     margin-right: 0.2em;
+   }
+
+   .tabs .tab-content {
+     position: relative;
+     height: 100%;
+   }
+
+   .tabs .tab-content > div {
+     display: none;
+   }
+
+   .tabs .tab-content > div.active {
+     display: block;
+     transition: display 500ms ease-in-out;
+   }
+
+   
+
+
+  /* --- Menu Tabs Ende---*/
 
   /* --- Formular Design ---*/
 
