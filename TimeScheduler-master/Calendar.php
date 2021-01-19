@@ -23,21 +23,31 @@
 
     </head>
     <body>
-    <!-- php include '../includes/navigation.php';?> -->
         <div class="container-fluid">
-                <div class="col-sm-12 top-row">
+            <div class="row top-row">
+                <div class="col-sm-3">
+                    <div class="btn btn-mitarbeiter">
+                        <a class="nav-link" href="/Homepage/skilehrer-anlegen.php">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
                     <h1>Skilehrer Tabelle</h1>
                     <p>Hier können die Termine und Skilehrer Verwaltet werden</p>
                 </div>
+                <div class="col-sm-3">
+                    <div class="btn btn-logout">
+                        <a class="nav-link" href="/Homepage/logout.php">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="row ">
                 <div class="col-sm-3 sidebar">
                     <div class="sidebar-container">
-                        <h2>Termin anlegen</h2>
                         <?php include '../termine-anlegen-neu.php';?>
-                    </div>
-                    <div class="sidebar-container">
-                        <h2>Mitarbeiter anlegen</h2>
-                        <?php include '../skilehrer-anlegen-neu.php';?>
                     </div>
                 </div>
                
