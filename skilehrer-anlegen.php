@@ -41,7 +41,7 @@
 
             <div class="col-md-4 form-column">
                 <form class="content-container" id="form" action="" name="contact" >
-                    <h2>Termin anlegen</h2>
+                    <h2>Mitarbeiter anlegen</h2>
                     <div class="result">  </div>
                     
                     <div class="form-group row">
@@ -121,12 +121,12 @@
     </div>
 
 
-   <!--  <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
         integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" 
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
     <script src="skilehrer-anlegen-process/CreateSkilehrerDbEntry.js" 
         crossorigin="anonymous"></script>
 

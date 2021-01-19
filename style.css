@@ -1,5 +1,6 @@
 :root {
   font-size: 12px;
+  font-family: 'Catamaran', sans-serif;
   color: white !important;
   /* Set Design Standard Variables: */
   --main-bg-color: rgb(240, 240, 240);
@@ -23,7 +24,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Catamaran', sans-serif;
 }
 
 body {
@@ -34,8 +35,7 @@ body {
 }
 
 body.home {
-  background: url(/Homepage/images/arlberg-mountains.jpg) no-repeat center
-    center fixed;
+  background: url(/Homepage/images/arlberg-mountains.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -56,7 +56,6 @@ h1 {
   text-align: center;
   margin: 0 0 0.6em;
 }
-
 
 /* ---  Top Row  --- */
 
@@ -100,12 +99,7 @@ h1 {
   padding-right: 0;
 }
 
-
-
-
-
-
-/* --- Kalender Design ---*/
+/* --- Calendar Design ---*/
 
 .calendar {
   border-radius: var(--std-border-radius);
@@ -115,23 +109,37 @@ h1 {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: var(--form-border);
-  color: var(--font-dark);
+  color: var(--std-dark-blue);
+  font-weight: 500;
 }
 
-.calendar tbody .time-sch-header-1-current-time {
-  color: var(--font-dark);
+.calendar .time-sch-header-0-date-even {
+  background-color: transparent;
 }
+
+.calendar .time-sch-wrapper .time-sch-header-1-current-time {
+  background-color:  rgba(120, 161, 221, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.calendar .time-sch-wrapper th, 
+.calendar .time-sch-wrapper td {
+  border-top-color: white;
+  border-bottom-color: white;
+  border-left-color: white;
+  border-right-color: white;
+}
+
+.calendar .time-sch-section-wrapper .item-status-one {
+  border: var(--form-border) !important;
+  background: var(--form-bg-green);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
 
 /* --- Kalender Ende---*/
-/* --- sidebar-container ---*/
-
-
-
-
-
-
-
-/* --- sidebar-container Ende---*/
 
 
 /* --- Formular Design ---*/
@@ -214,7 +222,7 @@ form .result div {
   margin: 0 20% 1em;
   padding: 1em;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   transition: 1s ease-in-out;
 }
 
