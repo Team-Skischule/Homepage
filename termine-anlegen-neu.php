@@ -4,9 +4,11 @@
     <div class="result"></div>
     <div class="form-group row search-box">
         <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer* </label>
-        <input type="text" value="" class="form-control col-sm-8" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
-        <div class="skilehrerResult liveSearchResultStyle"></div>
-        <div id="skilehrerid"></div>
+        <div class="col-sm-8">
+            <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
+            <div class="skilehrerResult liveSearchResultStyle"></div>
+            <div id="skilehrerid"></div>
+        </div>
     </div>
 
     <div class="form-group row">
