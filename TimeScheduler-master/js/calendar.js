@@ -74,8 +74,8 @@ var Calendar = {
     TimeScheduler.Options.SelectedPeriod = "1 week";
     TimeScheduler.Options.Element = $(".calendar");
 
-    TimeScheduler.Options.AllowDragging = true;
-    TimeScheduler.Options.AllowResizing = true;
+    TimeScheduler.Options.AllowDragging = false;
+    TimeScheduler.Options.AllowResizing = false;
 
     TimeScheduler.Options.Events.ItemClicked = Calendar.Item_Clicked;
     TimeScheduler.Options.Events.ItemDropped = Calendar.Item_Dragged;
@@ -102,8 +102,28 @@ var Calendar = {
     callback(Calendar.Items);
   },
 
+  /* --- Open Modal Form onclick event in Table --- */
+ /*  Item_Clicked: function (item) {
+    console.log("item:"  + item);
+    var modal = document.getElementById("myModal");
+    
+    modal.style.display = "block";
+    let p = document.querySelector('#myModal');
+    p.childNodes[3].childNodes[3].innerHTML = 'Item: ' + item;
+  }, */
+
   Item_Clicked: function (item) {
     console.log(item);
+
+    var modal = document.getElementById("myModal");
+    
+    modal.style.display = "block";
+    let p = document.querySelector('#myModal');
+    p.childNodes[3].childNodes[3].innerHTML = 
+      'Item: ' + item.name + 
+      ' <br>Start: ' + item.start + 
+      ' <br>Ende: ' + item.end;
+  
   },
 
   Item_Dragged: function (item, sectionID, start, end) {
@@ -250,3 +270,21 @@ function getItemsTest() {
 getItemsTest();
 
 $(document).ready(Calendar.Init);
+
+
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }

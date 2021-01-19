@@ -342,6 +342,24 @@ footer {
   color: white;
 }
 
+/* ------------ Modal PopUp Box ------------ */
+
+.modalbox {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 3em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background: var(--form-bg-pink);
+  box-shadow: var(--form-box-shadow);
+  backdrop-filter: var(--form-backdrop-filter);
+  -webkit-backdrop-filter: var(--form-backdrop-filter);
+}
+
+/* ------------ Modal PopUp Box Ende ------------ */
 /* ------------ Responsive ------------ */
 
 /* layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */

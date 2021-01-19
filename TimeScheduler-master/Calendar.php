@@ -57,21 +57,22 @@
                         </div>
                         <div class="realtime-info">
                         </div>
+                        <div id="myModal" class="modalbox">
+                        <!-- Modal content -->
+                            <div class="modalbox-content">
+                                <span class="close">&times;</span>
+                                <p>insert text here</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        
-
-        <!-- Tab Mechanismus TODO: noch in anderes js.file verschieben -->
 
         <script src="/Homepage/termine-anlegen-process/CreateTermineDbEntry.js" 
             crossorigin="anonymous"></script>
         <script src="/Homepage/termine-anlegen-process/skilehrer-live-search.js" 
             crossorigin="anonymous"></script>
       
-    
     </body> 
-    
 </html>
