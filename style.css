@@ -79,10 +79,10 @@ h1 {
 }
 
 /* --- Kalender Ende---*/
+/* --- sidebar-container ---*/
 
-/* --- Menu Tabs ---*/
-
-.tabs {
+.sidebar-container {
+  position: relative;
   border-radius: var(--std-border-radius);
   padding: 2em;
   background: rgba(255, 255, 255, 0.562);
@@ -90,7 +90,16 @@ h1 {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: var(--form-border);
+  margin-bottom: 30px;
 }
+
+
+
+/* --- sidebar-container Ende---*/
+
+/* --- Menu Tabs ---*/
+
+
 
 .tabs .tab-header {
   width: 100%;
