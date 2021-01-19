@@ -32,11 +32,11 @@
             <div class="row ">
                 <div class="col-sm-3 sidebar">
                     <div class="sidebar-container">
-                        <h2>Neuen Termin anlegen</h2>
+                        <h2>Termin anlegen</h2>
                         <?php include '../termine-anlegen-neu.php';?>
                     </div>
                     <div class="sidebar-container">
-                        <h2>Neuen Mitarbeiter anlegen</h2>
+                        <h2>Mitarbeiter anlegen</h2>
                         <?php include '../skilehrer-anlegen-neu.php';?>
                     </div>
                 </div>
