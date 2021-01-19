@@ -1,5 +1,6 @@
  <div>
  <form class="content-container" id="form" action="" name="contact" >
+    <h2>Termin anlegen</h2>
     <div class="result"></div>
     <div class="form-group row search-box">
         <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer* </label>
