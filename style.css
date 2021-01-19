@@ -52,15 +52,57 @@ body .content {
   border-radius: var(--std-border-radius);
 }
 
+h1 {
+  text-align: center;
+  margin: 0 0 0.6em;
+}
+
+
+/* ---  Top Row  --- */
+
 .top-row {
   padding: 3rem 0;
   text-align: center;
 }
 
-h1 {
-  text-align: center;
-  margin: 0 0 0.6em;
+.top-row .btn i {
+  font-size: 2.5rem;
+  color: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: var(--form-border);
+  padding:0.2em;
+  border-radius: 5px;
+  transition: font-size .15s ease-in-out;
 }
+
+.top-row .btn:hover {
+  background-color: transparent;
+}
+
+.top-row .btn:hover i {
+  font-size: 2.35em;
+}
+
+.btn.btn-mitarbeiter {
+  float: left;
+  padding-left: 0;}
+
+.btn.btn-mitarbeiter a {
+  padding-left: 0;
+}
+.btn.btn-logout {
+  float: right;
+  padding-right: 0;}
+
+.btn.btn-logout a {
+  padding-right: 0;
+}
+
+
+
+
 
 
 /* --- Kalender Design ---*/
@@ -83,25 +125,9 @@ h1 {
 /* --- Kalender Ende---*/
 /* --- sidebar-container ---*/
 
-.sidebar-container {
-  position: relative;
-  border-radius: var(--std-border-radius);
-  padding: 2em;
-  background: rgba(255, 255, 255, 0.562);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: var(--form-border);
-  margin-bottom: 30px;
-}
 
-.sidebar h2{
-  text-align: center;
-}
 
-.sidebar-container .btn.btn-primary {
-  background-color: var(--btn-dark);
-}
+
 
 
 
@@ -123,7 +149,19 @@ h1 {
   -webkit-backdrop-filter: var(--form-backdrop-filter);
 }
 
-form p {
+form {
+  position: relative;
+  border-radius: var(--std-border-radius);
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.562);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: var(--form-border);
+  margin-bottom: 30px;
+}
+
+form p, form h2 {
   color: #fff;
   text-align: center;
 }
@@ -153,14 +191,14 @@ form input.form-control {
   font-weight: 500;
   font-size: 0.8em;
 }
-.btn {
+form .btn {
   background-color: rgba(17, 51, 108);
 }
-.btn:hover {
+form .btn:hover {
   background-color: rgb(22, 64, 138);
 }
 
-input.btn.btn-secondary {
+form input.btn.btn-secondary {
   margin: 0.75em auto;
   font-size: 0.75em;
 }
