@@ -359,6 +359,16 @@ footer {
   -webkit-backdrop-filter: var(--form-backdrop-filter);
 }
 
+.modalbox span.close {
+  cursor: pointer;
+  color: white;
+  opacity: 0.9;
+  font-weight: 400 !important;
+  outline-style: solid;
+  outline-width: thin;
+  padding: 0 4px 1px 4px;
+}
+
 /* ------------ Modal PopUp Box Ende ------------ */
 /* ------------ Responsive ------------ */
 
