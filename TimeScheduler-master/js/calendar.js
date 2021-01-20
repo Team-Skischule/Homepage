@@ -255,10 +255,25 @@ function getItemsTest() {
         //es wird ein neues Objekt newItem mit den Attributen sectionID, classes... erstellt
         var newItem = [];
         newItem.sectionID = getItemsArray[i].sectionID;
-        newItem.classes = getItemsArray[i].classes;
+        //newItem.classes = getItemsArray[i].classes;
         newItem.start = new Date(getItemsArray[i].start);
         newItem.end = new Date(getItemsArray[i].end);
         newItem.name = getItemsArray[i].name;
+
+        //weißt dem Termin die Hintergrundfarbe zu
+        //entsprechend der Status-Spalte in der Datenbank
+        if(getItemsArray[i].classes === 1)
+        {
+          newItem.classes = 'item-status-none';
+        }
+        if(getItemsArray[i].classes === 2)
+        {
+          newItem.classes = 'item-status-one';
+        }
+        if(getItemsArray[i].classes === 3)
+        {
+          newItem.classes = 'item-status-two';
+        }
 
         //newItems Objekt wird dem Array Calendar.Items hinzugefügt
         //jedes Objekt entspricht einem neuen Termin
