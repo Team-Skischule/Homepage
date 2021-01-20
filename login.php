@@ -100,6 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="Description" content="Login Seite für die Verwaltungssoftware der Skischule Arlberg.">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="style.css"> 
@@ -110,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h1>Skischule Arlberg</h2>
             <p>Meldet euch an.</p>
-            <img src="images/ski.svg">  
+            <img src="images/ski.svg" alt="Avatar Image">  
             
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                <!--  <label>Username/Email</label> -->
