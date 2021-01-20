@@ -15,6 +15,7 @@
   --std-box-shadow: 0px 0px 4px #cdcdcd;
   --form-bg-green: rgba(43, 197, 56, 0.5);
   --form-bg-pink: rgba(193, 0, 93, 0.55);
+  --form-bg-blue: rgba(0, 0, 70, 0.70);
   --form-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   --form-backdrop-filter: blur(4px);
   --form-border: 1px solid rgba(255, 255, 255, 0.18);
@@ -131,12 +132,22 @@ h1 {
   border-right-color: white;
 }
 
-.calendar .time-sch-section-wrapper .item-status-one {
+.calendar .time-sch-section-wrapper {
   border: var(--form-border) !important;
-  background: var(--form-bg-green);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
+
+.calendar .time-sch-section-wrapper .item-status-none {
+  background: var(--form-bg-green);
+}
+.calendar .time-sch-section-wrapper .item-status-one {
+  background: var(--form-bg-pink);
+}
+.calendar .time-sch-section-wrapper .item-status-two {
+  background: var(--form-bg-blue);
+}
+
 
 
 /* --- Kalender Ende---*/
