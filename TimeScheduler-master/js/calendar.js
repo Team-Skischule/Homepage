@@ -257,7 +257,9 @@ function getItemsTest() {
         newItem.sectionID = getItemsArray[i].sectionID;
         //newItem.classes = getItemsArray[i].classes;
         newItem.start = new Date(getItemsArray[i].start);
+        newItem.start.setHours(+ 0.5);
         newItem.end = new Date(getItemsArray[i].end);
+        newItem.end.setHours(- 1);
         newItem.name = getItemsArray[i].name;
 
         //weißt dem Termin die Hintergrundfarbe zu
