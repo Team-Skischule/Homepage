@@ -74,8 +74,8 @@ var Calendar = {
     TimeScheduler.Options.SelectedPeriod = "1 week";
     TimeScheduler.Options.Element = $(".calendar");
 
-    TimeScheduler.Options.AllowDragging = false;
-    TimeScheduler.Options.AllowResizing = false;
+    TimeScheduler.Options.AllowDragging = true;
+    TimeScheduler.Options.AllowResizing = true;
 
     TimeScheduler.Options.Events.ItemClicked = Calendar.Item_Clicked;
     TimeScheduler.Options.Events.ItemDropped = Calendar.Item_Dragged;
@@ -115,7 +115,7 @@ var Calendar = {
   Item_Clicked: function (item) {
     console.log(item);
 
-    var modal = document.getElementById("myModal");
+    /* var modal = document.getElementById("myModal");
     
     modal.style.display = "block";
     let p = document.querySelector('#myModal');
@@ -130,7 +130,7 @@ var Calendar = {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
-    }
+    } */
 
   },
 

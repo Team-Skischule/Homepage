@@ -49,6 +49,7 @@ $(document).ready(function () {
             success: function (data) {
             $('.result').html("<div><ol>" + data + "</ol></div>");
               $('#form')[0].reset();
+              
             }
           });
       }

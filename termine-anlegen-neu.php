@@ -36,6 +36,19 @@
     </div>
 </form>
 
+<reference path=/Homepage/TimeScheduler-master/js/calendar.js" />
+
+<script>
+    document.getElementById("submit_btn").addEventListener("click", reloadCalenderItems);
+
+    function reloadCalenderItems() {
+        setTimeout(() => {
+            console.log('reload aufgerufen')
+            getItemsTest();  
+        }, 1000);
+    }
+</script>
+
 </div>
 
 
