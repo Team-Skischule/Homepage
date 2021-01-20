@@ -255,12 +255,26 @@ function getItemsTest() {
         //es wird ein neues Objekt newItem mit den Attributen sectionID, classes... erstellt
         var newItem = [];
         newItem.sectionID = getItemsArray[i].sectionID;
-        //newItem.classes = getItemsArray[i].classes;
-        newItem.start = new Date(getItemsArray[i].start);
-        newItem.start.setHours(+ 0.5);
-        newItem.end = new Date(getItemsArray[i].end);
-        newItem.end.setHours(- 1);
+        //newItem.classes = getItemsArray[i].classes;               
+
         newItem.name = getItemsArray[i].name;
+
+        //Zuweisung Anfang/Ende Termin
+        //wenn Termin nur ein Tag ist, wird dem End-Datum 23 Stunden zugefügt
+        //ansonsten wird für die graphische Darstellung am Anfang eine 0.5h und am Ende -1h
+        if(getItemsArray[i].start == getItemsArray[i].end)
+        {
+          newItem.start = new Date(getItemsArray[i].start);
+          newItem.start.setHours(+ 0.5);
+          newItem.end = new Date(getItemsArray[i].end);
+          newItem.end.setHours(+23);
+
+        } else{
+          newItem.start = new Date(getItemsArray[i].start);
+          newItem.start.setHours(+ 0.5);
+          newItem.end = new Date(getItemsArray[i].end);
+          newItem.end.setHours(- 1);
+        } 
 
         //weißt dem Termin die Hintergrundfarbe zu
         //entsprechend der Status-Spalte in der Datenbank
