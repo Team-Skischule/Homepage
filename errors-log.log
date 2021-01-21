@@ -1,3 +1,43 @@
 2021-January-14, 8:50: in CreateSkilehrerDbEntry.php: Nachname = Nachname ist erforderlich
 2021-January-14, 8:50: in CreateSkilehrerDbEntry.php: Mobilnummer = Mobilnummer ist erforderlich
 2021-January-14, 8:50: in CreateSkilehrerDbEntry.php: Geburtsdatum = Geburtsdatum ist erforderlich
+2021-January-21, 13:17: in CreateTerminebEntry.php: Incorrect date value: '1610665200000' for column 'datumBeginn' at row 1
+2021-January-21, 13:17: in CreateTerminebEntry.php: Incorrect date value: '1610665200000' for column 'datumBeginn' at row 1
+2021-January-21, 13:17: in CreateTerminebEntry.php: Incorrect date value: '1610751600000' for column 'datumBeginn' at row 1
+2021-January-21, 13:18: in CreateTerminebEntry.php: Incorrect date value: '1610751600000' for column 'datumBeginn' at row 1
+2021-January-21, 13:18: in CreateTerminebEntry.php: Incorrect date value: '1610665200000' for column 'datumBeginn' at row 1
+2021-January-21, 13:27: in CreateTerminebEntry.php: Column 'datumBeginn' cannot be null
+2021-January-21, 13:28: in CreateTerminebEntry.php: Column 'datumBeginn' cannot be null
+2021-January-21, 13:35: in CreateTerminebEntry.php: Incorrect date value: '15.1.2021, 00:00:00' for column 'datumBeginn' at row 1
+2021-January-21, 13:35: in CreateTerminebEntry.php: Incorrect date value: '15.1.2021, 00:00:00' for column 'datumBeginn' at row 1
+2021-January-21, 13:36: in CreateTerminebEntry.php: Incorrect date value: 'Fri Jan 15 2021 00:00:00 GMT+0100 (Mitteleuropäische Normalzeit)' for column 'datumBeginn' at row 1
+2021-January-21, 13:39: in CreateTerminebEntry.php: Incorrect date value: '18.1.2021, 23:32:51' for column 'datumEnde' at row 1
+2021-January-21, 13:39: in CreateTerminebEntry.php: Incorrect date value: '18.1.2021, 23:39:10' for column 'datumEnde' at row 1
+2021-January-21, 13:39: in CreateTerminebEntry.php: 
+2021-January-21, 13:40: in CreateTerminebEntry.php: 
+2021-January-21, 13:40: in CreateTerminebEntry.php: 
+2021-January-21, 13:40: in CreateTerminebEntry.php: 
+2021-January-21, 13:41: in CreateTerminebEntry.php: 
+2021-January-21, 13:42: in CreateTerminebEntry.php: 
+2021-January-21, 13:42: in CreateTerminebEntry.php: 
+2021-January-21, 13:42: in CreateTerminebEntry.php: 
+2021-January-21, 13:44: in CreateTerminebEntry.php: Incorrect date value: '14-1.2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:44: in CreateTerminebEntry.php: Incorrect date value: '15-1.2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:44: in CreateTerminebEntry.php: Incorrect date value: '17-1.2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:44: in CreateTerminebEntry.php: Incorrect date value: '17-1.2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:45: in CreateTerminebEntry.php: Incorrect date value: '14-1-2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:45: in CreateTerminebEntry.php: Incorrect date value: '15-1-2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:46: in CreateTerminebEntry.php: Incorrect date value: '14-1-2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:46: in CreateTerminebEntry.php: Incorrect date value: '15-1-2021' for column 'datumBeginn' at row 1
+2021-January-21, 13:49: in CreateTerminebEntry.php: Incorrect date value: '1610578800000' for column 'datumBeginn' at row 1
+2021-January-21, 13:49: in CreateTerminebEntry.php: Incorrect date value: '1610578800000' for column 'datumBeginn' at row 1
+2021-January-21, 13:55: in CreateTerminebEntry.php: Incorrect date value: 'Thu Jan 14 2021 00:00:00 GMT+0100 (Mitteleuropäische Normalzeit)' for column 'datumBeginn' at row 1
+2021-January-21, 13:55: in CreateTerminebEntry.php: Incorrect date value: 'Sat Jan 16 2021 02:59:49 GMT+0100 (Mitteleuropäische Normalzeit)' for column 'datumBeginn' at row 1
+2021-January-21, 13:56: in CreateTerminebEntry.php: Incorrect date value: 'Thu Jan 14 2021 00:00:00 GMT+0100 (Mitteleuropäische Normalzeit)' for column 'datumBeginn' at row 1
+2021-January-21, 14:09: in CreateTerminebEntry.php: Incorrect date value: 'Fri Jan 15 2021 19:50:31 GMT+0100 (Mitteleuropäische Normalzeit)' for column 'datumEnde' at row 1
+2021-January-21, 14:09: in CreateTerminebEntry.php: Incorrect date value: 'Fri Jan 15 2021 16:09:28 GMT+0100 (Mitteleuropäische Normalzeit)' for column 'datumEnde' at row 1
+2021-January-21, 14:11: in CreateTerminebEntry.php: Incorrect date value: '15-1-2021' for column 'datumEnde' at row 1
+2021-January-21, 14:12: in CreateTerminebEntry.php: 
+2021-January-21, 14:12: in CreateTerminebEntry.php: 
+2021-January-21, 14:12: in CreateTerminebEntry.php: 
+2021-January-21, 14:12: in CreateTerminebEntry.php: 
