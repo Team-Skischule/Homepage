@@ -150,14 +150,67 @@ var Calendar = {
   Item_Resized: function (item, start, end) {
     var foundItem;
 
+    console.log("Item: ");
     console.log(item);
+    console.log("Start: ");
     console.log(start);
+    console.log("End: ");
     console.log(end);
+    console.log("ID: ");
+    console.log(item.id);
+
+    var terminStart = new Date(start);
+    var d = terminStart.getDate();
+    var m = terminStart.getMonth();
+    m +=1;
+    var y = terminStart.getFullYear();
+    terminStart = y + "-" + m + "-" + d;
+
+    var terminEnde = new Date(end);
+    var x = terminEnde.getDate();
+    var h = terminEnde.getMonth();
+    h +=1;
+    var z = terminEnde.getFullYear();
+    terminEnde = z + "-" + h + "-" + x;     
 
     item.start = new Date(start).setHours(+ 0.5);
-    item.end = new Date(end).setHours(- 1);
+    item.end = new Date(end).setHours(+ 23);
 
+    console.log("start: " + terminStart);
+    console.log("end: " + terminEnde);
     
+    function ajaxCall() {
+      console.log("Item");
+      console.log(item.start);
+      $.ajax
+          ({
+            type: "POST",
+            url: "/Homepage/resizeItem.php",
+            data: { 
+                "start": terminStart, 
+                "end": terminEnde, 
+                "id": item.id
+              },
+            success: function (data) {
+            $('.result').html("<div><ol>" + data + "</ol></div>");
+              $('#form')[0].reset();
+              
+            }
+          });
+
+  }
+ajaxCall();
+    
+
+    /* if(Math.abs(start.getTime() - end.getTime()) / 1000 / 3600 < 12)
+    {
+    item.start = new Date(start).setHours(+ 0.5);
+    item.end = new Date(end).setHours(+ 23);
+    }
+    item.start = new Date(start).setHours(+ 0.5);
+    item.end = new Date(end).setHours(- 1); */
+
+
 
     /*  for (var i = 0; i < Calendar.Items.length; i++) {
       foundItem = Calendar.Items[i];
