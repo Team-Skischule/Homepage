@@ -23,12 +23,18 @@
 
     <div class="form-group row">
         <label for="beginn" class="col-sm-4  col-form-label">Beginn*</label>
-        <input type="date" class="form-control col-sm-8" name="beginn" id="beginn" required>
+        <div class="col-sm-8">
+            <input type="date" class="form-control" name="beginn" id="beginn"  required>
+            <div id="livesearch"></div>
+        </div> 
     </div> 
-
+    
     <div class="form-group row">
         <label for="ende" class="col-sm-4  col-form-label">Ende*</label>
-        <input type="date" class="form-control col-sm-8" name="ende" id="ende" required>
+        <div class="col-sm-8">
+            <input type="date" class="form-control" name="ende" id="ende" required>
+            <div id="livesearch"></div>
+        </div>    
     </div>    
 
     <div class="row">
@@ -39,6 +45,7 @@
 <reference path=/Homepage/TimeScheduler-master/js/calendar.js" />
 
 <script>
+    /* mit Klick auf "Speichern"-Button werden die Kalender Items neu geladen */
     document.getElementById("submit_btn").addEventListener("click", reloadCalenderItems);
 
     function reloadCalenderItems() {
