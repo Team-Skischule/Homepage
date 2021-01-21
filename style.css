@@ -139,10 +139,10 @@ h1 {
 }
 
 .calendar .time-sch-section-wrapper .item-status-none {
-  background: var(--form-bg-green);
+  background: rgba(43, 197, 56, 0.7);
 }
 .calendar .time-sch-section-wrapper .item-status-one {
-  background: var(--form-bg-pink);
+  background: rgba(193, 0, 93, 0.7);
 }
 .calendar .time-sch-section-wrapper .item-status-two {
   background: var(--form-bg-blue);
