@@ -102,16 +102,6 @@ var Calendar = {
     callback(Calendar.Items);
   },
 
-  /* --- Open Modal Form onclick event in Table --- */
- /*  Item_Clicked: function (item) {
-    console.log("item:"  + item);
-    var modal = document.getElementById("myModal");
-    
-    modal.style.display = "block";
-    let p = document.querySelector('#myModal');
-    p.childNodes[3].childNodes[3].innerHTML = 'Item: ' + item;
-  }, */
-
   Item_Clicked: function (item) {
     console.log(item);
 
@@ -164,16 +154,22 @@ var Calendar = {
     console.log(start);
     console.log(end);
 
-    for (var i = 0; i < Calendar.Items.length; i++) {
-      foundItem = Calendar.Items[i];
+    item.start = new Date(start).setHours(+ 0.5);
+    item.end = new Date(end).setHours(- 1);
 
+    
+
+    /*  for (var i = 0; i < Calendar.Items.length; i++) {
+      foundItem = Calendar.Items[i];
+console.log(foundItem);
       if (foundItem.id === item.id) {
+        console.log("Item: "+foundItem.id);
         foundItem.start = start;
         foundItem.end = end;
 
         Calendar.Items[i] = foundItem;
       }
-    }
+    } */
 
     TimeScheduler.Init();
   },
@@ -183,10 +179,10 @@ var Calendar = {
 
     html = "<div>";
     html += "   <div>";
-    html += "       Start: " + start.format("DD MMM YYYY");
+    html += "       Start: " + start;//.format("DD MMM YYYY");
     html += "   </div>";
     html += "   <div>";
-    html += "       End: " + end.format("DD MMM YYYY");
+    html += "       End: " + end;//.format("DD MMM YYYY");
     html += "   </div>";
     html += "</div>";
 
@@ -258,6 +254,7 @@ function getItemsTest() {
         //newItem.classes = getItemsArray[i].classes;               
 
         newItem.name = getItemsArray[i].name;
+        newItem.id = getItemsArray[i].id;
 
         //Zuweisung Anfang/Ende Termin
         //wenn Termin nur ein Tag ist, wird dem End-Datum 23 Stunden zugefügt
