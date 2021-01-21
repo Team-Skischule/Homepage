@@ -73,6 +73,8 @@
             crossorigin="anonymous"></script>
         <script src="/Homepage/termine-anlegen-process/skilehrer-live-search.js" 
             crossorigin="anonymous"></script>
+        <script src="/Homepage/termine-anlegen-process/validate-live-date.js" 
+            crossorigin="anonymous"></script>
       
     </body> 
 </html>
