@@ -164,14 +164,26 @@ var Calendar = {
     var m = terminStart.getMonth();
     m +=1;
     var y = terminStart.getFullYear();
-    terminStart = y + "-" + m + "-" + d;
+
+    if(m.length <= 1)
+    {
+      terminStart = y + "-" + "0" + m + "-" + d;
+    } else{
+      terminStart = y + "-" + m + "-" + d;
+    }
 
     var terminEnde = new Date(end);
     var x = terminEnde.getDate();
     var h = terminEnde.getMonth();
     h +=1;
     var z = terminEnde.getFullYear();
-    terminEnde = z + "-" + h + "-" + x;     
+
+    if(h.length <= 1)
+    {
+      terminEnde = z + "-" + "0" + h + "-" + x;     
+    } else{
+      terminEnde = z + "-" + h + "-" + x;     
+    }
 
     item.start = new Date(start).setHours(+ 0.5);
     item.end = new Date(end).setHours(+ 23);
