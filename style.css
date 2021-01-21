@@ -44,7 +44,7 @@ body.home {
 }
 
 body:not(.home) {
-  background-color: #1cb5e0;
+  background: linear-gradient(217deg, #1cb5e0, #000046);
   background-image: url("images/bg-pattern-all-small.svg"),
     linear-gradient(217deg, #1cb5e0, #000046);
 }
@@ -364,7 +364,7 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 320px;
-  background: var(--form-bg-pink);
+  background: var(--form-bg-blue);
   box-shadow: var(--form-box-shadow);
   backdrop-filter: var(--form-backdrop-filter);
   -webkit-backdrop-filter: var(--form-backdrop-filter);
@@ -378,6 +378,10 @@ footer {
   outline-style: solid;
   outline-width: thin;
   padding: 0 4px 1px 4px;
+}
+
+.modalbox form {
+  background: transparent;
 }
 
 /* ------------ Modal PopUp Box Ende ------------ */
