@@ -1,5 +1,6 @@
 /* ----- 
-    Suchfunktion für Skilehrer
+    Suchfunktion für Skilehrer Name. 
+    Ergebnisse werde im Formular angezeigt
 ----- */ 
 
 $(document).ready(function(){
@@ -11,24 +12,18 @@ $(document).ready(function(){
         
         if(inputVal.length){ 
             $.get("/Homepage/termine-anlegen-process/skilehrer-search.php", {term: inputVal}).done(function(data){
-                console.log('data: ' + data);
+
                 // Display the returned data in browser
                 if (data.length > 0) {    
                     obj = $.parseJSON(data);
                     var tempArr = [];
+
                     for (x = 0 ; x < obj.length; x++) {
-                        /* tempArr.push('<p id=\"' + obj[x].skilehrerid + '\" >' + obj[x].name + '</p>');
-                        console.log('<p id=\"' + obj[x].skilehrerid + '\" >' + obj[x].name + '</p>'); */
-
                         tempArr.push('<option id=\"' + obj[x].skilehrerid + '\" >' + obj[x].name + '</option>');
-                        console.log('<option id=\"' + obj[x].skilehrerid + '\" >' + obj[x].name + '</option>');
-
                     }
                 } else {
                    document.getElementsByClassName('skilehrerResult')[0].innerHTML = "<p>Kein Skilehrer mit diesen Anfangsbuchstaben</p>" ;
                 }
-                
-                
                 resultDropdown.html(tempArr);
             });
         } else {
