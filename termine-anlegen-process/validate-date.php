@@ -30,13 +30,13 @@ if(isset($_REQUEST["date"])){
             if(mysqli_num_rows($result) > 0){
                 
              
-                echo "Termin schon besetzt";
+                echo  $param_date . " ist besetzt!";
 
             } else{
-                //echo " Error: Keinen Skilehrer mit diesen Buchstaben";
+                echo "Termin frei";
             }
         } else{
-            //echo "ERROR: Could not be executed $sql. " . mysqli_error($link);
+            echo "ERROR: Could not be executed $sql. " . mysqli_error($link);
         }
     }
      
