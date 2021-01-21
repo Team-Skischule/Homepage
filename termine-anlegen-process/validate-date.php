@@ -1,5 +1,4 @@
 <?php
-
 /* ---
  Betrifft: Termine Anlegen Formular
     Wenn ein Termin ausgewählt im Datumsfeld (Beginn oder Ende) ausgewählt wurde dann
