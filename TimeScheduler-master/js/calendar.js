@@ -165,7 +165,7 @@ var Calendar = {
     m +=1;
     var y = terminStart.getFullYear();
 
-    if(m.length <= 1)
+    if(m < 10)
     {
       terminStart = y + "-" + "0" + m + "-" + d;
     } else{
@@ -178,7 +178,7 @@ var Calendar = {
     h +=1;
     var z = terminEnde.getFullYear();
 
-    if(h.length <= 1)
+    if(h < 10)
     {
       terminEnde = z + "-" + "0" + h + "-" + x;     
     } else{
