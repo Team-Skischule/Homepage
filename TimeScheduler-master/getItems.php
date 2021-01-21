@@ -2,7 +2,7 @@
     include "config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $stmt = $link->prepare("SELECT skilehrerid, concat (kundenname, '<br>', abholort) as name, datumbeginn, datumende, status FROM skischule.termine");
+    $stmt = $link->prepare("SELECT skilehrerid, concat (kundenname, '<br>', abholort) as name, datumbeginn, datumende, status, id FROM skischule.termine");
 
     $stmt->execute();
     $result = $stmt->get_result();
@@ -18,7 +18,8 @@
                                 "name" => $row['name'], 
                                 "classes" => $row['status'], 
                                 "start" => $row['datumbeginn'], 
-                                "end" => $row['datumende']));
+                                "end" => $row['datumende'],
+                                "id" => $row['id']));
     }
 
 

@@ -143,7 +143,9 @@ var TimeScheduler = {
             ItemDropped: null,
 
             // function (item, start, end) { }
-            ItemResized: null,
+            ItemResized: (item, start, end) => {
+                console.log("Resize detected");
+            },
 
             // function (item, start, end) { }
             // Called when any item move event is triggered (draggable.drag, resizable.resize)
@@ -164,10 +166,10 @@ var TimeScheduler = {
         },
 
         // Should dragging be enabled?
-        AllowDragging: false,
+        AllowDragging: true,
 
         // Should resizing be enabled?
-        AllowResizing: false,
+        AllowResizing: true,
 
         // Disable items on moving?
         DisableOnMove: true,
