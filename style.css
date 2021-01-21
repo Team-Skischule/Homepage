@@ -16,6 +16,7 @@
   --form-bg-green: rgba(43, 197, 56, 0.5);
   --form-bg-pink: rgba(193, 0, 93, 0.55);
   --form-bg-blue: rgba(0, 0, 70, 0.70);
+  --bg-white: rgba(255, 255, 255, 0.562);
   --form-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   --form-backdrop-filter: blur(4px);
   --form-border: 1px solid rgba(255, 255, 255, 0.18);
@@ -105,7 +106,7 @@ h1 {
 .calendar {
   border-radius: var(--std-border-radius);
   padding: 2em;
-  background: rgba(255, 255, 255, 0.562);
+  background: var(--bg-white);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -385,6 +386,35 @@ footer {
 }
 
 /* ------------ Modal PopUp Box Ende ------------ */
+
+/* ------------ Skilehrer Termin Übersicht ------------ */
+
+div#terminGrid {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: var(--std-border-radius);
+  padding: 2em;
+  background: var(--bg-white);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: var(--form-border);
+  color: var(--std-dark-blue);
+  font-weight: 500;
+  width: 300px;
+}
+
+#terminGrid section {
+  border: 1px solid;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+
+
 /* ------------ Responsive ------------ */
 
 /* layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
