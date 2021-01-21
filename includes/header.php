@@ -16,6 +16,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: /Homepage/login.php");
   exit;
 }
+$session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
 ?>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
