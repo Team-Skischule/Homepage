@@ -115,6 +115,16 @@ h1 {
   font-weight: 500;
 }
 
+
+.calendar a {
+  color: var(--std-dark-blue);
+  font-weight: 500;
+}
+
+.calendar .time-sch-button {
+  padding: 0 0.5em;
+}
+
 .calendar .time-sch-header-0-date-even {
   background-color: transparent;
 }
@@ -149,10 +159,7 @@ h1 {
   background: var(--form-bg-blue);
 }
 
-
-
 /* --- Kalender Ende---*/
-
 
 /* --- Formular Design ---*/
 
@@ -411,6 +418,11 @@ div#terminGrid {
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 5px;
+}
+
+#terminGrid .divTop p {
+  float: left;
+  width: 50%;
 }
 
 
