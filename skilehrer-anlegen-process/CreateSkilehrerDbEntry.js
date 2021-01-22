@@ -32,9 +32,10 @@ $(document).ready(function () {
       var lastName = $('#formNachname').val();
       var mobile = $('#phone').val();
       var email = $('#formEmail').val();
-      var level = $('#formLevel').val();
-      var canSki = $('#formSki').val();
-      var canSnowboard = $('#formSnowboard').val();
+      var skiLevel = $('#formSkiLevel').val();
+      console.log('skilevel: ' + skiLevel);
+      var snowboardLevel = $('#formSnowboardLevel').val();
+      console.log('snowboardlevel: ' + snowboardLevel);
       var birthDate = $('#formGeburtsdatum').val();
       var comment = $('#formKommentar').val();
       $.ajax
@@ -46,9 +47,8 @@ $(document).ready(function () {
               "lastName": lastName, 
               "mobile": mobile, 
               "email": email, 
-              "level": level, 
-              "canSki": canSki, 
-              "canSnowboard": canSnowboard, 
+              "skiLevel": skiLevel, 
+              "snowboardLevel": snowboardLevel, 
               "birthDate": birthDate, 
               "comment": comment
             },

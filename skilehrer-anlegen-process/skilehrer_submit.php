@@ -12,7 +12,7 @@ $validationFailed = false;
 $errors = array();
 $firstName = $lastName = $mobile = $email = "";
 $birthDate = $levelErr = $comment = "";
-$canSki = $canSnowboard = 0;
+$skiLevel = $snowboardLevel = 0;
 $errorMail = $errorMobile = $message ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -62,16 +62,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $birthDate = test_input($_POST["birthDate"]);
     }
     
-    if (empty($_POST["canSki"])) {
-        $canSki = 0;
+    if (empty($_POST["skiLevel"])) {
+        $skiLevel = 0;
     } else {
-        $canSki = 1;
+        $skiLevel = test_input($_POST["skiLevel"]);
     }
 
-    if (empty($_POST["canSnowboard"])) {
-        $canSnowboard = 0;
+    if (empty($_POST["snowboardLevel"])) {
+        $snowboardLevel = 0;
     } else {
-        $canSnowboard = 1;
+        $snowboardLevel = test_input($_POST["snowboardLevel"]);
     }
 
     if (empty($_POST["comment"])) {
@@ -80,12 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comment = test_input($_POST["comment"]);
     }
 
-    if (empty($_POST["level"])) {
-        $errors["Level"] = "Level ist erforderlich";
-        $validationFailed = true;
-    } else {
-        $level = (int)test_input($_POST["level"]);
-    }
     date_default_timezone_set('Europe/Vienna');
 
     
@@ -131,10 +125,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else {
         //insert into database
                 $stmt = $link->prepare("
-                    INSERT INTO skilehrer (firstName, lastName, mobile, email, level, canSki, canSnowboard, birthDate, comment)
-                    VALUES (?,?,?,?,?,?,?,?,?)");
+                    INSERT INTO skilehrer (firstName, lastName, mobile, email, skiLevel, snowboardLevel, birthDate, comment)
+                    VALUES (?,?,?,?,?,?,?,?)");
 
-                $stmt->bind_param("ssssiiiss", $firstName, $lastName, $mobile, $email, $level, $canSki, $canSnowboard, $birthDate, $comment);
+                $stmt->bind_param("ssssiiss", $firstName, $lastName, $mobile, $email, $skiLevel, $snowboardLevel, $birthDate, $comment);
                 $stmt->execute();
 
                 echo "Skilehrer: ".$firstName." ".$lastName." wurde angelegt";

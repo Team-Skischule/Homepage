@@ -69,29 +69,25 @@
                         <input type="date" class="form-control col-sm-8" name="formGeburtsdatum" id="formGeburtsdatum" required>
                     </div>
                     
-                    <div class="form-group row">
-                        <label for="formLevel" class="col-sm-4 col-form-label">Level* </label>
-                            <select class="form-control col-sm-8" name="formLevel" id="formLevel" placeholder="Bitte wählen">
-                                <option value="1">Level-1</option>
-                                <option value="2">Level-2</option>
-                                <option value="3">Level-3</option>
-                                <option value="4">Level-4</option>
-                                <option value="5">Level-5</option>
+                    <div class="form-group row"> <!-- formLevel umbenannt auf skilevel -->
+                        <label for="formSkiLevel" class="col-sm-4 col-form-label">Ski-Level* </label>
+                            <select class="form-control col-sm-8" name="formSkiLevel" id="formSkiLevel" placeholder="Bitte wählen">
+                                <option value="0">Keine</option>
+                                <option value="1">Anwärter</option>
+                                <option value="2">Landes</option>
+                                <option value="3">Staatlicher</option>
+                                <option value="4">Skiführer</option>
                             </select>
                     </div>
-
                     <div class="form-group row">
-                        <div class="col-sm-4 col-form-label ">Disziplin*</div>
-                        <div class="col-sm-8">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="formSki" id="formSki">
-                                <label class="form-check-label checkbox-label" for="formSki">Ski</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="formSnowboard" id="formSnowboard">
-                                <label class="form-check-label checkbox-label" for="formSnowboard">Snowboard</label>
-                            </div>
-                        </div>
+                        <label for="formSnowboardLevel" class="col-sm-4 col-form-label">Snowboard-Level* </label>
+                            <select class="form-control col-sm-8" name="formSnowboardLevel" id="formSnowboardLevel" placeholder="Bitte wählen">
+                                <option value="0">Keine</option>
+                                <option value="1">Anwärter</option>
+                                <option value="2">Landes</option>
+                                <option value="3">Staatlicher</option>
+                                <option value="4">Snowboardführer</option>
+                            </select>
                     </div>
 
                     <div class="form-group row">
