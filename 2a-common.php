@@ -8,7 +8,7 @@ $dbuser = "gast";
 $dbpass = "gast";
 
 // (B) SETTINGS
-$prvalid = 300; // Password reset is valid for 300 seconds
+$prvalid = 60; // Password reset is valid for 300 seconds //was 300 changed to 60
 
 // (C) CONNECT TO DATABASE
 try {

@@ -31,7 +31,7 @@
 
     // (B3) CHECK PREVIOUS REQUEST (PREVENT SPAM)
     if ($result == "") {
-      $stmt = $pdo->prepare("SELECT * FROM password_reset WHERE skilehrerid = ?");
+      $stmt = $pdo->prepare("SELECT * FROM password_reset WHERE user_id = ?");
       $stmt->execute([$user['id']]);
       $request = $stmt->fetch(PDO::FETCH_ASSOC);
       $now = strtotime("now");
@@ -47,6 +47,8 @@
     if ($result == "") {
       // RANDOM HASH
       $hash = md5($user['email'] . $now);
+      debug_to_console($user['email']);
+      debug_to_console($hash);
       // DATABASE ENTRY
       $stmt = $pdo->prepare("REPLACE INTO password_reset VALUES (?,?,?)");
       $stmt->execute([$user['id'], $hash, date("Y-m-d H:i:s")]);
@@ -55,7 +57,6 @@
       $subject = "Password reset";
       $link = "http://localhost/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
       $message = "<a href='$link'>Click here to reset password</a>";
-      mail($user['email'], $subject, $message);
       if (!@mail($user['email'], $subject, $message)) {
         $result = "Failed to send email!";
       }

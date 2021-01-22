@@ -12,7 +12,7 @@
     require "2a-common.php";
     
     // (B) CHECK IF VALID REQUEST
-    $stmt = $pdo->prepare("SELECT * FROM password_reset WHERE skilehrerid=?");
+    $stmt = $pdo->prepare("SELECT * FROM password_reset WHERE user_id=?");
     $stmt->execute([$_GET['i']]);
     $request = $stmt->fetch(PDO::FETCH_ASSOC);
     if (is_array($request)) {
@@ -30,12 +30,12 @@
     if ($result=="") {
       // RANDOM PASSWORD
       $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-=+?";
-      $password = substr(str_shuffle($chars),0 ,8); // 8 characters
-      
+      //$password = password_hash(substr(str_shuffle($chars),0 ,8), PASSWORD_DEFAULT); // 8 characters
+      $password = substr(str_shuffle($chars),0 ,8);
       // UPDATE DATABASE
       $stmt = $pdo->prepare("UPDATE skilehrer SET password=? WHERE id=?");
       $stmt->execute([$password, $_GET['i']]);
-      $stmt = $pdo->prepare("DELETE FROM password_reset WHERE skilehrerid=?");
+      $stmt = $pdo->prepare("DELETE FROM password_reset WHERE user_id=?");
       $stmt->execute([$_GET['i']]);
       
       // SHOW RESULTS (UPDATED PASSWORD)
