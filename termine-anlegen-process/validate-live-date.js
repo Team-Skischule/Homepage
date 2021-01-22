@@ -15,7 +15,6 @@ $(document).ready(function(){
                 
                 // Display the returned data in browser: Termin besetzt oder noch frei
                 if (data.length > 0) {    
-                    console.log('data 2: ' + data);
                     resultDropdown.html('if: ' + data);
                 } else {
                     resultDropdown.html('else: ' + data);
