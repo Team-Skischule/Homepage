@@ -10,7 +10,13 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     // Prepare a select statement
-    $sql = "SELECT * FROM skischule.termine where skilehrerid = ? order by datumBeginn";
+    // $sql = "SELECT * FROM termine where skilehrerid = ? order by datumBeginn";
+    $sql = 
+        "SELECT termine.id, abholort, kundenname, datumBeginn, datumEnde,  concat(firstName ,' ' ,lastName) as name FROM termine
+        Left Join skilehrer
+        On termine.skilehrerid = skilehrer.id
+        where skilehrerid = ? and datumEnde >= curdate()
+        order by datumBeginn";
 
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -32,7 +38,8 @@
                         "Ende" => $row['datumEnde'],
                         "Kunde" => $row['kundenname'],
                         "Abholort" => $row['abholort'],
-                        "terminId" => $row['id']
+                        "terminId" => $row['id'],
+                        "name" => $row['name']
                     ));
                 }
                 echo json_encode($rowsJson);
