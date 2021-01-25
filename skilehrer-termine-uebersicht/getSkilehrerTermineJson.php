@@ -10,7 +10,6 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     // Prepare a select statement
-    // $sql = "SELECT * FROM termine where skilehrerid = ? order by datumBeginn";
     $sql = 
         "SELECT termine.id, abholort, kundenname, datumBeginn, datumEnde,  concat(firstName ,' ' ,lastName) as name FROM termine
         Left Join skilehrer
