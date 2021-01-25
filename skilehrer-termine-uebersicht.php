@@ -53,7 +53,7 @@ $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
                     // Display the returned data in browser
                     if (data.length > 0) {    
                         const terminTable = document.getElementById('terminGrid'); 
-                        console.log('name: ' + data[0].name);
+
                         let nameElement = document.querySelector('#nameElement');
                         nameElement.innerHTML = data[0].name;
                         
