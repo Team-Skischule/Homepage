@@ -525,13 +525,13 @@ var TimeScheduler = {
         currentTimeElem = TimeScheduler.Options.Element.find('.time-sch-current-time');
         currentTimeElem.remove();
 
-        if (currentTime >= TimeScheduler.Options.Start && currentTime <= end) {
+     /*    if (currentTime >= TimeScheduler.Options.Start && currentTime <= end) {
             currentTimeElem = $(document.createElement('div'))
                 .addClass('time-sch-current-time')
                 .css('left', ((currentDiff / minuteDiff) * 100) + '%')
                 .attr('title', currentTime.format(TimeScheduler.Options.LowerFormat))
                 .appendTo(TimeScheduler.SectionWrap);
-        }
+        } */
 
         // Since we're only comparing minutes, we may as well only check once every 30 seconds
         TimeScheduler.ShowCurrentTimeHandle = setTimeout(TimeScheduler.ShowCurrentTime, 30000);
