@@ -176,6 +176,10 @@ h1 {
   -webkit-backdrop-filter: var(--form-backdrop-filter);
 }
 
+.home form .help-block {
+  color: white;
+}
+
 form {
   position: relative;
   border-radius: var(--std-border-radius);
@@ -346,12 +350,6 @@ form .btn {
 }
 /* ------------ Form Styling Ende ------------ */
 
-/* Clear floats after the columns */
-section:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Style the footer */
 footer {
@@ -415,7 +413,6 @@ div#terminGrid {
 
 #terminGrid section {
   border: 1px solid;
-  padding: 1em;
   margin-bottom: 1em;
   border-radius: 5px;
 }
@@ -423,6 +420,15 @@ div#terminGrid {
 #terminGrid .divTop p {
   float: left;
   width: 50%;
+}
+
+.divTop {
+  background: var(--form-bg-green);
+  height: 3em;
+}
+
+#terminGrid section div  {
+  padding: 1em;
 }
 
 
