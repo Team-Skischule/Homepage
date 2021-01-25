@@ -331,7 +331,7 @@ function getItemsTest() {
           newItem.start = new Date(getItemsArray[i].start);
           newItem.start.setHours(+ 0.5);
           newItem.end = new Date(getItemsArray[i].end);
-          newItem.end.setHours(- 1);
+          //newItem.end.setHours(- 1);
         } 
 
         //weißt dem Termin die Hintergrundfarbe zu
