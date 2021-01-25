@@ -104,7 +104,7 @@ $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
 
                     <div class="form-group row">
                         <label for="formKommentar" class="col-sm-4 col-form-label">Kommentar</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 specialFieldFullWidth">
                             <textarea id="formKommentar" name="formKommentar" class="form-control" rows="3">
                             </textarea>
                         </div>

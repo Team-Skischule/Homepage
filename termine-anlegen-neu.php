@@ -4,7 +4,7 @@
         <div class="result"></div>
         <div class="form-group row search-box">
             <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer* </label>
-            <div class="col-sm-8">
+            <div class="col-sm-8 specialFieldFullWidth">
                 <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
                 <div class="skilehrerResult liveSearchResultStyle"></div>
                 <div id="skilehrerid"></div>
@@ -23,7 +23,7 @@
 
         <div class="form-group row">
             <label for="beginn" class="col-sm-4  col-form-label">Beginn*</label>
-            <div class="col-sm-8">
+            <div class="col-sm-8 specialFieldFullWidth">
                 <input type="date" class="form-control" name="beginn" id="beginn"  required>
                 <div id="livesearch"></div>
             </div> 
@@ -31,7 +31,7 @@
         
         <div class="form-group row">
             <label for="ende" class="col-sm-4  col-form-label">Ende*</label>
-            <div class="col-sm-8">
+            <div class="col-sm-8 specialFieldFullWidth">
                 <input type="date" class="form-control" name="ende" id="ende" required>
                 <div id="livesearch"></div>
             </div>    
