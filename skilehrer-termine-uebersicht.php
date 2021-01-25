@@ -26,13 +26,14 @@ $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
         <div class="container-fluid">
             <div class="row top-row">
                 <div class="col-sm-12">
-                    <h1>Hallo <?php echo $_SESSION['username']; ?></h1>
+                    <h1>Hallo </h1>
+                    <h2 id="nameElement"></h2>
                 </div>
             </div>
             <div class="row ">
                 <div class="col-sm-12">
                     <div id="terminGrid">
-                        Hier kommen die Termine rein
+                       <p>Deine Termine:</p>
                     </div>
                 </div>
             </div>
@@ -44,53 +45,57 @@ $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
         
             /* Get input value on change */
             var inputVal = '<?php echo $session_value;?>';
-            console.log('inputVal: ' + inputVal );
             
             if(inputVal.length){ 
-
+                
                 $.get("/Homepage/skilehrer-termine-uebersicht/getSkilehrerTermineJson.php", {id: inputVal}).done(function(data){
 
                     // Display the returned data in browser
                     if (data.length > 0) {    
                         const terminTable = document.getElementById('terminGrid'); 
+                        console.log('name: ' + data[0].name);
+                        let nameElement = document.querySelector('#nameElement');
+                        nameElement.innerHTML = data[0].name;
                         
-                        console.log(terminTable);
-
                         for (x = 0 ; x < data.length; x++) {
-                            console.log('data.terminId: ' + data[x].terminId)
-
+                            //section
                             var section= document.createElement('section');
                             section.classList.add('terminId_'+ data[x].terminId);
+                            // divTop
+                            var divTop = document.createElement('div');
+                            divTop.classList.add('divTop');
+                            var p1 = document.createElement('p');
+                            var p2 = document.createElement('p');
+                            // Datum
+                            p1.innerHTML = 'Beginn: ' +  data[x].Beginn ;
+                            p2.innerHTML = 'Ende: ' +  data[x].Ende ;
                             
-                            var Beginn = document.createElement('p');
-                            Beginn.innerHTML = 'Termin Beginn: ' +  data[x].Beginn ;
-                            
-                            var Ende = document.createElement('p');
-                            Ende.innerHTML = 'Termin Ende: ' +  data[x].Ende ;
-                            
+                            // divBottom
+                            var divBottom = document.createElement('div');
+                            var Abholort = document.createElement('p');
                             var Kunde = document.createElement('p');
                             Kunde.innerHTML = 'Kunde: ' +  data[x].Kunde ;
-                            
-                            var Abholort = document.createElement('p');
-                            Abholort.innerHTML = 'Kunde: ' +  data[x].Abholort ;
-                            
+                            Abholort.innerHTML = 'Abholort: ' +  data[x].Abholort ;
+
                             // Reihenfolge in terminGrid Div
-                            section.appendChild(Beginn);
-                            section.appendChild(Ende);
-                            section.appendChild(Kunde);
-                            section.appendChild(Abholort);
-                            terminTable.appendChild(section);
-                            
+                            let gridElement = document.getElementById('terminGrid');
+                            gridElement.appendChild(section);
+                            section.appendChild(divTop);
+                            section.appendChild(divBottom);
+                            divTop.appendChild(p1);
+                            divTop.appendChild(p2);
+                            divBottom.appendChild(Kunde);
+                            divBottom.appendChild(Abholort);
                         }
                     } else {
                         console.log('Data hat länge von 0');
                     }
-                    console.log('Keine ');
                 });
             } else {
                 console.log('user id nicht gefunden: ' + inputVal);
             }
         });
+
       </script>
     </body> 
 </html>
