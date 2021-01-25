@@ -1,4 +1,16 @@
+<?php
+session_start();
 
+/* echo "<h3> PHP List All Session Variables</h3>";
+foreach ($_SESSION as $key => $val)
+  echo $key . " " . $val . "<br/>"; */
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+  header("location: /Homepage/login.php");
+  exit;
+}
+$session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
+?>
 
 <!DOCTYPE html>
 <html lang="de">
@@ -17,7 +29,7 @@
         <div class="row top-row">
             <div class="col-sm-3">
                 <div class="btn btn-mitarbeiter">
-                    <a class="nav-link" href="/Homepage/TimeScheduler-master/calendar.php">
+                    <a class="nav-link" href="/Homepage/TimeScheduler-master/Calendar.php">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                     </a>
                 </div>

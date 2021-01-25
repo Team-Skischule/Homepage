@@ -9,7 +9,7 @@ include "../config.php";
 
 if(isset($_REQUEST["date"])){
     // Prepare a select statement
-     $sql = "SELECT kundenname, abholort FROM skischule.termine WHERE skilehrerid=? AND ? between datumBeginn AND datumEnde";
+     $sql = "SELECT kundenname, abholort FROM termine WHERE skilehrerid=? AND ? between datumBeginn AND datumEnde";
     
    
     if($stmt = mysqli_prepare($link, $sql)){

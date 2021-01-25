@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Set parameters
             $param_username = $username;
-            echo($username);
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Store result
@@ -54,14 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if ($password == $hashed_password) {
                             // Password is correct, so start a new session
                             session_start();
-
+                            
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: /Homepage/TimeScheduler-master/calendar.php");
+                            header("location: /Homepage/TimeScheduler-master/Calendar.php");
+                            
 
                             /* redirects according to the id of the user
                             if($_SESSION["id"] == 1)

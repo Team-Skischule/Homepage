@@ -45,8 +45,8 @@
 
     // (B4) CHECKS OK - CREATE NEW RESET REQUEST
     if ($result == "") {
-      // RANDOM HASH
-      $hash = md5($user['email'] . $now);
+      // RANDOM HASH md5 entfernt ersetzen durch hash_funktion
+      $hash = $user['email'] . $now;
       debug_to_console($user['email']);
       debug_to_console($hash);
       // DATABASE ENTRY

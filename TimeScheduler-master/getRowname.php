@@ -1,8 +1,8 @@
 <?php
-    include "config.php";
+    include "../config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $stmt = $link->prepare("SELECT id, concat(firstname,' ', lastname) as fullname FROM skischule.skilehrer");
+    $stmt = $link->prepare("SELECT id, concat(firstname,' ', lastname) as fullname FROM skilehrer");
 
     $stmt->execute();
     $result = $stmt->get_result();

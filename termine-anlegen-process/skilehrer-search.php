@@ -7,7 +7,7 @@ include "../config.php";
  
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
-    $sql = "SELECT firstName, lastName, id  FROM skischule.skilehrer WHERE lastName LIKE ?";
+    $sql = "SELECT firstName, lastName, id  FROM skilehrer WHERE lastName LIKE ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters

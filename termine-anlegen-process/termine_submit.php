@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         //insert into database
         $stmt = $link->prepare("
-            INSERT INTO skischule.termine (skilehrerid, abholort, kundenname, datumBeginn, datumEnde)
+            INSERT INTO termine (skilehrerid, abholort, kundenname, datumBeginn, datumEnde)
             VALUES (?,?,?,?,?)");
 
         $stmt->bind_param("issss", $skilehrerid, $abholort, $kundenname, $datumBeginn, $datumEnde);

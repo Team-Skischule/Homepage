@@ -203,11 +203,7 @@ var Calendar = {
                 "end": terminEnde, 
                 "id": item.id
               },
-            success: function (data) {
-            $('.result').html("<div><ol>" + data + "</ol></div>");
-              $('#form')[0].reset();
-              
-            }
+            
           });
 
   }
@@ -288,7 +284,7 @@ function getRowname() {
       TimeScheduler.Init(true);
     }
   };
-  xmlhttp.open("GET", "getRowname.php", true);
+  xmlhttp.open("GET", "/Homepage/TimeScheduler-master/getRowname.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send();
 }
@@ -364,7 +360,7 @@ function getItemsTest() {
       TimeScheduler.Init(true);
     }
   };
-  xmlhttp.open("GET", "getItems.php", true);
+  xmlhttp.open("GET", "/Homepage/TimeScheduler-master/getItems.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send();
 }
