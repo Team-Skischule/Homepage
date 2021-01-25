@@ -48,11 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $validationFailed = true;
     } else {
         $mobile = test_input($_POST["mobile"]);
-        // check if mobile number is valid
-        if (!preg_match("/\+[0-9]{10}+/s", $mobile)) {
-            $errors["Mobilnummer"] = "Ungültige Mobilnummer";
-            $validationFailed = true;
-        }
     }
 
     if (empty($_POST["birthDate"])) {

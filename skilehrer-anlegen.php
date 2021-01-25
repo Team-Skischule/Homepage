@@ -68,7 +68,7 @@ $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
                     
                     <div class="form-group row">
                         <label for="formMobil" class="col-sm-4 col-form-label">Telefon*</label> 
-                        <input type="tel" name="phone" id="phone" class="form-control col-sm-8"  placeholder="+1234567890" required>
+                        <input type="tel" name="phone" id="phone" class="form-control col-sm-8"  placeholder="+1234567890" minlength="5" required>
                     </div>
                     
                     <div class="form-group row">
