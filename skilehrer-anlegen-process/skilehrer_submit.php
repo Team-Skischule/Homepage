@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $msg =  $x . " = " . $value;
             echo ("");
             echo nl2br ($msg."\n");
-            error_log(date("Y-F-j, G:i").": in CreateSkilehrerDbEntry.php: ".$msg."\n", 3,  "errors-log.log"); 
+            error_log(date("Y-F-j, G:i").": in CreateSkilehrerDbEntry.php: ".$msg."\n", 3,  "/Homepage/errors-log.log"); 
         }
     } // Validation OK
     else {
