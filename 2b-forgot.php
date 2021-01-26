@@ -55,7 +55,7 @@
     if ($result == "") {
       $result = "Email has been sent - Please click on the link in the email to confirm.";
     }
-    echo "<div>$result</div>";
+    // echo "<div>$result</div>";
   }
   function debug_to_console($data)
   {
@@ -80,11 +80,11 @@
 <body class="home sessionForm">
   <!-- (A) PASSWORD RESET FORM -->
   <div class="form-container">
+        <span class="help-block"><?php echo $result; ?></span>
     <form method="post" target="_self">
       <div class="form-group">
         <label for="email" class="col-sm-4 col-form-label">E&#8209;Mail:</label>
         <input type="email" name="email" required class="form-control col-sm-8" placeholder="skilehrer@arlberg.at"></input>
-        <span class="help-block"><?php echo $result; ?></span>
       </div>
       <div class="row">
         <input type="submit"  class="btn btn-primary" value="Passwort zurücksetzen" />
