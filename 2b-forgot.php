@@ -44,7 +44,7 @@
       // SEND EMAIL
       $subject = "Password reset";
       //$link = "https://projektskischule.000webhostapp.com/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
-      $link = "https://projektskischule.000webhostapp.com/Homepage/reset-password.php?id=" . $user['id'] . "&h=" . $hash . "&e=" . $user['email'];
+      $link = "https://localhost/Homepage/2c-reset.php?id=" . $user['id'] . "&h=" . $hash . "&e=" . $user['email'];
       $message = "<a href='$link'>Click here to reset password</a>";
       if (!@mail($user['email'], $subject, $message)) {
         $result = "Failed to send email!";
