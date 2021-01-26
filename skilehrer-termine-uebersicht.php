@@ -5,7 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: /Homepage/login.php");
   exit;
 }
-$session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
+$session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
 ?>
 <!DOCTYPE html>
 

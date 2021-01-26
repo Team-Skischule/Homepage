@@ -45,8 +45,8 @@
 
     // (B4) CHECKS OK - CREATE NEW RESET REQUEST
     if ($result == "") {
-      // RANDOM HASH md5 entfernt ersetzen durch hash_funktion
-      $hash = $user['email'] . $now;
+      // RANDOM HASH
+      $hash = md5($user['email'] . $now);
       debug_to_console($user['email']);
       debug_to_console($hash);
       // DATABASE ENTRY
@@ -55,7 +55,8 @@
 
       // SEND EMAIL
       $subject = "Password reset";
-      $link = "http://localhost/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
+      //$link = "https://projektskischule.000webhostapp.com/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
+      $link = "https://projektskischule.000webhostapp.com/Homepage/reset-password.php?id=" . $user['id'] . "&h=" . $hash . "&e=" . $user['email'];
       $message = "<a href='$link'>Click here to reset password</a>";
       if (!@mail($user['email'], $subject, $message)) {
         $result = "Failed to send email!";
