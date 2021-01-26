@@ -357,6 +357,28 @@ form .btn {
   margin: 0.75em auto;
   font-size: 0.75em;
 }
+
+
+/* --- session Forms --- */
+.sessionForm .form-control {
+  width: auto;
+}
+
+.sessionForm .form-group {
+  position: relative;
+  margin-bottom: 1em;
+  display: flex;
+}
+
+.sessionForm .row {
+  position: relative;
+}
+
+.sessionForm label.col-sm-4.col-form-label {
+  padding-bottom: 7px;
+}
+
+
 /* ------------ Form Styling Ende ------------ */
 
 

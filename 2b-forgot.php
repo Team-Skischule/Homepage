@@ -2,18 +2,28 @@
 <html>
 
 <head>
-  <title>
-    Password Reset Request Demo
-  </title>
+  <title>Password Reset Request</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="Description" content="Login Seite für die Verwaltungssoftware der Skischule Arlberg.">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css"> 
 </head>
 
-<body>
+<body class="home sessionForm">
   <!-- (A) PASSWORD RESET FORM -->
-  <form method="post" target="_self">
-    Email:
-    <input type="email" name="email" required value="john@doe.com" />
-    <input type="submit" value="Reset Password" />
-  </form>
+  <div class="form-container">
+    <form method="post" target="_self">
+      <div class="form-group">
+        <label for="email" class="col-sm-4 col-form-label">E&#8209;Mail:</label>
+        <input type="email" name="email" required class="form-control col-sm-8" placeholder="skilehrer@arlberg.at"></input>
+      </div>
+      <div class="row">
+        <input type="submit"  class="btn btn-primary" value="Passwort zurücksetzen" />
+      </div>
+    </form>
+  </div>
 
   <!-- (B) PROCESS PASSWORD RESET REQUEST -->
   <?php
@@ -78,6 +88,7 @@
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
   }
   ?>
+
 </body>
 
 </html>
