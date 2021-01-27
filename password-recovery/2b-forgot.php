@@ -43,6 +43,7 @@
 
       // SEND EMAIL
       $subject = "Password reset";
+      // TODO variablen senden sicherer machen entweder hash anstatt email senden und über hash in der datenbank die email holen oder per POST daten schicken
       //$link = "https://projektskischule.000webhostapp.com/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
       //$link = "https://projektskischule.000webhostapp.com/Homepage/2c-reset.php?id=" . $user['id'] . "&h=" . $hash . "&e=" . $user['email'];
       $link = "https://projektskischule.000webhostapp.com/Homepage/password-recovery/reset-password.php?e=" . $_POST['email'];
