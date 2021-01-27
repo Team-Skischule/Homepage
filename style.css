@@ -101,6 +101,12 @@ h1 {
   padding-right: 0;
 }
 
+.btn.btn-logout.btn-logout-skilehrer {
+  position: absolute;
+  top: 0em;
+  right: 2em;
+}
+
 /* --- Calendar Design ---*/
 
 .calendar {
