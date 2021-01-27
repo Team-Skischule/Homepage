@@ -1,12 +1,12 @@
 <?php
-        //include '/Homepage/includes/header.php';
+//include '/Homepage/includes/header.php';
 
 
 // Include config file
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$username = $password = "";
+$username = $password = $permission = "";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare a select statement
         /*         $sql = "SELECT id, username, password FROM users WHERE username = ?";
  */
-        $sql = "SELECT id, email, password FROM skilehrer WHERE email = ?";
+        $sql = "SELECT id, email, password, permission FROM skilehrer WHERE email = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -47,21 +47,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if username exists, if yes then verify password
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $permission);
                     if (mysqli_stmt_fetch($stmt)) {
                         //if (password_verify($password, $hashed_password)){
                         if ($password == $hashed_password) {
                             // Password is correct, so start a new session
                             session_start();
-                            
+
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $username;
+                            $_SESSION["permission"] = $permission;
 
-                            // Redirect user to welcome page
-                            header("location: /Homepage/TimeScheduler-master/Calendar.php");
-                            
+
+                            if ($permission == 0) {
+                                // Redirect user to welcome page
+                                header("location: /Homepage/TimeScheduler-master/Calendar.php");
+                            } else {
+                                header("location: /Homepage/skilehrer-termine-uebersicht.php");
+                            }
 
                             /* redirects according to the id of the user
                             if($_SESSION["id"] == 1)
@@ -105,35 +110,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="Description" content="Login Seite für die Verwaltungssoftware der Skischule Arlberg.">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="home">
     <div class="form-container">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h1>Skischule Arlberg</h2>
-            <p>Meldet euch an.</p>
-            <img src="images/ski.svg" alt="Avatar Image">  
-            
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-               <!--  <label>Username/Email</label> -->
-                <input type="text" name="email" class="form-control" value="<?php echo $username; ?>" placeholder="skilehrer@arlberg.at">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
+                <p>Meldet euch an.</p>
+                <img src="images/ski.svg" alt="Avatar Image">
 
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <!-- <label>Password</label> -->
-                <input type="password" name="password" class="form-control" placeholder="Passwort eingeben">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
+                <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                    <!--  <label>Username/Email</label> -->
+                    <input type="text" name="email" class="form-control" value="<?php echo $username; ?>" placeholder="skilehrer@arlberg.at">
+                    <span class="help-block"><?php echo $username_err; ?></span>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Anmelden">
-                <input type="button" class="btn btn-secondary" value="Passwort vergessen?" onclick="location.href='/Homepage/2b-forgot.php';">
+                <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                    <!-- <label>Password</label> -->
+                    <input type="password" name="password" class="form-control" placeholder="Passwort eingeben">
+                    <span class="help-block"><?php echo $password_err; ?></span>
+                </div>
 
-            </div>
-<!--             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
- -->    </form>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Anmelden">
+                    <input type="button" class="btn btn-secondary" value="Passwort vergessen?" onclick="location.href='/Homepage/2b-forgot.php';">
+
+                </div>
+                <!--             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+ -->
+        </form>
     </div>
     <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
 </body>
