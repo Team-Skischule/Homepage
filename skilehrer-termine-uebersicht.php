@@ -65,50 +65,55 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                     nameElement.innerHTML = data[0].name;
                     
                     for (x = 0 ; x < data.length; x++) {
-                        //section
-                        var section= document.createElement('section');
-                        section.classList.add('terminId_'+ data[x].terminId);
-                        // divTop
-                        var divTop = document.createElement('div');
-                        divTop.classList.add('divTop');
-                        var p1 = document.createElement('p');
-                        var p2 = document.createElement('p');
-                        // Datum
-                        p1.innerHTML = 'Beginn: ' +  data[x].Beginn ;
-                        p2.innerHTML = 'Ende: ' +  data[x].Ende ;
-                        
-                        // divBottom
-                        var divBottom = document.createElement('div');
-                        var Abholort = document.createElement('p');
-                        var Kunde = document.createElement('p');
-                        var crossP = document.createElement('p');
-                        crossP.classList.add('crossP')
-                        var questionP = document.createElement('p');
-                        questionP.classList.add('questionP')
-
-                        crossP.innerHTML = '&#10060;';
-                        questionP.innerHTML = '&#10067;';
-                        Kunde.innerHTML = 'Kunde: ' +  data[x].Kunde ;
-                        Abholort.innerHTML = 'Abholort: ' +  data[x].Abholort ;
-
-                        // Reihenfolge in terminGrid Div
-                        let gridElement = document.getElementById('terminGrid');
-                        gridElement.appendChild(section);
-                        section.appendChild(divTop);
-                        section.appendChild(divBottom);
-                        divTop.appendChild(p1);
-                        divTop.appendChild(p2);
-                        divBottom.appendChild(Kunde);
-                        divBottom.appendChild(Abholort);
-                        divBottom.appendChild(crossP);
-                        divBottom.appendChild(questionP);
-
+                        createAndFillSection(data);
                     }
                 });
             } else {
                 console.log('user id nicht gefunden: ' + inputVal);
             }
         });
+
+
+
+        function createAndFillSection(data) {
+             //section
+             var section= document.createElement('section');
+            section.classList.add('terminId_'+ data[x].terminId);
+            // divTop
+            var divTop = document.createElement('div');
+            divTop.classList.add('divTop');
+            var p1 = document.createElement('p');
+            var p2 = document.createElement('p');
+            // Datum
+            p1.innerHTML = 'Beginn: ' +  data[x].Beginn ;
+            p2.innerHTML = 'Ende: ' +  data[x].Ende ;
+            
+            // divBottom
+            var divBottom = document.createElement('div');
+            var Abholort = document.createElement('p');
+            var Kunde = document.createElement('p');
+            var crossP = document.createElement('p');
+            crossP.classList.add('crossP')
+            var questionP = document.createElement('p');
+            questionP.classList.add('questionP')
+
+            crossP.innerHTML = '&#10060;';
+            questionP.innerHTML = '&#10067;';
+            Kunde.innerHTML = 'Kunde: ' +  data[x].Kunde ;
+            Abholort.innerHTML = 'Abholort: ' +  data[x].Abholort ;
+
+            // Reihenfolge in terminGrid Div
+            let gridElement = document.getElementById('terminGrid');
+            gridElement.appendChild(section);
+            section.appendChild(divTop);
+            section.appendChild(divBottom);
+            divTop.appendChild(p1);
+            divTop.appendChild(p2);
+            divBottom.appendChild(Kunde);
+            divBottom.appendChild(Abholort);
+            divBottom.appendChild(crossP);
+            divBottom.appendChild(questionP);
+        }
 
       </script>
     </body> 
