@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Anmelden">
-                    <input type="button" class="btn btn-secondary" value="Passwort vergessen?" onclick="location.href='/Homepage/2b-forgot.php';">
+                    <input type="button" class="btn btn-secondary" value="Passwort vergessen?" onclick="location.href='/Homepage/password-recovery/2b-forgot.php';">
 
                 </div>            
         </form>

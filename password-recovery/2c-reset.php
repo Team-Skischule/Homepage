@@ -51,7 +51,7 @@
   
   // (F) OUTPUT RESULTS
   //echo "<div>$result</div>";
-  header("location: https://projektskischule.000webhostapp.com/Homepage/reset-password.php?e=" .$_GET["e"]);
+  header("location: https://projektskischule.000webhostapp.com/Homepage/password-recovery/reset-password.php?e=" .$_GET["e"]);
   //header("location: https://projektskischule.000webhostapp.com/Homepage/login.php");
   ?></body>
 </html>

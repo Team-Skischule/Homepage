@@ -45,7 +45,7 @@
       $subject = "Password reset";
       //$link = "https://projektskischule.000webhostapp.com/Homepage/2c-reset.php?i=" . $user['id'] . "&h=" . $hash;
       //$link = "https://projektskischule.000webhostapp.com/Homepage/2c-reset.php?id=" . $user['id'] . "&h=" . $hash . "&e=" . $user['email'];
-      $link = "https://projektskischule.000webhostapp.com/Homepage/reset-password.php?e=" . $_POST['email'];
+      $link = "https://projektskischule.000webhostapp.com/Homepage/password-recovery/reset-password.php?e=" . $_POST['email'];
       $message = "<a href='$link'>Click here to reset password</a>";
       if (!@mail($user['email'], $subject, $message)) {
         $result = "Failed to send email!";
@@ -75,7 +75,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="Description" content="Login Seite für die Verwaltungssoftware der Skischule Arlberg.">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="/Homepage/style.css"> 
 </head>
 
 <body class="home sessionForm">
