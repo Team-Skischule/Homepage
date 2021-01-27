@@ -1,7 +1,4 @@
 <?php
-//include '/Homepage/includes/header.php';
-
-
 // Include config file
 require_once "config.php";
 
@@ -29,8 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($username_err) && empty($password_err)) {
         // Prepare a select statement
-        /*         $sql = "SELECT id, username, password FROM users WHERE username = ?";
- */
         $sql = "SELECT id, email, password, permission FROM skilehrer WHERE email = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
@@ -60,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["email"] = $username;
                             $_SESSION["permission"] = $permission;
 
-
+                            // leitet den Nutzer je nach seiner permission auf die entsprechende Seite
                             if ($permission == 0) {
                                 // Redirect user to welcome page
                                 header("location: /Homepage/TimeScheduler-master/Calendar.php");
@@ -68,16 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 header("location: /Homepage/skilehrer-termine-uebersicht.php");
                             }
 
-                            /* redirects according to the id of the user
-                            if($_SESSION["id"] == 1)
-                            {
-                                header("location: https://www.orf.at/");
-
-                            }else{
-                                header("location: https://www.vol.at/");
-
-                            }
-                            */
                         } else {
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -136,9 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="submit" class="btn btn-primary" value="Anmelden">
                     <input type="button" class="btn btn-secondary" value="Passwort vergessen?" onclick="location.href='/Homepage/2b-forgot.php';">
 
-                </div>
-                <!--             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
- -->
+                </div>            
         </form>
     </div>
     <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
