@@ -5,6 +5,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: /Homepage/login.php");
   exit;
 }
+if ($_SESSION["permission"] == 0){
+    header("location: /Homepage/TimeScheduler-master/Calendar.php");
+}
 $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
 ?>
 <!DOCTYPE html>

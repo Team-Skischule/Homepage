@@ -120,8 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else {
         //insert into database
                 $stmt = $link->prepare("
-                    INSERT INTO skilehrer (firstName, lastName, mobile, email, skiLevel, snowboardLevel, birthDate, comment)
-                    VALUES (?,?,?,?,?,?,?,?)");
+                    INSERT INTO skilehrer (firstName, lastName, mobile, email, skiLevel, snowboardLevel, birthDate, comment, permission)
+                    VALUES (?,?,?,?,?,?,?,?,1)");
 
                 $stmt->bind_param("ssssiiss", $firstName, $lastName, $mobile, $email, $skiLevel, $snowboardLevel, $birthDate, $comment);
                 $stmt->execute();

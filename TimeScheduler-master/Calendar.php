@@ -9,6 +9,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: /Homepage/login.php");
   exit;
 }
+if ($_SESSION["permission"] == 1){
+    header("location: /Homepage/skilehrer-termine-uebersicht.php");
+}
 $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
 ?>
 <!DOCTYPE html>
