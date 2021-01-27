@@ -32,6 +32,13 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                     <h1>Hallo </h1>
                     <h2 id="nameElement"></h2>
                 </div>
+                <div class="col-sm-3">
+                    <div class="btn btn-logout btn-logout-skilehrer">
+                        <a class="nav-link" href="/Homepage/logout.php">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="row ">
                 <div class="col-sm-12">
