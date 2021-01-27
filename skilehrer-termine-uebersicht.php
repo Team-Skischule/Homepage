@@ -43,11 +43,19 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                     <div id="terminGrid">
                        <p>Deine Termine:</p>
                     </div>
+                    <div id="myModal" class="modalbox">
+                        <!-- Modal content -->
+                        <div class="modalbox-content">
+                            <span class="close">&times;</span>
+                            <p>insert text here</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
       <script>
+          var x = "";
         $(document).ready(function(){
             var obj;
         
@@ -67,18 +75,57 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                     for (x = 0 ; x < data.length; x++) {
                         createAndFillSection(data);
                     }
+
+                    document.addEventListener('click', function(e) {
+                        let targetElement = e.target;
+                        let classOfIcon = targetElement.classList.value;
+                        let terminID = targetElement.parentNode.parentElement.classList.value
+
+                        if(classOfIcon == 'crossP') {
+                            openModal(classOfIcon);
+                        }
+                        if(classOfIcon == 'questionP') {
+                            openModal(classOfIcon);
+                        }
+                    });
                 });
             } else {
                 console.log('user id nicht gefunden: ' + inputVal);
             }
         });
 
+        function openModal(classOfIcon) {
+            var modal = document.getElementById("myModal");
+    
+            modal.style.display = "block";
+            let p = document.querySelector('#myModal');
+
+            if(classOfIcon == 'crossP') {
+                alert('crossP: ins Modal text und Button einfügen');
+            }
+            if(classOfIcon == 'questionP') {
+                console.log('questionP: ins Modal text und Button einfügen');
+            }
+            /* p.childNodes[3].childNodes[3].innerHTML = 
+            'Item: ' + item.name + 
+            ' <br>Start: ' + item.start + 
+            ' <br>Ende: ' + item.end; */
+
+             // Get the <span> element that closes the modal
+             var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            } 
+        }
 
 
+       
         function createAndFillSection(data) {
              //section
              var section= document.createElement('section');
-            section.classList.add('terminId_'+ data[x].terminId);
+            section.classList.add(data[x].terminId);
             // divTop
             var divTop = document.createElement('div');
             divTop.classList.add('divTop');
