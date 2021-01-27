@@ -82,10 +82,10 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                         let terminID = targetElement.parentNode.parentElement.classList.value
 
                         if(classOfIcon == 'crossP') {
-                            openModal(classOfIcon);
+                            openModal(classOfIcon, terminID);
                         }
                         if(classOfIcon == 'questionP') {
-                            openModal(classOfIcon);
+                            openModal(classOfIcon, terminID);
                         }
                     });
                 });
@@ -94,22 +94,20 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             }
         });
 
-        function openModal(classOfIcon) {
+        function openModal(classOfIcon, terminID) {
             var modal = document.getElementById("myModal");
     
             modal.style.display = "block";
             let p = document.querySelector('#myModal');
 
             if(classOfIcon == 'crossP') {
-                alert('crossP: ins Modal text und Button einfügen');
+                console.log('crossP: ins Modal text und Button einfügen' + terminID);
             }
             if(classOfIcon == 'questionP') {
-                console.log('questionP: ins Modal text und Button einfügen');
+                console.log('questionP: ins Modal text und Button einfügen: ' + terminID);
             }
-            /* p.childNodes[3].childNodes[3].innerHTML = 
-            'Item: ' + item.name + 
-            ' <br>Start: ' + item.start + 
-            ' <br>Ende: ' + item.end; */
+            p.childNodes[3].childNodes[3].innerHTML = 
+            'terminID: ' + terminID + ' nach Klick auf icon: ' + classOfIcon;
 
              // Get the <span> element that closes the modal
              var span = document.getElementsByClassName("close")[0];
