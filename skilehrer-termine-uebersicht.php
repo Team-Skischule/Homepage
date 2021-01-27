@@ -31,8 +31,6 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                 <div class="col-sm-12">
                     <h1>Hallo </h1>
                     <h2 id="nameElement"></h2>
-                </div>
-                <div class="col-sm-3">
                     <div class="btn btn-logout btn-logout-skilehrer">
                         <a class="nav-link" href="/Homepage/logout.php">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -61,44 +59,50 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                 $.get("/Homepage/skilehrer-termine-uebersicht/getSkilehrerTermineJson.php", {id: inputVal}).done(function(data){
 
                     // Display the returned data in browser
-                    if (data.length > 0) {    
-                        const terminTable = document.getElementById('terminGrid'); 
+                    const terminTable = document.getElementById('terminGrid'); 
 
-                        let nameElement = document.querySelector('#nameElement');
-                        nameElement.innerHTML = data[0].name;
+                    let nameElement = document.querySelector('#nameElement');
+                    nameElement.innerHTML = data[0].name;
+                    
+                    for (x = 0 ; x < data.length; x++) {
+                        //section
+                        var section= document.createElement('section');
+                        section.classList.add('terminId_'+ data[x].terminId);
+                        // divTop
+                        var divTop = document.createElement('div');
+                        divTop.classList.add('divTop');
+                        var p1 = document.createElement('p');
+                        var p2 = document.createElement('p');
+                        // Datum
+                        p1.innerHTML = 'Beginn: ' +  data[x].Beginn ;
+                        p2.innerHTML = 'Ende: ' +  data[x].Ende ;
                         
-                        for (x = 0 ; x < data.length; x++) {
-                            //section
-                            var section= document.createElement('section');
-                            section.classList.add('terminId_'+ data[x].terminId);
-                            // divTop
-                            var divTop = document.createElement('div');
-                            divTop.classList.add('divTop');
-                            var p1 = document.createElement('p');
-                            var p2 = document.createElement('p');
-                            // Datum
-                            p1.innerHTML = 'Beginn: ' +  data[x].Beginn ;
-                            p2.innerHTML = 'Ende: ' +  data[x].Ende ;
-                            
-                            // divBottom
-                            var divBottom = document.createElement('div');
-                            var Abholort = document.createElement('p');
-                            var Kunde = document.createElement('p');
-                            Kunde.innerHTML = 'Kunde: ' +  data[x].Kunde ;
-                            Abholort.innerHTML = 'Abholort: ' +  data[x].Abholort ;
+                        // divBottom
+                        var divBottom = document.createElement('div');
+                        var Abholort = document.createElement('p');
+                        var Kunde = document.createElement('p');
+                        var crossP = document.createElement('p');
+                        crossP.classList.add('crossP')
+                        var questionP = document.createElement('p');
+                        questionP.classList.add('questionP')
 
-                            // Reihenfolge in terminGrid Div
-                            let gridElement = document.getElementById('terminGrid');
-                            gridElement.appendChild(section);
-                            section.appendChild(divTop);
-                            section.appendChild(divBottom);
-                            divTop.appendChild(p1);
-                            divTop.appendChild(p2);
-                            divBottom.appendChild(Kunde);
-                            divBottom.appendChild(Abholort);
-                        }
-                    } else {
-                        console.log('Data hat länge von 0');
+                        crossP.innerHTML = '&#10060;';
+                        questionP.innerHTML = '&#10067;';
+                        Kunde.innerHTML = 'Kunde: ' +  data[x].Kunde ;
+                        Abholort.innerHTML = 'Abholort: ' +  data[x].Abholort ;
+
+                        // Reihenfolge in terminGrid Div
+                        let gridElement = document.getElementById('terminGrid');
+                        gridElement.appendChild(section);
+                        section.appendChild(divTop);
+                        section.appendChild(divBottom);
+                        divTop.appendChild(p1);
+                        divTop.appendChild(p2);
+                        divBottom.appendChild(Kunde);
+                        divBottom.appendChild(Abholort);
+                        divBottom.appendChild(crossP);
+                        divBottom.appendChild(questionP);
+
                     }
                 });
             } else {
