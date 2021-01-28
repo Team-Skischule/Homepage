@@ -78,6 +78,9 @@ var Calendar = {
     TimeScheduler.Options.AllowResizing = true;
 
     TimeScheduler.Options.Events.ItemClicked = Calendar.Item_Clicked;
+    //DoubleClick    
+    TimeScheduler.Options.Events.ItemDoubleClick = Calendar.Item_DoubleClick;
+
     TimeScheduler.Options.Events.ItemDropped = Calendar.Item_Dragged;
     TimeScheduler.Options.Events.ItemResized = Calendar.Item_Resized;
 
@@ -122,6 +125,27 @@ var Calendar = {
       modal.style.display = "none";
     } */
 
+  },
+
+  Item_DoubleClick: function (item) {
+    console.log("Test Doppelklick");
+
+    var modal = document.getElementById("myModal");
+    
+    modal.style.display = "block";
+    let p = document.querySelector('#myModal');
+    p.childNodes[3].childNodes[3].innerHTML = 
+      'Item: ' + item.name + 
+      ' <br>Start: ' + item.start + 
+      ' <br>Ende: ' + item.end;
+  
+      // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
   },
 
   Item_Dragged: function (item, sectionID, start, end) {
