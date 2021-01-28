@@ -11,7 +11,7 @@
     $stmt->bind_param("ssi", $start, $end, $id);
     $stmt->execute();
     echo $stmt->error;
-    echo "Termin für wurde angelegt";
+    echo "Termin wurde angepasst";
     error_log(date("Y-F-j, G:i").": in CreateTerminebEntry.php: ".$stmt->error."\n", 3,  "errors-log.log");
         
     $stmt->close();

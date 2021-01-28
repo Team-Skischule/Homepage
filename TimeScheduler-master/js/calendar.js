@@ -127,12 +127,76 @@ var Calendar = {
   Item_Dragged: function (item, sectionID, start, end) {
     var foundItem;
 
+    console.log("Inhalt item: ");
     console.log(item);
+    console.log("Inhalt sectionID: ");
     console.log(sectionID);
+    console.log("Inhalt start: ");
     console.log(start);
+    console.log("Inhalt end: ");
     console.log(end);
 
-    for (var i = 0; i < Calendar.Items.length; i++) {
+    item.start = start;
+    item.end = end;
+    item.sectionID = sectionID;
+
+    var terminStart = new Date(start);
+    var d = terminStart.getDate();
+    //monat +1 weil die monate von 0 (januar) gezählt werden, Datenbank speicher Januar mit 01 ab
+    var m = terminStart.getMonth();
+    m +=1;
+    var y = terminStart.getFullYear();
+
+    if(m < 10)
+    {
+      terminStart = y + "-" + "0" + m + "-" + d;
+    } else{
+      terminStart = y + "-" + m + "-" + d;
+    }
+
+    var terminEnde = new Date(end);
+    var x = terminEnde.getDate();
+    var h = terminEnde.getMonth();
+    h +=1;
+    var z = terminEnde.getFullYear();
+
+    if(h < 10)
+    {
+      terminEnde = z + "-" + "0" + h + "-" + x;     
+    } else{
+      terminEnde = z + "-" + h + "-" + x;     
+    }
+
+    item.start = new Date(start).setHours(-0.5);
+    item.end = new Date(end).setHours(+23);
+
+    console.log("start: " + terminStart);
+    console.log("end: " + terminEnde);
+
+    function ajaxCall() {
+      console.log("Ajax");
+      console.log(terminStart);
+      console.log(terminEnde);
+
+      $.ajax
+          ({
+            type: "POST",
+            url: "/Homepage/dragItem.php",
+            data: { 
+                "start": terminStart, 
+                "end": terminEnde, 
+                "sectionID": sectionID,
+                "id": item.id
+              },
+              success: function (data) {
+                $('.result1').html("<div><ol>" + data + "</ol></div>");}
+
+            
+          });
+
+  }
+ajaxCall();
+    /* for (var i = 0; i < Calendar.Items.length; i++) {
       foundItem = Calendar.Items[i];
 
       if (foundItem.id === item.id) {
@@ -142,7 +206,7 @@ var Calendar = {
 
         Calendar.Items[i] = foundItem;
       }
-    }
+    } */
 
     TimeScheduler.Init();
   },
@@ -161,6 +225,7 @@ var Calendar = {
 
     var terminStart = new Date(start);
     var d = terminStart.getDate();
+    //monat +1 weil die monate von 0 (januar) gezählt werden, Datenbank speicher Januar mit 01 ab
     var m = terminStart.getMonth();
     m +=1;
     var y = terminStart.getFullYear();
@@ -203,6 +268,8 @@ var Calendar = {
                 "end": terminEnde, 
                 "id": item.id
               },
+              success: function (data) {
+                $('.result1').html("<div><ol>" + data + "</ol></div>");}
             
           });
 
