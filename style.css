@@ -105,6 +105,11 @@ h1 {
   position: absolute;
   top: 0em;
   right: 2em;
+  padding-top: 0;
+}
+
+.btn-logout-skilehrer a.nav-link {
+  padding-top: 0;
 }
 
 /* --- Calendar Design ---*/
@@ -249,10 +254,13 @@ form input.btn.btn-secondary {
   font-size: 0.75em;
 }
 
-form .result div {
-  border: 2px solid red;
-  background: transparent;
-  color: white;
+form .result div,
+#terminGrid .result div {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--std-dark-blue);
+  background: white;
+  color: var(--std-dark-blue);
   display: inline-block;
   width: 60%;
   border-radius: 5px;
@@ -264,10 +272,22 @@ form .result div {
   transition: 1s ease-in-out;
 }
 
-form .result div ol {
+form .result div ol,
+#terminGrid .result ol {
   margin-bottom: 0;
   padding: 0px 8px 0 16px;
 }
+
+/* #terminGrid .result div {
+  border: 1px solid blue;
+  background: white;
+  color: darkblue;
+} */
+
+/* #terminGrid .result ol {
+  margin: 0.5em;
+  text-align: center;
+} */
 
 form .form-check-inline {
   height: 28px;
