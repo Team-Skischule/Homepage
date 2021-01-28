@@ -231,7 +231,9 @@ input.btn {
   font-size: 1em;
 }
 
-form input.form-control {
+form input.form-control, 
+form input.form-control:active, 
+form input.form-control:focus {
   background-color: transparent !important;
   border-radius: 0;
   border: 0;
@@ -414,24 +416,44 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 320px;
-  background: var(--form-bg-blue);
-  box-shadow: var(--form-box-shadow);
-  backdrop-filter: var(--form-backdrop-filter);
-  -webkit-backdrop-filter: var(--form-backdrop-filter);
+  border-radius: var(--std-border-radius);
+  background: rgba(255, 255, 255, 0.562);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: var(--form-border);
 }
 
 .modalbox span.close {
   cursor: pointer;
-  color: white;
   opacity: 0.9;
   font-weight: 400 !important;
   outline-style: solid;
   outline-width: thin;
+  outline-color: var(--font-dark);
+  color: var(--font-dark);
   padding: 0 4px 1px 4px;
 }
 
 .modalbox form {
   background: transparent;
+}
+
+.modalbox p,
+.modalbox .close {
+  color: var(--font-dark);
+}
+
+.modalbox .btn.btn-primary {
+  display: block;
+  width: 120px;
+  margin: 0 auto;
+  background-color: rgba(17, 51, 108);
+}
+
+.modalbox .btn.btn-primary:hover, 
+.modalbox .btn.btn-primary:active {
+  background-color: rgb(22, 64, 138);
 }
 /* ------------ Modal PopUp Box Ende ------------ */
 
@@ -471,6 +493,18 @@ div#terminGrid {
 
 #terminGrid section div  {
   padding: 1em;
+}
+
+#terminGrid i {
+  cursor: pointer;
+  padding: 3px;
+  float: right;
+  width: 2em;
+  position: relative;
+  font-style: unset;
+  margin-right: 1px;
+  top: -12px;
+  right: -12px;
 }
 /* ------------ Responsive ------------ */
 

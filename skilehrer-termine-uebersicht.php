@@ -158,11 +158,12 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             
             // divBottom
             var divBottom = document.createElement('div');
+            divBottom.classList.add('divBottom');
             var Abholort = document.createElement('p');
             var Kunde = document.createElement('p');
-            var crossP = document.createElement('p');
+            var crossP = document.createElement('i');
             crossP.classList.add('crossP')
-            var questionP = document.createElement('p');
+            var questionP = document.createElement('i');
             questionP.classList.add('questionP')
 
             crossP.innerHTML = '&#10060;';
