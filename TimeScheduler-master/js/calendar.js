@@ -9,14 +9,14 @@ var today = moment().startOf("day");
 
 var Calendar = {
   Periods: [
-    {
+    /* {
       Name: "3 days",
       Label: "3 Tage",
       TimeframePeriod: 60 * 3,
       TimeframeOverall: 60 * 24 * 3,
       TimeframeHeaders: ["DD MMM", "HH"],
       Classes: "period-3day",
-    },
+    }, */
     {
       Name: "1 week",
       Label: "1 Woche",
@@ -36,13 +36,13 @@ var Calendar = {
   ],
 
   Items: [
-    {
+    /* {
       sectionID: 3,
       name: "Gruppe 3 Kinder",
       classes: "item-status-one",
       start: moment(today).add("days", -1),
       end: moment(today).add("days", 3),
-    },
+    }, */
   ],
 
   Sections: [
