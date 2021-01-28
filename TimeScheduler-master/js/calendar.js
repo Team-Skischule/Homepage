@@ -134,6 +134,7 @@ var Calendar = {
     // Delete Termin Button
     var btn = document.getElementById("deleteTermin");
 
+    //delete Termin Funktion
     btn.onclick = function () {
       console.log("Yippi");
       console.log(item.id);
@@ -149,6 +150,8 @@ var Calendar = {
         },
       });
       modal.style.display = "none";
+      getItemsTest();
+      console.log("Test Aktualisierung");
     };
   },
 
@@ -219,18 +222,6 @@ var Calendar = {
       });
     }
     ajaxCall();
-    /* for (var i = 0; i < Calendar.Items.length; i++) {
-      foundItem = Calendar.Items[i];
-
-      if (foundItem.id === item.id) {
-        foundItem.sectionID = sectionID;
-        foundItem.start = start;
-        foundItem.end = end;
-
-        Calendar.Items[i] = foundItem;
-      }
-    } */
-
     TimeScheduler.Init();
   },
 
