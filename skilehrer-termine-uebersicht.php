@@ -42,6 +42,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                 <div class="col-sm-12">
                     <div id="terminGrid">
                        <p>Deine Termine:</p>
+                       <div class="result"></div>
                     </div>
                     <div id="myModal" class="modalbox">
                         <!-- Modal content -->
@@ -49,6 +50,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                             <span class="close">&times;</span>
                             <p>insert text here</p>
                             <div class="btn btn-primary">Ja, senden.</div>
+                            <div class="status"></div>
                         </div>
                     </div>
                 </div>
@@ -101,9 +103,15 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             modalBox.style.display = "block";
 
             // Auswahl je nach geklickten Icon
+            // Klick auf X ändert den TerminStatus auf 2
+            // Klick auf ? ändert den TerminStatus auf 3
+
             if(classOfIcon == 'crossP') {
                 modalBox.childNodes[3].childNodes[3].innerHTML = 
                 'terminID: ' + terminID + 'Keine Zeit für diesen Termin';
+
+                // TerminStatus definieren um nachher abzufragen:
+                modalBox.childNodes[3].childNodes[7].setAttribute('id', '2');
                
                 //button id zufügen
                 modalBox.childNodes[3].childNodes[5].setAttribute('id', terminID);
@@ -111,6 +119,9 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             if(classOfIcon == 'questionP') {
                 modalBox.childNodes[3].childNodes[3].innerHTML = 
                 'terminID: ' + terminID + 'Bitte Rückruf, abklärung erwünscht. ';
+
+                // TerminStatus definieren um nachher abzufragen:
+                modalBox.childNodes[3].childNodes[7].setAttribute('id', '3');
                 
                 //button id zufügen
                 modalBox.childNodes[3].childNodes[5].setAttribute('id', terminID);
@@ -166,6 +177,11 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             divBottom.appendChild(questionP);
         }
 
+
       </script>
+
+    <script src="/Homepage/skilehrer-termine-uebersicht/termin-status-update.js" 
+            crossorigin="anonymous"></script>
     </body> 
+    
 </html>
