@@ -136,7 +136,8 @@ h1 {
   padding: 0 0.5em;
 }
 
-.calendar .time-sch-header-0-date-even {
+.calendar .time-sch-header-0-date-even,
+.calendar .time-sch-header-1-date-even {
   background-color: transparent;
 }
 
@@ -279,16 +280,6 @@ form .result div ol,
 }
 
 
-/* #terminGrid .result div {
-  border: 1px solid blue;
-  background: white;
-  color: darkblue;
-} */
-
-/* #terminGrid .result ol {
-  margin: 0.5em;
-  text-align: center;
-} */
 
 form .form-check-inline {
   height: 28px;
