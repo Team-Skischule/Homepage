@@ -60,7 +60,6 @@ h1 {
 }
 
 /* ---  Top Row  --- */
-
 .top-row {
   padding: 3rem 0;
   text-align: center;
@@ -88,11 +87,13 @@ h1 {
 
 .btn.btn-mitarbeiter {
   float: left;
-  padding-left: 0;}
+  padding-left: 0;
+}
 
 .btn.btn-mitarbeiter a {
   padding-left: 0;
 }
+
 .btn.btn-logout {
   float: right;
   padding-right: 0;}
@@ -113,7 +114,6 @@ h1 {
 }
 
 /* --- Calendar Design ---*/
-
 .calendar {
   border-radius: var(--std-border-radius);
   padding: 2em;
@@ -125,7 +125,6 @@ h1 {
   color: var(--std-dark-blue);
   font-weight: 500;
 }
-
 
 .calendar a {
   color: var(--std-dark-blue);
@@ -164,17 +163,17 @@ h1 {
 .calendar .time-sch-section-wrapper .item-status-none {
   background: rgba(43, 197, 56, 0.7);
 }
+
 .calendar .time-sch-section-wrapper .item-status-one {
   background: rgba(193, 0, 93, 0.7);
 }
+
 .calendar .time-sch-section-wrapper .item-status-two {
   background: var(--form-bg-blue);
 }
-
 /* --- Kalender Ende---*/
 
 /* --- Formular Design ---*/
-
 .home form {
   position: absolute;
   padding: 3em;
@@ -223,7 +222,6 @@ form p, form h2 {
   padding-right: 5px;
 }
 
-
 input.btn {
   display: block;
   width: 160px;
@@ -243,9 +241,11 @@ form input.form-control {
   font-weight: 500;
   font-size: 0.8em;
 }
+
 form .btn {
   background-color: rgba(17, 51, 108);
-}
+} 
+
 form .btn:hover {
   background-color: rgb(22, 64, 138);
 }
@@ -265,7 +265,6 @@ form .result div,
   display: inline-block;
   width: 60%;
   border-radius: 5px;
-  color: inherit;
   margin: 0 20% 1em;
   padding: 1em;
   text-align: center;
@@ -278,8 +277,6 @@ form .result div ol,
   margin-bottom: 0;
   padding: 0px 8px 0 16px;
 }
-
-
 
 form .form-check-inline {
   height: 28px;
@@ -301,12 +298,15 @@ form .liveSearchResultStyle {
   max-height: 80px;
   overflow: auto;
 }
+
 form .liveSearchResultStyle option {
   padding: 0 0.75rem;
 }
+
 form .liveSearchResultStyle option:first-child {
   padding-top: 0.375rem;
 }
+
 form .liveSearchResultStyle option:last-child {
   padding-bottom: 0.375rem;
 }
@@ -338,7 +338,6 @@ input:focus {
 }
 
 /* Home Form Specific styles: */
-
 .home form img {
   width: 50px;
   height: auto;
@@ -364,9 +363,11 @@ form .btn {
   color: white !important;
   padding-left: 0px;
 }
+
 .home .btn {
   background-color: rgba(17, 51, 108);
 }
+
 .home .btn:hover {
   background-color: rgb(22, 64, 138);
 }
@@ -375,8 +376,6 @@ form .btn {
   margin: 0.75em auto;
   font-size: 0.75em;
 }
-
-
 /* --- session Forms --- */
 .sessionForm .form-control {
   width: auto;
@@ -395,10 +394,7 @@ form .btn {
 .sessionForm label.col-sm-4.col-form-label {
   padding-bottom: 7px;
 }
-
-
 /* ------------ Form Styling Ende ------------ */
-
 
 /* Style the footer */
 footer {
@@ -409,7 +405,6 @@ footer {
 }
 
 /* ------------ Modal PopUp Box ------------ */
-
 .modalbox {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -438,11 +433,9 @@ footer {
 .modalbox form {
   background: transparent;
 }
-
 /* ------------ Modal PopUp Box Ende ------------ */
 
 /* ------------ Skilehrer Termin Übersicht ------------ */
-
 div#terminGrid {
   position: relative;
   top: 50%;
@@ -479,16 +472,17 @@ div#terminGrid {
 #terminGrid section div  {
   padding: 1em;
 }
-
-
-
 /* ------------ Responsive ------------ */
 
 /* layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 1100px) {
-  nav,
+@media (min-width: 1340px) {
+/*   nav,
   article {
     width: 100%;
     height: auto;
+  } */
+  body {
+    margin: 0 auto !important;
+    width: 1340px;
   }
 }
