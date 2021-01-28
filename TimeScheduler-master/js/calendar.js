@@ -78,7 +78,7 @@ var Calendar = {
     TimeScheduler.Options.AllowResizing = true;
 
     TimeScheduler.Options.Events.ItemClicked = Calendar.Item_Clicked;
-    //DoubleClick    
+    //DoubleClick
     TimeScheduler.Options.Events.ItemDoubleClick = Calendar.Item_DoubleClick;
 
     TimeScheduler.Options.Events.ItemDropped = Calendar.Item_Dragged;
@@ -107,45 +107,49 @@ var Calendar = {
 
   Item_Clicked: function (item) {
     console.log(item);
-
-    /* var modal = document.getElementById("myModal");
-    
-    modal.style.display = "block";
-    let p = document.querySelector('#myModal');
-    p.childNodes[3].childNodes[3].innerHTML = 
-      'Item: ' + item.name + 
-      ' <br>Start: ' + item.start + 
-      ' <br>Ende: ' + item.end;
-  
-      // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    } */
-
   },
 
   Item_DoubleClick: function (item) {
     console.log("Test Doppelklick");
 
     var modal = document.getElementById("myModal");
-    
+
     modal.style.display = "block";
-    let p = document.querySelector('#myModal');
-    p.childNodes[3].childNodes[3].innerHTML = 
-      'Item: ' + item.name + 
-      ' <br>Start: ' + item.start + 
-      ' <br>Ende: ' + item.end;
-  
-      // Get the <span> element that closes the modal
+    modal.childNodes[3].childNodes[3].innerHTML =
+      "Item: " +
+      item.name +
+      " <br>Start: " +
+      item.start +
+      " <br>Ende: " +
+      item.end;
+
+    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
       modal.style.display = "none";
-    }
+    };
+
+    // Delete Termin Button
+    var btn = document.getElementById("deleteTermin");
+
+    btn.onclick = function () {
+      console.log("Yippi");
+      console.log(item.id);
+
+      $.ajax({
+        type: "POST",
+        url: "/Homepage/deleteTermin.php",
+        data: {
+          id: item.id,
+        },
+        success: function (data) {
+          $(".result1").html("<div><ol>" + data + "</ol></div>");
+        },
+      });
+      modal.style.display = "none";
+    };
   },
 
   Item_Dragged: function (item, sectionID, start, end) {
@@ -168,27 +172,25 @@ var Calendar = {
     var d = terminStart.getDate();
     //monat +1 weil die monate von 0 (januar) gezählt werden, Datenbank speicher Januar mit 01 ab
     var m = terminStart.getMonth();
-    m +=1;
+    m += 1;
     var y = terminStart.getFullYear();
 
-    if(m < 10)
-    {
+    if (m < 10) {
       terminStart = y + "-" + "0" + m + "-" + d;
-    } else{
+    } else {
       terminStart = y + "-" + m + "-" + d;
     }
 
     var terminEnde = new Date(end);
     var x = terminEnde.getDate();
     var h = terminEnde.getMonth();
-    h +=1;
+    h += 1;
     var z = terminEnde.getFullYear();
 
-    if(h < 10)
-    {
-      terminEnde = z + "-" + "0" + h + "-" + x;     
-    } else{
-      terminEnde = z + "-" + h + "-" + x;     
+    if (h < 10) {
+      terminEnde = z + "-" + "0" + h + "-" + x;
+    } else {
+      terminEnde = z + "-" + h + "-" + x;
     }
 
     item.start = new Date(start).setHours(-0.5);
@@ -202,24 +204,21 @@ var Calendar = {
       console.log(terminStart);
       console.log(terminEnde);
 
-      $.ajax
-          ({
-            type: "POST",
-            url: "/Homepage/dragItem.php",
-            data: { 
-                "start": terminStart, 
-                "end": terminEnde, 
-                "sectionID": sectionID,
-                "id": item.id
-              },
-              success: function (data) {
-                $('.result1').html("<div><ol>" + data + "</ol></div>");}
-
-            
-          });
-
-  }
-ajaxCall();
+      $.ajax({
+        type: "POST",
+        url: "/Homepage/dragItem.php",
+        data: {
+          start: terminStart,
+          end: terminEnde,
+          sectionID: sectionID,
+          id: item.id,
+        },
+        success: function (data) {
+          $(".result1").html("<div><ol>" + data + "</ol></div>");
+        },
+      });
+    }
+    ajaxCall();
     /* for (var i = 0; i < Calendar.Items.length; i++) {
       foundItem = Calendar.Items[i];
 
@@ -251,27 +250,25 @@ ajaxCall();
     var d = terminStart.getDate();
     //monat +1 weil die monate von 0 (januar) gezählt werden, Datenbank speicher Januar mit 01 ab
     var m = terminStart.getMonth();
-    m +=1;
+    m += 1;
     var y = terminStart.getFullYear();
 
-    if(m < 10)
-    {
+    if (m < 10) {
       terminStart = y + "-" + "0" + m + "-" + d;
-    } else{
+    } else {
       terminStart = y + "-" + m + "-" + d;
     }
 
     var terminEnde = new Date(end);
     var x = terminEnde.getDate();
     var h = terminEnde.getMonth();
-    h +=1;
+    h += 1;
     var z = terminEnde.getFullYear();
 
-    if(h < 10)
-    {
-      terminEnde = z + "-" + "0" + h + "-" + x;     
-    } else{
-      terminEnde = z + "-" + h + "-" + x;     
+    if (h < 10) {
+      terminEnde = z + "-" + "0" + h + "-" + x;
+    } else {
+      terminEnde = z + "-" + h + "-" + x;
     }
 
     item.start = new Date(start).setHours(-0.5);
@@ -279,27 +276,24 @@ ajaxCall();
 
     console.log("start: " + terminStart);
     console.log("end: " + terminEnde);
-    
+
     function ajaxCall() {
       console.log("Item");
       console.log(item.start);
-      $.ajax
-          ({
-            type: "POST",
-            url: "/Homepage/resizeItem.php",
-            data: { 
-                "start": terminStart, 
-                "end": terminEnde, 
-                "id": item.id
-              },
-              success: function (data) {
-                $('.result1').html("<div><ol>" + data + "</ol></div>");}
-            
-          });
-
-  }
-ajaxCall();
-    
+      $.ajax({
+        type: "POST",
+        url: "/Homepage/resizeItem.php",
+        data: {
+          start: terminStart,
+          end: terminEnde,
+          id: item.id,
+        },
+        success: function (data) {
+          $(".result1").html("<div><ol>" + data + "</ol></div>");
+        },
+      });
+    }
+    ajaxCall();
 
     /* if(Math.abs(start.getTime() - end.getTime()) / 1000 / 3600 < 12)
     {
@@ -308,8 +302,6 @@ ajaxCall();
     }
     item.start = new Date(start).setHours(+ 0.5);
     item.end = new Date(end).setHours(- 1); */
-
-
 
     /*  for (var i = 0; i < Calendar.Items.length; i++) {
       foundItem = Calendar.Items[i];
@@ -331,10 +323,10 @@ console.log(foundItem);
 
     html = "<div>";
     html += "   <div>";
-    html += "       Start: " + start;//.format("DD MMM YYYY");
+    html += "       Start: " + start; //.format("DD MMM YYYY");
     html += "   </div>";
     html += "   <div>";
-    html += "       End: " + end;//.format("DD MMM YYYY");
+    html += "       End: " + end; //.format("DD MMM YYYY");
     html += "   </div>";
     html += "</div>";
 
@@ -368,7 +360,7 @@ function getRowname() {
 
       //befüllt Calendar.Sections mit dem JSON Array
       Calendar.Sections = getRownamearr;
-/*       console.log("Neuer Inhalt Sections");
+      /*       console.log("Neuer Inhalt Sections");
       console.log(Calendar.Sections); */
 
       //übernimmt die neuen Daten in die Tabelle
@@ -397,13 +389,13 @@ function getItemsTest() {
                 end
             ---------------------------------------- */
 
-        //alle Inhalte von Calendar.Items werden gelöscht und dann neu befüllt
+      //alle Inhalte von Calendar.Items werden gelöscht und dann neu befüllt
       Calendar.Items = [];
       for (i = 0; i < getItemsArray.length; i++) {
         //es wird ein neues Objekt newItem mit den Attributen sectionID, classes... erstellt
         var newItem = [];
         newItem.sectionID = getItemsArray[i].sectionID;
-        //newItem.classes = getItemsArray[i].classes;               
+        //newItem.classes = getItemsArray[i].classes;
 
         newItem.name = getItemsArray[i].name;
         newItem.id = getItemsArray[i].id;
@@ -411,25 +403,22 @@ function getItemsTest() {
         //Zuweisung Anfang/Ende Termin
         //wenn Termin nur ein Tag ist, wird dem End-Datum 23 Stunden zugefügt
         //ansonsten wird für die graphische Darstellung am Anfang eine 0.5h und am Ende -1h
-       
-          newItem.start = new Date(getItemsArray[i].start);
-          newItem.start.setHours(-0.5);
-          newItem.end = new Date(getItemsArray[i].end);
-          newItem.end.setHours(+23);
-      
+
+        newItem.start = new Date(getItemsArray[i].start);
+        newItem.start.setHours(-0.5);
+        newItem.end = new Date(getItemsArray[i].end);
+        newItem.end.setHours(+23);
+
         //weißt dem Termin die Hintergrundfarbe zu
         //entsprechend der Status-Spalte in der Datenbank
-        if(getItemsArray[i].classes === 1)
-        {
-          newItem.classes = 'item-status-none';
+        if (getItemsArray[i].classes === 1) {
+          newItem.classes = "item-status-none";
         }
-        if(getItemsArray[i].classes === 2)
-        {
-          newItem.classes = 'item-status-one';
+        if (getItemsArray[i].classes === 2) {
+          newItem.classes = "item-status-one";
         }
-        if(getItemsArray[i].classes === 3)
-        {
-          newItem.classes = 'item-status-two';
+        if (getItemsArray[i].classes === 3) {
+          newItem.classes = "item-status-two";
         }
 
         //newItems Objekt wird dem Array Calendar.Items hinzugefügt
@@ -437,7 +426,7 @@ function getItemsTest() {
         Calendar.Items.push(newItem);
       }
 
-/*       console.log("Neuer Inhalt Items");
+      /*       console.log("Neuer Inhalt Items");
       console.log(Calendar.Items); */
 
       TimeScheduler.Init(true);
