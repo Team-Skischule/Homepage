@@ -255,7 +255,7 @@ form input.btn.btn-secondary {
 }
 
 form .result div,
-#terminGrid .result div {
+#terminGrid .result div{
   border-width: 2px;
   border-style: solid;
   border-color: var(--std-dark-blue);
@@ -273,10 +273,11 @@ form .result div,
 }
 
 form .result div ol,
-#terminGrid .result ol {
+#terminGrid .result ol{
   margin-bottom: 0;
   padding: 0px 8px 0 16px;
 }
+
 
 /* #terminGrid .result div {
   border: 1px solid blue;
