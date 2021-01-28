@@ -78,6 +78,7 @@ $session_value=(isset($_SESSION['id']))?$_SESSION['id']:'';
                             <div class="modalbox-content">
                                 <span class="close">&times;</span>
                                 <p>insert text here</p>
+                                <div id="deleteTermin" class="btn btn-primary deleteTermin">Delete</div>
                             </div>
                         </div>
                     </div>
