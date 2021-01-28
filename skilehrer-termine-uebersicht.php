@@ -116,6 +116,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                 //button id zufügen
                 modalBox.childNodes[3].childNodes[5].setAttribute('id', terminID);
             }
+
             if(classOfIcon == 'questionP') {
                 modalBox.childNodes[3].childNodes[3].innerHTML = 
                 'terminID: ' + terminID + 'Bitte Rückruf, abklärung erwünscht. ';
@@ -132,7 +133,12 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 modalBox.style.display = "none";
-            } 
+            }
+            
+            var button = document.getElementsByClassName('btn-primary')[0];
+            button.onclick = function() {
+                modalBox.style.display = "none";
+            }
         }
 
 
