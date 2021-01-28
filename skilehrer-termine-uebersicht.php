@@ -48,13 +48,14 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                         <div class="modalbox-content">
                             <span class="close">&times;</span>
                             <p>insert text here</p>
+                            <div class="btn btn-primary">Ja, senden.</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-      <script>
+    <script>
           var x = "";
         $(document).ready(function(){
             var obj;
@@ -95,26 +96,31 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
         });
 
         function openModal(classOfIcon, terminID) {
-            var modal = document.getElementById("myModal");
-    
-            modal.style.display = "block";
-            let p = document.querySelector('#myModal');
+            
+            let modalBox = document.querySelector('#myModal');
+            modalBox.style.display = "block";
 
+            // Auswahl je nach geklickten Icon
             if(classOfIcon == 'crossP') {
-                console.log('crossP: ins Modal text und Button einfügen' + terminID);
+                modalBox.childNodes[3].childNodes[3].innerHTML = 
+                'terminID: ' + terminID + 'Keine Zeit für diesen Termin';
+               
+                //button id zufügen
+                modalBox.childNodes[3].childNodes[5].setAttribute('id', terminID);
             }
             if(classOfIcon == 'questionP') {
-                console.log('questionP: ins Modal text und Button einfügen: ' + terminID);
+                modalBox.childNodes[3].childNodes[3].innerHTML = 
+                'terminID: ' + terminID + 'Bitte Rückruf, abklärung erwünscht. ';
+                
+                //button id zufügen
+                modalBox.childNodes[3].childNodes[5].setAttribute('id', terminID);
             }
-            p.childNodes[3].childNodes[3].innerHTML = 
-            'terminID: ' + terminID + ' nach Klick auf icon: ' + classOfIcon;
 
-             // Get the <span> element that closes the modal
-             var span = document.getElementsByClassName("close")[0];
-
+            // PopUp schließen
+            var span = document.getElementsByClassName("close")[0];
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
-            modal.style.display = "none";
+                modalBox.style.display = "none";
             } 
         }
 
