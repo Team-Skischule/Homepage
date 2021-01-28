@@ -133,6 +133,9 @@ var TimeScheduler = {
       // function (item) { }
       ItemClicked: null,
 
+      // test DoubleClicked
+      ItemDoubleClick: null,
+
       // function (item, sectionID, start, end) { }
       ItemDropped: null,
 
@@ -768,6 +771,17 @@ var TimeScheduler = {
         );
       });
     }
+
+    //DoubleClick
+    if (TimeScheduler.Options.Events.ItemDoubleClick) {
+        itemElem.dblclick(function (event) {
+          event.preventDefault();
+          TimeScheduler.Options.Events.ItemDoubleClick.call(
+            this,
+            $(this).data("item")
+          );
+        });
+      }
 
     if (TimeScheduler.Options.Events.ItemMouseEnter) {
       itemElem.mouseenter(function (event) {
