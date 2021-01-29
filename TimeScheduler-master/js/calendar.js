@@ -150,7 +150,7 @@ var Calendar = {
         },
       });
       modal.style.display = "none";
-      getItemsTest();
+      setTimeout(getItemsTest(),500);
       console.log("Test Aktualisierung");
     };
   },
@@ -158,14 +158,16 @@ var Calendar = {
   Item_Dragged: function (item, sectionID, start, end) {
     var foundItem;
 
-    console.log("Inhalt item: ");
-    console.log(item);
-    console.log("Inhalt sectionID: ");
-    console.log(sectionID);
-    console.log("Inhalt start: ");
-    console.log(start);
-    console.log("Inhalt end: ");
-    console.log(end);
+    var x = item.end - item.start;
+    //richtige Differenz!
+    var difference = Math.round(x / (1000 * 3600 * 24));
+    /* console.log("differenz: " + difference);
+    
+    console.log("Test");
+    console.log("start: " + new Date(start)); */
+    var xx = new Date(start);
+    xx.setDate(xx.getDate() + difference);
+    //console.log("end + diff: " + xx);
 
     item.start = start;
     item.end = end;
@@ -184,11 +186,12 @@ var Calendar = {
       terminStart = y + "-" + m + "-" + d;
     }
 
-    var terminEnde = new Date(end);
-    var x = terminEnde.getDate();
-    var h = terminEnde.getMonth();
+    var terminEnde = new Date(start);
+    terminEnde.setDate(terminEnde.getDate() + (difference - 1));
+    var x = new Date(terminEnde).getDate();
+    var h = new Date(terminEnde).getMonth();
     h += 1;
-    var z = terminEnde.getFullYear();
+    var z = new Date(terminEnde).getFullYear();
 
     if (h < 10) {
       terminEnde = z + "-" + "0" + h + "-" + x;
@@ -196,16 +199,17 @@ var Calendar = {
       terminEnde = z + "-" + h + "-" + x;
     }
 
-    item.start = new Date(start).setHours(-0.5);
-    item.end = new Date(end).setHours(+23);
+    //Darstellung beim Kalender
+    item.start = new Date(start);
+    item.end = new Date(end);
 
     console.log("start: " + terminStart);
     console.log("end: " + terminEnde);
 
     function ajaxCall() {
-      console.log("Ajax");
+      /* console.log("Ajax");
       console.log(terminStart);
-      console.log(terminEnde);
+      console.log(terminEnde); */
 
       $.ajax({
         type: "POST",
@@ -222,6 +226,7 @@ var Calendar = {
       });
     }
     ajaxCall();
+    getItemsTest();
     TimeScheduler.Init();
   },
 
@@ -396,7 +401,7 @@ function getItemsTest() {
         //ansonsten wird für die graphische Darstellung am Anfang eine 0.5h und am Ende -1h
 
         newItem.start = new Date(getItemsArray[i].start);
-        newItem.start.setHours(-0.5);
+        newItem.start.setHours(+1);
         newItem.end = new Date(getItemsArray[i].end);
         newItem.end.setHours(+23);
 
