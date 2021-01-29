@@ -10,11 +10,12 @@ Primär zur Kommunikation zwischen Skischule Administration und den angestellten
 - mit Resize, die Termindauer verändert werden
 - mit doppelklick ein Modal Pop-UP geöffnet werden das u.A. die Termin löschen Funktion enthält
 
-# Bei Login wird je nach Userstatus auf 
+## Login Bereich
+### Nach Login wird je nach Userstatus auf 
 - die Seite der Administration oder
 - die Seite der Skilehrer geleitet
 
-# Skilehrer Termin Übersicht
+## Skilehrer Termin Übersicht
 - Skilehrer sehen in ihrer persönlichen Übersicht die Termin die ihnen zugewiesen sind
 - Skilehrer haben die Möglichkeit:
   - den Termin abzulehnen 
