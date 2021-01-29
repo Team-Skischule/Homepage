@@ -1,11 +1,11 @@
 # Dashboard zur Terminverwaltung
 Primär zur Kommunikation zwischen Skischule Administration und den angestellten Skilehrern
 
-# Skischul Administatoren können:
+## Skischul Administatoren können:
 - Termine anlegen und einem Skilehrer Zuweisen
 - neue Mitarbeiter anlegen
 
-# In der Tabelle können mit:
+## In der Tabelle können mit:
 - Drag & Drop bestehende Termine zu neuen Beginnzeiten oder einem anderen Skilehrer verschoben werden
 - mit Resize, die Termindauer verändert werden
 - mit doppelklick ein Modal Pop-UP geöffnet werden das u.A. die Termin löschen Funktion enthält
