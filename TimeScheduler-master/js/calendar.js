@@ -226,7 +226,6 @@ var Calendar = {
       });
     }
     ajaxCall();
-    getItemsTest();
     TimeScheduler.Init();
   },
 
