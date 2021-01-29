@@ -19,9 +19,9 @@ var Calendar = {
     }, */
     {
       Name: "1 week",
-      Label: "1 Woche",
+      Label: "2 Wochen",
       TimeframePeriod: 60 * 24,
-      TimeframeOverall: 60 * 24 * 7,
+      TimeframeOverall: 60 * 24 * 14,
       TimeframeHeaders: ["MMM", "DD"],
       Classes: "period-1week",
     },
@@ -71,7 +71,7 @@ var Calendar = {
     TimeScheduler.Options.GetSchedule = Calendar.GetSchedule;
     TimeScheduler.Options.Start = today;
     TimeScheduler.Options.Periods = Calendar.Periods;
-    TimeScheduler.Options.SelectedPeriod = "1 week";
+    TimeScheduler.Options.SelectedPeriod = "1 month";
     TimeScheduler.Options.Element = $(".calendar");
 
     TimeScheduler.Options.AllowDragging = true;
@@ -111,9 +111,8 @@ var Calendar = {
 
   Item_DoubleClick: function (item) {
     console.log("Test Doppelklick");
-
+//var startNoTime = item.start.getFullYear() + "-" + item.start.getMonth() + "-" + item.start.getDate();
     var modal = document.getElementById("myModal");
-
     modal.style.display = "block";
     modal.childNodes[3].childNodes[3].innerHTML =
       "Item: " +
@@ -149,8 +148,10 @@ var Calendar = {
           $(".result1").html("<div><ol>" + data + "</ol></div>");
         },
       });
+      //setTimeout(getItemsTest(),500);
+      //TimeScheduler.Init(true);
+      setTimeout(() => {getItemsTest();}, 1000);
       modal.style.display = "none";
-      setTimeout(getItemsTest(),500);
       console.log("Test Aktualisierung");
     };
   },
@@ -226,7 +227,6 @@ var Calendar = {
       });
     }
     ajaxCall();
-    getItemsTest();
     TimeScheduler.Init();
   },
 
