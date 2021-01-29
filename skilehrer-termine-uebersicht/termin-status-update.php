@@ -1,5 +1,5 @@
 <?php 
-/* Diese Funktion wird aufgerufen wenn auf Termin absagen geklickt wird. Der Status ändert sich auf 2 */
+/* Diese Funktion wird aufgerufen wenn auf Termin absagen (X) oder Rückmeldung (?) geklickt wird. Der Status ändert sich auf 2 oder 3 */
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);

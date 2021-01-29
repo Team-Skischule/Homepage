@@ -164,8 +164,10 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             var crossP = document.createElement('i');
             crossP.classList.add('crossP')
             var questionP = document.createElement('i');
-            questionP.classList.add('questionP')
 
+            
+                questionP.classList.add('questionP')
+            
             crossP.innerHTML = '&#10060;';
             questionP.innerHTML = '&#10067;';
             Kunde.innerHTML = 'Kunde: ' +  data[x].Kunde ;
@@ -181,7 +183,15 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             divBottom.appendChild(Kunde);
             divBottom.appendChild(Abholort);
             divBottom.appendChild(crossP);
-            divBottom.appendChild(questionP);
+            // wenn der TerminStatus nicht 3 ist (Rückfrage erwünscht), wird die Option auf Rückfrage angezeigt
+            if(data[x].status != '3') {
+                divBottom.appendChild(questionP);
+            } else {
+                let rueckmeldungDiv = document.createElement('p');
+                rueckmeldungDiv.innerHTML = 'Rückmeldung erwartet';
+                rueckmeldungDiv.classList.add('rmErwartet');
+                divBottom.appendChild(rueckmeldungDiv);
+            }
         }
 
 

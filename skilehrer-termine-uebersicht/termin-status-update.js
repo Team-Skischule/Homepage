@@ -22,7 +22,10 @@ $(document).ready(function () {
                         "newTerminStatus": newTerminStatus[0].id
                     },
                     success: function (data) {
-                    $('.result').html("<div><ol>" + data + "</ol></div>");
+                        $('.result').html("<div><ol>" + data + "</ol></div>");
+                        setTimeout(function(){ 
+                            location.reload();
+                        }, 2000);
                     
                     }
                 });

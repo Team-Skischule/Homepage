@@ -11,10 +11,10 @@
     
     // Prepare a select statement
     $sql = 
-        "SELECT termine.id, abholort, kundenname, datumBeginn, datumEnde,  concat(firstName ,' ' ,lastName) as name FROM termine
+        "SELECT termine.id, abholort, kundenname, datumBeginn, datumEnde,  concat(firstName ,' ' ,lastName) as name, status FROM termine
         Left Join skilehrer
         On termine.skilehrerid = skilehrer.id
-        where skilehrerid = ? and datumEnde >= curdate()
+        where skilehrerid = ? and datumEnde >= curdate() and status != 2
         order by datumBeginn";
 
     if($stmt = mysqli_prepare($link, $sql)){
@@ -38,6 +38,7 @@
                         "Kunde" => $row['kundenname'],
                         "Abholort" => $row['abholort'],
                         "terminId" => $row['id'],
+                        "status" => $row['status'],
                         "name" => $row['name']
                     ));
                 }
