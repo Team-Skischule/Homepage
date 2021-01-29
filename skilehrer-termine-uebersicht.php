@@ -107,8 +107,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             // Klick auf ? ändert den TerminStatus auf 3
 
             if(classOfIcon == 'crossP') {
-                modalBox.childNodes[3].childNodes[3].innerHTML = 
-                'terminID: ' + terminID + 'Keine Zeit für diesen Termin';
+                modalBox.childNodes[3].childNodes[3].innerHTML = 'Keine Zeit für diesen Termin';
 
                 // TerminStatus definieren um nachher abzufragen:
                 modalBox.childNodes[3].childNodes[7].setAttribute('id', '2');
@@ -118,8 +117,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             }
 
             if(classOfIcon == 'questionP') {
-                modalBox.childNodes[3].childNodes[3].innerHTML = 
-                'terminID: ' + terminID + 'Bitte Rückruf, abklärung erwünscht. ';
+                modalBox.childNodes[3].childNodes[3].innerHTML = 'Bitte Rückruf, abklärung für diesen Termin erwünscht. ';
 
                 // TerminStatus definieren um nachher abzufragen:
                 modalBox.childNodes[3].childNodes[7].setAttribute('id', '3');
