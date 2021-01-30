@@ -118,7 +118,7 @@ var Calendar = {
     const ho = hi.toLocaleDateString("default", {month: "long"});
     console.log("ho: " + ho);
     modal.childNodes[3].childNodes[3].innerHTML =
-      "Item: " +
+      /*"Item: " +*/
       item.name +
       " <br>Start: " +
       item.start.getDate() + " " + ho + " " + item.start.getFullYear() 
