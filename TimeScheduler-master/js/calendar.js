@@ -114,13 +114,16 @@ var Calendar = {
 //var startNoTime = item.start.getFullYear() + "-" + item.start.getMonth() + "-" + item.start.getDate();
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
+    const hi = new Date(item.start);
+    const ho = hi.toLocaleDateString("default", {month: "long"});
+    console.log("ho: " + ho);
     modal.childNodes[3].childNodes[3].innerHTML =
       "Item: " +
       item.name +
       " <br>Start: " +
-      item.start +
-      " <br>Ende: " +
-      item.end;
+      item.start.getDate() + " " + ho + " " + item.start.getFullYear() 
+      + " <br>Ende: " +
+      item.end.getDate() + " " + item.start.toLocaleString("default", {month: "long"}) + " " + item.end.getFullYear();
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -150,7 +153,7 @@ var Calendar = {
       });
       //setTimeout(getItemsTest(),500);
       //TimeScheduler.Init(true);
-      setTimeout(() => {getItemsTest();}, 1000);
+      setTimeout(() => {getItemsTest();}, 100);
       modal.style.display = "none";
       console.log("Test Aktualisierung");
     };

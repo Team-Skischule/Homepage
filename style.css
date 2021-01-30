@@ -521,7 +521,7 @@ div#terminGrid {
 /* ------------ Responsive ------------ */
 
 /* layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (min-width: 1340px) {
+@media (min-width: 1900px) {
 /*   nav,
   article {
     width: 100%;
@@ -529,6 +529,6 @@ div#terminGrid {
   } */
   body {
     margin: 0 auto !important;
-    width: 1340px;
+    width: 1900px;
   }
 }
