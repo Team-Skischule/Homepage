@@ -110,20 +110,21 @@ var Calendar = {
   },
 
   Item_DoubleClick: function (item) {
-    console.log("Test Doppelklick");
-//var startNoTime = item.start.getFullYear() + "-" + item.start.getMonth() + "-" + item.start.getDate();
+    var skilehrerName = "";
+    for (i = 0; i < Calendar.Sections.length; i++) {
+      if (Calendar.Sections[i].id == item.sectionID) {
+        skilehrerName = Calendar.Sections[i].name;
+      }
+    }
+
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
-    const hi = new Date(item.start);
-    const ho = hi.toLocaleDateString("default", {month: "long"});
-    console.log("ho: " + ho);
     modal.childNodes[3].childNodes[3].innerHTML =
-      /*"Item: " +*/
-      item.name +
-      " <br>Start: " +
-      item.start.getDate() + " " + ho + " " + item.start.getFullYear() 
-      + " <br>Ende: " +
-      item.end.getDate() + " " + item.start.toLocaleString("default", {month: "long"}) + " " + item.end.getFullYear();
+      "Skilehrer: " + skilehrerName +
+      "<br>Kundenname: " + item.name +
+      "<br>Abholort: " + item.ort +
+      "<br>Start: " + item.start.getDate() + " " + item.start.toLocaleString("default", { month: "long" }) + " " + item.start.getFullYear() +
+      "<br>Ende: " + item.end.getDate() + " " + item.end.toLocaleString("default", { month: "long" }) + " " + item.end.getFullYear();
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -138,7 +139,7 @@ var Calendar = {
 
     //delete Termin Funktion
     btn.onclick = function () {
-      console.log("Yippi");
+      console.log("Item.id: ");
       console.log(item.id);
 
       $.ajax({
@@ -151,11 +152,11 @@ var Calendar = {
           $(".result1").html("<div><ol>" + data + "</ol></div>");
         },
       });
-      //setTimeout(getItemsTest(),500);
-      //TimeScheduler.Init(true);
-      setTimeout(() => {getItemsTest();}, 100);
+      setTimeout(() => {
+        getItemsTest();
+      }, 100);
       modal.style.display = "none";
-      console.log("Test Aktualisierung");
+      console.log("Termin wurde gelöscht");
     };
   },
 
@@ -228,6 +229,9 @@ var Calendar = {
           $(".result1").html("<div><ol>" + data + "</ol></div>");
         },
       });
+      setTimeout(() => {
+        getItemsTest();
+      }, 50);
     }
     ajaxCall();
     TimeScheduler.Init();
@@ -359,8 +363,6 @@ function getRowname() {
 
       //befüllt Calendar.Sections mit dem JSON Array
       Calendar.Sections = getRownamearr;
-      /*       console.log("Neuer Inhalt Sections");
-      console.log(Calendar.Sections); */
 
       //übernimmt die neuen Daten in die Tabelle
       TimeScheduler.Init(true);
@@ -396,7 +398,8 @@ function getItemsTest() {
         newItem.sectionID = getItemsArray[i].sectionID;
         //newItem.classes = getItemsArray[i].classes;
 
-        newItem.name = getItemsArray[i].name;
+        newItem.name = getItemsArray[i].kundenname;
+        newItem.ort = getItemsArray[i].abholort;
         newItem.id = getItemsArray[i].id;
 
         //Zuweisung Anfang/Ende Termin

@@ -593,6 +593,7 @@ var TimeScheduler = {
       eventElem,
       itemContent,
       itemName,
+      itemOrt,
       itemIcon;
     var minuteDiff,
       splits,
@@ -657,6 +658,13 @@ var TimeScheduler = {
             $(document.createElement("div"))
               .append(item.name)
               .appendTo(itemContent);
+          }
+
+          //test item.ort
+          if (item.ort) {
+            $(document.createElement("div"))
+            .append(item.ort)
+            .appendTo(itemContent);
           }
 
           if (item.events) {
