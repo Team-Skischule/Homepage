@@ -15,7 +15,7 @@
         <div class="row top-row">
             <div class="col-sm-3">
                 <div class="btn btn-mitarbeiter">
-                    <a class="nav-link" href="/Homepage/TimeScheduler-master/calendar.php">
+                    <a class="nav-link" href="/Homepage/TimeScheduler-master/Calendar.php">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                     </a>
                 </div>
