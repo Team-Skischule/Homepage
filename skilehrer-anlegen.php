@@ -112,13 +112,13 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                     </div>
 
                     <div class="row">
-                        <button type="submit" name="submit" class="btn btn-primary" id="submit_btn" value="Send">Speichern</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn1" id="submit_btn" value="Send">Speichern</button>
                     </div>
                 </form>
             </div>
 
             <div class="col-md-4 form-column">
-                <form class="content-container" id="form" action="" name="contact">
+                <form class="content-container form2" id="form2" action="" name="contact">
                     <h2>Mitarbeiter bearbeiten formular</h2>
                     <div class="result"></div>
                     <div class="form-group row search-box">
@@ -126,7 +126,7 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                         <div class="col-sm-8 specialFieldFullWidth">
                             <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
                             <div class="skilehrerResult liveSearchResultStyle"></div>
-                            <div id="skilehrerid"></div>
+                            <div id="skilehreridSkilehrer"></div>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -179,13 +179,12 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                     <div class="form-group row">
                         <label for="formKommentar" class="col-sm-4 col-form-label">Kommentar</label>
                         <div class="col-sm-8 specialFieldFullWidth">
-                            <textarea id="formKommentarSkilehrer" name="formKommentar" class="form-control" rows="3">
-                            </textarea>
-                        </div>
+                            <textarea id="formKommentarSkilehrer" name="formKommentar" class="form-control" rows="3"></textarea>
+                        </div>                    
                     </div>
 
                     <div class="row">
-                        <button type="submit" name="submit" class="btn btn-primary" id="submit_btn" value="Send">Speichern</button>
+                        <button type="submit" name="submit" class="btn btn-primary btn2" id="submit_btn2" value="Send" onclick="">Speichern</button>
                     </div>
                 </form>
             </div>

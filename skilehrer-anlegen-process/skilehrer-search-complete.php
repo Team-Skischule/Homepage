@@ -3,7 +3,7 @@
     include "../config.php";
 
     $id = $_POST['id'];
-    $stmt = $link->prepare("Select firstname, lastname, mobile, email, birthdate, skilevel, snowboardlevel, comment From skilehrer where id = ?");
+    $stmt = $link->prepare("Select firstname, lastname, mobile, email, birthdate, skilevel, snowboardlevel, comment, id From skilehrer where id = ?");
 
     $stmt->bind_param("i", $id);
     $stmt->execute();

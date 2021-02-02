@@ -11,7 +11,7 @@
 --------------------------------------------------------*/
 
 $(document).ready(function () {
-  $('.btn').click(function (e) {
+  $('.btn1').click(function (e) {
 
     function checkInputValidity() {
       var allObjValid = true;

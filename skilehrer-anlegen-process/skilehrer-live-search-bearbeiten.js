@@ -38,8 +38,8 @@ $(document).ready(function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
         // Hier muss die ID hinein:
         queryid = this.id;
-        document.getElementById('skilehrerid').innerHTML = this.id;
-
+        //document.getElementById('skilehrerid').innerHTML = this.id;
+        //einfüllen der Werte von der DB
         $.ajax({
             type: "POST",
             url: "/Homepage/skilehrer-anlegen-process/skilehrer-search-complete.php",
@@ -59,16 +59,59 @@ $(document).ready(function(){
               document.getElementById('formGeburtsdatumSkilehrer').value = objx[0].birthdate;           
               document.getElementById('formSkiLevelSkilehrer').value = objx[0].skilevel; 
               document.getElementById('formSnowboardLevelSkilehrer').value = objx[0].snowboardlevel;
-              
-              //Textfeld noch Fehler beim einschreiben von Daten aus DB, wie wird text aus dem Form für Kommentar gespeichert??
-              //document.getElementById('formKommentarSkilehrer').value = objx[0].comment;
+              document.getElementById('skilehreridSkilehrer').value = objx[0].id;
+              document.getElementById("formKommentarSkilehrer").innerHTML = objx[0].comment;
               
             },
           });
 
         $(this).parent("").empty();
     }); 
-
-   
-
 });
+
+$(document).ready(function () {
+    $('#submit_btn2').click(function (e) {
+      
+  
+        e.preventDefault();
+
+        var firstName = $('#formVornameSkilehrer').val();
+        var lastName = $('#formNachnameSkilehrer').val();
+        var mobile = $('#phoneSkilehrer').val();
+        var email = $('#formEmailSkilehrer').val();
+        var skiLevel = $('#formSkiLevelSkilehrer').val();
+        console.log('skilevel: ' + skiLevel);
+        var snowboardLevel = $('#formSnowboardLevelSkilehrer').val();
+        console.log('snowboardlevel: ' + snowboardLevel);
+        var birthDate = $('#formGeburtsdatumSkilehrer').val();
+        var comment = $('#formKommentarSkilehrer').val();
+        var id = $('#skilehreridSkilehrer').val();
+
+        console.log("firstname: " + firstName);
+        console.log("lastname: " + lastName);
+        console.log("mobile: " + mobile);
+        console.log("firstname: " + firstName);
+
+        $.ajax
+          ({
+            type: "POST",
+            url: "skilehrer-anlegen-process/skilehrer-update.php",
+            data: { 
+                "firstname": firstName, 
+                "lastname": lastName, 
+                "mobile": mobile, 
+                "email": email, 
+                "skilevel": skiLevel, 
+                "snowboardlevel": snowboardLevel, 
+                "birthdate": birthDate, 
+                "comment": comment,
+                "id": id
+              },
+            success: function (data) {
+            $('.result').html("<div><ol>" + data + "</ol></div>");
+            $('.form2')[0].reset();
+            }
+          });
+      
+    });
+  });
