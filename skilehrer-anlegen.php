@@ -1,27 +1,13 @@
-<?php
-session_start();
-
-/* echo "<h3> PHP List All Session Variables</h3>";
-foreach ($_SESSION as $key => $val)
-  echo $key . " " . $val . "<br/>"; */
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: /Homepage/login.php");
-    exit;
-}
-$session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 
 <head>
-    <?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php';?> 
     <title>Skilehrer anlegen</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
 
-
+ 
 </head>
 
 <body>
@@ -29,7 +15,7 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
         <div class="row top-row">
             <div class="col-sm-3">
                 <div class="btn btn-mitarbeiter">
-                    <a class="nav-link" href="/Homepage/TimeScheduler-master/Calendar.php">
+                    <a class="nav-link" href="/Homepage/TimeScheduler-master/calendar.php">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -52,75 +38,76 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
             </div>
 
             <div class="col-md-4 form-column">
-                <form class="content-container" id="form" action="" name="contact">
+                <form class="content-container" id="form" action="" name="contact" >
                     <h2>Mitarbeiter anlegen</h2>
-                    <div class="result"> </div>
-
+                    <div class="result result01">  </div>
+                    
                     <div class="form-group row">
                         <label for="formVorname" class="col-sm-4 col-form-label">Vorname* </label>
-                        <input type="text" class="form-control col-sm-8" name="formVorname" id="formVorname" required>
+                        <input type="text" class="form-control col-sm-8 form1" name="formVorname" id="formVorname"  required>
                     </div>
-
+                        
                     <div class="form-group row">
                         <label for="formNachname" class="col-sm-4 col-form-label">Nachname*</label>
-                        <input type="text" class="form-control col-sm-8" name="formNachname" id="formNachname" minlength="1" required>
+                        <input type="text" class="form-control col-sm-8 form1" name="formNachname" id="formNachname"minlength="1" required>
                     </div>
-
+                    
                     <div class="form-group row">
-                        <label for="formMobil" class="col-sm-4 col-form-label">Telefon*</label>
-                        <input type="tel" name="phone" id="phone" class="form-control col-sm-8" placeholder="+1234567890" minlength="5" required>
+                        <label for="formMobil" class="col-sm-4 col-form-label">Telefon*</label> 
+                        <input type="tel" name="phone" id="phone" class="form-control col-sm-8 form1"  placeholder="+1234567890" required>
                     </div>
-
+                    
                     <div class="form-group row">
                         <label for="formEmail" class="col-sm-4 col-form-label">Email*</label>
-                        <input type="email" class="form-control col-sm-8" name="formEmail" id="formEmail" placeholder="test@tester.at" required>
+                        <input type="email" class="form-control col-sm-8 form1" name="formEmail" id="formEmail" placeholder="test@tester.at" required>
                     </div>
-
+                    
                     <div class="form-group row">
                         <label for="formGeburtsdatum" class="col-sm-4 col-form-label">Geburtsdatum*</label>
-                        <input type="date" class="form-control col-sm-8" name="formGeburtsdatum" id="formGeburtsdatum" required>
+                        <input type="date" class="form-control col-sm-8 form1" name="formGeburtsdatum" id="formGeburtsdatum" required>
                     </div>
-
-                    <div class="form-group row">
-                        <!-- formLevel umbenannt auf skilevel -->
+                    
+                    <div class="form-group row"> <!-- formLevel umbenannt auf skilevel -->
                         <label for="formSkiLevel" class="col-sm-4 col-form-label">Ski-Level* </label>
-                        <select class="form-control col-sm-8" name="formSkiLevel" id="formSkiLevel" placeholder="Bitte wählen">
-                            <option value="0">Keine</option>
-                            <option value="1">Anwärter</option>
-                            <option value="2">Landes</option>
-                            <option value="3">Staatlicher</option>
-                            <option value="4">Skiführer</option>
-                        </select>
+                            <select class="form-control col-sm-8" name="formSkiLevel" id="formSkiLevel" placeholder="Bitte wählen">
+                                <option value="0">Keine</option>
+                                <option value="1">Anwärter</option>
+                                <option value="2">Landes</option>
+                                <option value="3">Staatlicher</option>
+                                <option value="4">Skiführer</option>
+                            </select>
                     </div>
                     <div class="form-group row">
                         <label for="formSnowboardLevel" class="col-sm-4 col-form-label">Snowboard-Level* </label>
-                        <select class="form-control col-sm-8" name="formSnowboardLevel" id="formSnowboardLevel" placeholder="Bitte wählen">
-                            <option value="0">Keine</option>
-                            <option value="1">Anwärter</option>
-                            <option value="2">Landes</option>
-                            <option value="3">Staatlicher</option>
-                            <option value="4">Snowboardführer</option>
-                        </select>
+                            <select class="form-control col-sm-8" name="formSnowboardLevel" id="formSnowboardLevel" placeholder="Bitte wählen">
+                                <option value="0">Keine</option>
+                                <option value="1">Anwärter</option>
+                                <option value="2">Landes</option>
+                                <option value="3">Staatlicher</option>
+                                <option value="4">Snowboardführer</option>
+                            </select>
                     </div>
 
                     <div class="form-group row">
                         <label for="formKommentar" class="col-sm-4 col-form-label">Kommentar</label>
-                        <div class="col-sm-8 specialFieldFullWidth">
-                            <textarea id="formKommentar" name="formKommentar" class="form-control" rows="3">
-                            </textarea>
+                        <div class="col-sm-8">
+                            <textarea id="formKommentar" name="formKommentar" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
 
                     <div class="row">
-                        <button type="submit" name="submit" class="btn btn-primary btn1" id="submit_btn" value="Send">Speichern</button>
+                            <button type="submit" name="submit" class="btn btn-primary btn1"  id="submit_btn" value="Send">Speichern</button>
                     </div>
                 </form>
             </div>
 
             <div class="col-md-4 form-column">
-                <form class="content-container form2" id="form2" action="" name="contact">
-                    <h2>Mitarbeiter bearbeiten formular</h2>
-                    <div class="result"></div>
+            <form class="content-container" id="form2" action="" name="contact" >
+                <h2>Mitarbeiter bearbeiten formular</h2>
+
+
+                
+                    <div class="result result02"></div>
                     <div class="form-group row search-box">
                         <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer Suche: </label>
                         <div class="col-sm-8 specialFieldFullWidth">
@@ -186,21 +173,25 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                     <div class="row">
                         <button type="submit" name="submit" class="btn btn-primary btn2" id="submit_btn2" value="Send" onclick="">Speichern</button>
                     </div>
-                </form>
-            </div>
+                
 
+            </form>
+            </div>
+            
             <div class="col-md-2">
-                <!-- leere Spalte -->
+            <!-- leere Spalte -->
             </div>
         </div>
     </div>
 
-    <reference path=/Homepage/TimeScheduler-master/js/calendar.js" />
+    
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="skilehrer-anlegen-process/CreateSkilehrerDbEntry.js" crossorigin="anonymous"></script>
-    <script src="/Homepage/skilehrer-anlegen-process/skilehrer-live-search-bearbeiten.js"></script>
+    <script src="skilehrer-anlegen-process/skilehrer-live-search-bearbeiten.js" crossorigin="anonymous"></script>
+
 
 </body>
 

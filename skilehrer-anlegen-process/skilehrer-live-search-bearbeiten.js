@@ -108,8 +108,9 @@ $(document).ready(function () {
                 "id": id
               },
             success: function (data) {
-            $('.result').html("<div><ol>" + data + "</ol></div>");
-            $('.form2')[0].reset();
+            $('.result02').html("<div><ol>" + data + "</ol></div>");
+            $('#form2')[0].reset();
+            $('#formKommentarSkilehrer').empty();
             }
           });
       

@@ -16,7 +16,7 @@ $(document).ready(function () {
     function checkInputValidity() {
       var allObjValid = true;
       // alle InputFelder werden gesammelt und überprüft
-      var inpObj = document.querySelectorAll('input');
+      var inpObj = document.querySelectorAll('input.form1');
       // Validity Check in Schleife. Wenn nicht Valide dann set allObjValid auf false
       for (i = 0; i < inpObj.length; i++) {
         if (!inpObj[i].checkValidity()) {
@@ -53,7 +53,7 @@ $(document).ready(function () {
               "comment": comment
             },
           success: function (data) {
-          $('.result').html("<div><ol>" + data + "</ol></div>");
+          $('.result01').html("<div><ol>" + data + "</ol></div>");
           $('#form')[0].reset();
           }
         });
