@@ -66,7 +66,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
 
     <!-- bootstrap Calendar scripte -->
         
-        <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+      <!--   <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
         <script type="text/javascript" src="bower_components/bootstrap-calendar/js/language/de-AT.js"></script>
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="bower_components/bootstrap-calendar/js/calendar.js"></script>
@@ -94,10 +94,10 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             var calendar = $("#calendar").calendar( {language: 'de-AT',  
                 events_source: 'http://localhost/Homepage/skilehrer-termine-uebersicht/skilehrerTermine.json'
             });			
-		</script>
+		</script> -->
     <!-- bootstrap Calendar scripte -->
 
-  <!--   <script>
+    <script>
           var x = "";
         $(document).ready(function(){
             var obj;
@@ -236,7 +236,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
       </script>
 
     <script src="/Homepage/skilehrer-termine-uebersicht/termin-status-update.js" 
-            crossorigin="anonymous"></script>-->
+            crossorigin="anonymous"></script>
     </body> 
     
 </html>
