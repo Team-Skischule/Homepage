@@ -79,7 +79,7 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                         <!-- Modal content -->
                         <div class="modalbox-content" id="testme">
                             <span class="close">&times;</span>
-                            <div id="deleteTermin" class="btn btn-primary deleteTermin">Delete</div>
+                            
                             <form class="content-container" id="formpopup" action="" name="contact">
                                 <h2>Termin bearbeiten</h2>
                                 <div class="resultpopup"></div>
@@ -120,6 +120,7 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
 
                                 <div class="row">
                                     <button type="submit" name="submit" class="btn btn-primary" id="submit_btnpopup" value="Send">Speichern</button>
+                                    <div id="deleteTermin" class="btn btn-primary deleteTermin">Delete</div>
                                 </div>
                             </form>
                         </div>

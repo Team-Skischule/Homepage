@@ -434,10 +434,13 @@ footer {
   outline-color: var(--font-dark);
   color: var(--font-dark);
   padding: 0 4px 1px 4px;
+  position: relative;
+  z-index: 3;
+  float: right;
 }
 /*  test für modal hintergrund damit besser sichtbar war auf transparent      */
 .modalbox form {
-  background: blue;
+  background: none;
 }
 
 .modalbox p,
@@ -452,9 +455,25 @@ footer {
   background-color: rgba(17, 51, 108);
 }
 
+.modalbox .row button#submit_btnpopup {
+  margin-bottom: 1em;
+}
+
 .modalbox .btn.btn-primary:hover, 
 .modalbox .btn.btn-primary:active {
   background-color: rgb(22, 64, 138);
+}
+
+div#myModal {
+  background: var(--form-bg-green);
+}
+
+.modalbox form#formpopup {
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  margin-bottom: 0;
 }
 /* ------------ Modal PopUp Box Ende ------------ */
 
