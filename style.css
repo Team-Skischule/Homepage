@@ -435,9 +435,9 @@ footer {
   color: var(--font-dark);
   padding: 0 4px 1px 4px;
 }
-
+/*  test für modal hintergrund damit besser sichtbar war auf transparent      */
 .modalbox form {
-  background: transparent;
+  background: blue;
 }
 
 .modalbox p,

@@ -37,6 +37,7 @@ $(document).ready(function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
         // Hier muss die ID hinein:
         document.getElementById('skilehrerid').innerHTML = this.id;
+        document.getElementsByClassName('skilehrer-id-popup')[0].value = this.id;
         $(this).parent("").empty();
     }); 
 
