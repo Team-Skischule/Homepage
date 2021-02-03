@@ -187,8 +187,8 @@ var Calendar = {
               $('#formpopup')[0].reset();
               //$('#formKommentarSkilehrer').empty();
               getItemsTest();
-              modal.style.display = "transparend";
-              }
+              modal.style.display = "none";
+            }
             });
         
       });
