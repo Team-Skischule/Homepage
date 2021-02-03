@@ -1,0 +1,44 @@
+{"success": 1,"result":[
+    {
+        "id": 27,
+        "title": "Hotel Post Herr M\u00fcller",
+        "class": "event-important",
+        "start": 1611961200000,
+        "end": 1612047600000
+    },
+    {
+        "id": 28,
+        "title": "Hotel Schnee Frau Enzian",
+        "class": "event-important",
+        "start": 1612220400000,
+        "end": 1612306800000
+    },
+    {
+        "id": 29,
+        "title": "Hotel Zisch Familie Grundl",
+        "class": "event-important",
+        "start": 1612998000000,
+        "end": 1613170800000
+    },
+    {
+        "id": 30,
+        "title": "Hotel Kalt Firma Benzin",
+        "class": "event-important",
+        "start": 1612306800000,
+        "end": 1611183600000
+    },
+    {
+        "id": 31,
+        "title": "Hotzel Post Frau 12",
+        "class": "event-important",
+        "start": 1613516400000,
+        "end": -62169987208000
+    },
+    {
+        "id": 32,
+        "title": "Hotel Horn Gast Fl\u00f6ckchen",
+        "class": "event-important",
+        "start": 1612393200000,
+        "end": 1612566000000
+    }
+]}

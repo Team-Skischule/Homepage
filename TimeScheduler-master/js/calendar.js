@@ -110,7 +110,7 @@ var Calendar = {
   },
 
   Item_DoubleClick: function (item) {
-    //
+    //Holt sich die Skilehrer Id wenn eine Sectionid mit der sectionid eines Items gleich ist
     var skilehrerName = "";
     var skilehrerid = "";
 
@@ -121,13 +121,16 @@ var Calendar = {
       }
     }
     var modal = document.getElementById("myModal");
-    modal.style.display = "block";
-    //console.log(document.getElementById("myModal").childNodes);
-    //console.log(document.getElementById("testme").childNodes);
-    //console.log(document.getElementById("formx").childNodes);
 
-    document.getElementById('kundennamepopup').value = item.name;
-    document.getElementById('abholortpopup').value = item.ort;
+    //zeigt PopupFenster an
+    modal.style.display = "block";
+
+    console.log("Name: " + skilehrerName);
+    document.getElementById("kundennamepopup").value = item.name;
+    document.getElementById("abholortpopup").value = item.ort;
+    document.getElementById("skilehrernamepopup").value = skilehrerName;
+
+    //Datum bearbeiten damit das Format stimmt
     var neuDat = new Date(item.start);
     var neuDatDay = neuDat.getDate();
     var neuDatMonth = neuDat.getMonth() + 1;
@@ -135,11 +138,9 @@ var Calendar = {
     neuDatMonth = (neuDatMonth < 10 ? "0" : "") + neuDatMonth;
     neuDatDay = (neuDatDay < 10 ? "0" : "") + neuDatDay;
     var neuDatfull = neuDatYear + "-" + neuDatMonth + "-" + neuDatDay;
-    console.log("full: " + neuDatfull);
-    console.log("type: " + typeof neuDatfull);
-    console.log("End: " + document.getElementById("datumendepopup").value);
-    document.getElementById('datumbeginnpopup').value = neuDatfull;
+    document.getElementById("datumbeginnpopup").value = neuDatfull;
 
+    //Datum bearbeiten damit das Format stimmt
     var neuDat2 = new Date(item.end);
     var neuDatDay2 = neuDat2.getDate();
     var neuDatMonth2 = neuDat2.getMonth() + 1;
@@ -147,50 +148,52 @@ var Calendar = {
     neuDatMonth2 = (neuDatMonth2 < 10 ? "0" : "") + neuDatMonth2;
     neuDatDay2 = (neuDatDay2 < 10 ? "0" : "") + neuDatDay2;
     var neuDatfull2 = neuDatYear2 + "-" + neuDatMonth2 + "-" + neuDatDay2;
-    document.getElementById('datumendepopup').value = neuDatfull2;
+    document.getElementById("datumendepopup").value = neuDatfull2;
 
+    //Funktion wenn Submit-Button im Popupformular gedrückt wird
     $(document).ready(function () {
-      $('#submit_btnpopup').click(function (e) {        
-    
-          e.preventDefault();
-  
-          var name = $('#kundennamepopup').val();
-          var ort = $('#abholortpopup').val();
-          var start = $('#datumbeginnpopup').val();
-          var end = $('#datumendepopup').val();
-          var id = item.id;
-          if($('#skilehrer-id-popup').val()){
-            skilehrerid = $('#skilehrer-id-popup').val();
-          }
-          console.log("Search: " + $('#skilehrer-id-popup').val());
-          console.log("name: " + name);
-          console.log("ort: " + ort);
-          console.log("start: " + start);
-          console.log("end: " + end);
-          console.log("id: " + id);
-          console.log("skilehrerid: " + skilehrerid);
-  
-          $.ajax
-            ({
-              type: "POST",
-              url: "termin-update.php",
-              data: { 
-                  "name": name, 
-                  "ort": ort, 
-                  "start": start, 
-                  "end": end, 
-                  "id": id,
-                  "skilehrerid": skilehrerid
-                },
-              success: function (data) {
-              $('.resultpopup').html("<div><ol>" + data + "</ol></div>");
-              $('#formpopup')[0].reset();
-              //$('#formKommentarSkilehrer').empty();
-              getItemsTest();
-              modal.style.display = "none";
-            }
-            });
-        
+      $("#submit_btnpopup").click(function (e) {
+        e.preventDefault();
+
+        var name = $("#kundennamepopup").val();
+        var ort = $("#abholortpopup").val();
+        var start = $("#datumbeginnpopup").val();
+        var end = $("#datumendepopup").val();
+        var id = item.id;
+        if ($("#skilehrer-id-popup").val()) {
+          skilehrerid = $("#skilehrer-id-popup").val();
+        } else{
+          skilehrerid = 0;
+        }
+        console.log("Search: " + $("#skilehrer-id-popup").val());
+        console.log("name: " + name);
+        console.log("ort: " + ort);
+        console.log("start: " + start);
+        console.log("end: " + end);
+        console.log("id: " + id);
+        console.log("skilehrerid: " + skilehrerid);
+
+        $.ajax({
+          type: "POST",
+          url: "termin-update.php",
+          data: {
+            name: name,
+            ort: ort,
+            start: start,
+            end: end,
+            id: id,
+            skilehrerid: skilehrerid,
+          },
+          success: function (data) {
+            $(".resultpopup").html("<div><ol>" + data + "</ol></div>");
+            $("#formpopup")[0].reset();
+            //$('#formKommentarSkilehrer').empty();
+            //ladet die Termine frisch in den Kalender
+            getItemsTest();
+            //versteckt das Popupfenster
+            modal.style.display = "none";
+          },
+        });
       });
     });
 

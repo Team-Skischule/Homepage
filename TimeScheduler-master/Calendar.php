@@ -86,7 +86,7 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                                 <div class="form-group row search-box live-search-popup">
                                     <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer:</label>
                                     <div class="col-sm-8 specialFieldFullWidth">
-                                        <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
+                                        <input type="text" value="" class="form-control" name="skilehrername" id="skilehrernamepopup" autocomplete="off" placeholder="Suche Skilehrer ..." required>
                                         <div class="skilehrerResult liveSearchResultStyle"></div>
                                         <div class ="skilehrer-id-popup" id="skilehrer-id-popup"></div>
                                     </div>
