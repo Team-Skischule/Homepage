@@ -18,11 +18,14 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
         <title>Skilehrer Termine Übersicht</title>
         <link rel="stylesheet" href="style.css" />
          <?php include 'includes/header.php';?> 
-         <link href="/Homepage/TimeScheduler-master/css/jquery-ui.css" rel="stylesheet" />
-        <link href="/Homepage/TimeScheduler-master/css/jquery.ui.theme.css" rel="stylesheet" />
+         <!-- <link href="/Homepage/TimeScheduler-master/css/jquery-ui.css" rel="stylesheet" />
+        <link href="/Homepage/TimeScheduler-master/css/jquery.ui.theme.css" rel="stylesheet" /> -->
 
-        <script src="/Homepage/TimeScheduler-master/js/jquery-1.9.1.min.js"></script>
-        <script src="/Homepage/TimeScheduler-master/js/jquery-ui-1.10.2.min.js"></script>
+         <script src="/Homepage/TimeScheduler-master/js/jquery-1.9.1.min.js"></script>
+        <!--<script src="/Homepage/TimeScheduler-master/js/jquery-ui-1.10.2.min.js"></script> -->
+        <!-- für den bootstrap Kalendar -->
+        <link rel="stylesheet" href="bower_components/bootstrap-calendar/css/calendar.css">
+		<!-- <link rel="stylesheet" href="bower_components/bootstrap/less/bootstrap.less"> -->
 
     </head>
     <body>
@@ -37,6 +40,9 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="row skilehrerCalendar">
+                <div id="calendar"></div>
             </div>
             <div class="row ">
                 <div class="col-sm-12">
@@ -57,7 +63,41 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             </div>
         </div>
 
-    <script>
+
+    <!-- bootstrap Calendar scripte -->
+        
+        <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap-calendar/js/language/de-AT.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap-calendar/js/calendar.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+		<script type="text/javascript">
+        
+            function getJson(){
+                $.ajax({
+                    type: "GET",
+                    url: "/Homepage/skilehrer-termine-uebersicht/getSkilehrerTermineJson-Calendar.php",
+                    dataType: "html",
+                    success: function(data){
+                        console.log('success');
+                    }
+                /*  error: function(data){
+                        // error handling
+                    } */
+                }).done(function(data){
+                    // something to do after, even if it throws an error.
+                });
+            }
+            getJson();
+
+            var calendar = $("#calendar").calendar( {language: 'de-AT',  
+                events_source: 'http://localhost/Homepage/skilehrer-termine-uebersicht/skilehrerTermine.json'
+            });			
+		</script>
+    <!-- bootstrap Calendar scripte -->
+
+  <!--   <script>
           var x = "";
         $(document).ready(function(){
             var obj;
@@ -95,7 +135,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             } else {
                 console.log('user id nicht gefunden: ' + inputVal);
             }
-        });
+        }); 
 
         function openModal(classOfIcon, terminID) {
             
@@ -196,7 +236,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
       </script>
 
     <script src="/Homepage/skilehrer-termine-uebersicht/termin-status-update.js" 
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>-->
     </body> 
     
 </html>
