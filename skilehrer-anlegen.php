@@ -112,7 +112,7 @@
                         <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer Suche: </label>
                         <div class="col-sm-8 specialFieldFullWidth">
                             <input type="text" value="" class="form-control" name="skilehrername" id="skilehrername" autocomplete="off" placeholder="Suche Skilehrer ..." required>
-                            <div class="skilehrerResult liveSearchResultStyle"></div>
+                            <div class="skilehrerResultBearbeiten liveSearchResultStyle"></div>
                             <div id="skilehreridSkilehrer"></div>
                         </div>
                     </div>

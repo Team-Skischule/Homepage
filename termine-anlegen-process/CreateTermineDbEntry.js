@@ -28,10 +28,7 @@ $(document).ready(function () {
   
       if (checkInputValidity() == true) {
         e.preventDefault();
-        var skilehrerid = document.getElementById("skilehreridNeuTermin").value;
-        if(skilehrerid == null){
-          skilehrerid = 0;
-        }
+        var skilehrerid = document.getElementById("skilehreridNeuTermin").textContent;        
         var abholort = $('#abholortNeuTermin').val();
         var kundenname = $('#kundennameNeuTermin').val();
         var beginn = document.getElementById("beginnNeuTermin").value;

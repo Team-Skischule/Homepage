@@ -126,45 +126,81 @@ var Calendar = {
     modal.style.display = "block";
 
     console.log("Name: " + skilehrerName);
+    console.log("skilehrerid: " + skilehrerid);
+    console.log("class: " + item.classes);
     document.getElementById("kundennamepopup").value = item.name;
     document.getElementById("abholortpopup").value = item.ort;
     document.getElementById("skilehrernamepopup").value = skilehrerName;
+    document.getElementById("statuspopup").value = item.classes;
+   //document.getElementById("skilehrer-id-popup").value = skilehrerid;
+
+    //Funktion für Datumänderung
+    function changeDateStruct(Datum) {
+      let neuDatum = new Date(Datum);
+      let neuDatumDay = neuDatum.getDate();
+      let neuDatumMonth = neuDatum.getMonth() + 1;
+      let neuDatumYear = neuDatum.getFullYear();
+      neuDatumMonth = (neuDatumMonth < 10 ? "0" : "") + neuDatumMonth;
+      neuDatumDay = (neuDatumDay < 10 ? "0" : "") + neuDatumDay;
+      let neuDatumfull = neuDatumYear + "-" + neuDatumMonth + "-" + neuDatumDay;
+      return neuDatumfull;}
 
     //Datum bearbeiten damit das Format stimmt
-    var neuDat = new Date(item.start);
-    var neuDatDay = neuDat.getDate();
-    var neuDatMonth = neuDat.getMonth() + 1;
-    var neuDatYear = neuDat.getFullYear();
-    neuDatMonth = (neuDatMonth < 10 ? "0" : "") + neuDatMonth;
-    neuDatDay = (neuDatDay < 10 ? "0" : "") + neuDatDay;
-    var neuDatfull = neuDatYear + "-" + neuDatMonth + "-" + neuDatDay;
-    document.getElementById("datumbeginnpopup").value = neuDatfull;
 
-    //Datum bearbeiten damit das Format stimmt
-    var neuDat2 = new Date(item.end);
-    var neuDatDay2 = neuDat2.getDate();
-    var neuDatMonth2 = neuDat2.getMonth() + 1;
-    var neuDatYear2 = neuDat2.getFullYear();
-    neuDatMonth2 = (neuDatMonth2 < 10 ? "0" : "") + neuDatMonth2;
-    neuDatDay2 = (neuDatDay2 < 10 ? "0" : "") + neuDatDay2;
-    var neuDatfull2 = neuDatYear2 + "-" + neuDatMonth2 + "-" + neuDatDay2;
-    document.getElementById("datumendepopup").value = neuDatfull2;
+    document.getElementById("datumbeginnpopup").value = changeDateStruct(item.start);
+    document.getElementById("datumendepopup").value = changeDateStruct(item.end);
+
+    //check valid Start / End date
+    $(document).ready(function () {
+      $("#datumbeginnpopup").change(function () {
+        if (new Date(document.getElementById("datumbeginnpopup").value) > new Date(document.getElementById("datumendepopup").value)) {
+          document.getElementById("datumbeginnpopup").value = new Date(item.start);
+          document.getElementById("livesearchbeginn").innerHTML = "Startdatum darf nicht nach Enddatum sein";
+        }else{
+          document.getElementById("livesearchbeginn").innerHTML = "";
+        }
+      }),
+        $("#datumendepopup").change(function () {
+          if (new Date(document.getElementById("datumbeginnpopup").value) > new Date(document.getElementById("datumendepopup").value)) {
+            document.getElementById("datumendepopup").value = new Date(item.ende);
+            document.getElementById("livesearchende").innerHTML = "Enddatum darf nicht vor Startdatum sein";
+          }else{
+            document.getElementById("livesearchende").innerHTML = "";
+          }
+        });
+    });
 
     //Funktion wenn Submit-Button im Popupformular gedrückt wird
     $(document).ready(function () {
       $("#submit_btnpopup").click(function (e) {
         e.preventDefault();
 
-        var name = $("#kundennamepopup").val();
-        var ort = $("#abholortpopup").val();
-        var start = $("#datumbeginnpopup").val();
-        var end = $("#datumendepopup").val();
-        var id = item.id;
+        let name = $("#kundennamepopup").val();
+        let ort = $("#abholortpopup").val();
+        let start = $("#datumbeginnpopup").val();
+        let end = $("#datumendepopup").val();
+        let id = item.id;
+
+      /*   if($('#skilehrer-id-popup').val()){
+          skilehrerid = $('#skilehrer-id-popup').val();
+        } */
+
         if ($("#skilehrer-id-popup").val()) {
           skilehrerid = $("#skilehrer-id-popup").val();
-        } else {
-          skilehrerid = 0;
+        } 
+
+        let status;
+
+        if(document.getElementById("statuspopup").value == "item-status-none"){
+          status = 1;
         }
+        if(document.getElementById("statuspopup").value == "item-status-one"){
+          status = 2;
+        }
+        if(document.getElementById("statuspopup").value == "item-status-two"){
+          status = 3;
+        }
+
         console.log("Search: " + $("#skilehrer-id-popup").val());
         console.log("name: " + name);
         console.log("ort: " + ort);
@@ -172,6 +208,7 @@ var Calendar = {
         console.log("end: " + end);
         console.log("id: " + id);
         console.log("skilehrerid: " + skilehrerid);
+        console.log("status: " + status);
 
         $.ajax({
           type: "POST",
@@ -183,6 +220,7 @@ var Calendar = {
             end: end,
             id: id,
             skilehrerid: skilehrerid,
+            status: status
           },
           success: function (data) {
             $(".resultpopup").html("<div><ol>" + data + "</ol></div>");
@@ -196,14 +234,7 @@ var Calendar = {
         });
       });
     });
-
-    /* modal.childNodes[3].childNodes[3].innerHTML =
-      "Skilehrer: " + skilehrerName +
-      "<br>Kundenname: " + item.name +
-      "<br>Abholort: " + item.ort +
-      "<br>Start: " + item.start.getDate() + " " + item.start.toLocaleString("default", { month: "long" }) + " " + item.start.getFullYear() +
-      "<br>Ende: " + item.end.getDate() + " " + item.end.toLocaleString("default", { month: "long" }) + " " + item.end.getFullYear();
- */
+    
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 

@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){ 
         /* Get input value on change */
         var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".skilehrerResult");
+        var resultDropdown = $(this).siblings(".skilehrerResultBearbeiten");
         
         if(inputVal.length){ 
             $.get("/Homepage/termine-anlegen-process/skilehrer-search.php", {term: inputVal}).done(function(data){
@@ -23,7 +23,7 @@ $(document).ready(function(){
                         tempArr.push('<option id=\"' + obj[x].skilehrerid + '\" >' + obj[x].name + '</option>');
                     }
                 } else {
-                   document.getElementsByClassName('skilehrerResult')[0].innerHTML = "<p>Kein Skilehrer mit diesen Anfangsbuchstaben</p>" ;
+                   document.getElementsByClassName('skilehrerResultBearbeiten')[0].innerHTML = "<p>Kein Skilehrer mit diesen Anfangsbuchstaben</p>" ;
                 }
                 resultDropdown.html(tempArr);
             });
@@ -32,9 +32,9 @@ $(document).ready(function(){
         }
     });
     
-    // Set search input value on click of skilehrerResult item
+    // Set search input value on click of skilehrerResultBearbeiten item
     
-     $(document).on("click", ".skilehrerResult option", function(){
+     $(document).on("click", ".skilehrerResultBearbeiten option", function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
         // Hier muss die ID hinein:
         queryid = this.id;

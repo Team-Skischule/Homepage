@@ -76,11 +76,11 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                     <div class="realtime-info">
                     </div>
                     <!-- Popup Termin bearbeiten -->
-                    <div id="myModal" class="modalbox">
+                    <div id="myModal" class="modalbox modalbox-itemPopup">
                         <!-- Modal content -->
                         <div class="modalbox-content" id="testme">
                             <span class="close">&times;</span>
-                            
+
                             <form class="content-container" id="formpopup" action="" name="contact">
                                 <h2>Termin bearbeiten</h2>
                                 <div class="resultpopup"></div>
@@ -88,8 +88,8 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                                     <label for="skilehrername" class="col-sm-4  col-form-label">Skilehrer:</label>
                                     <div class="col-sm-8 specialFieldFullWidth">
                                         <input type="text" value="" class="form-control" name="skilehrername" id="skilehrernamepopup" autocomplete="off" placeholder="Suche Skilehrer ..." required>
-                                        <div class="skilehrerResult liveSearchResultStyle"></div>
-                                        <div class ="skilehrer-id-popup" id="skilehrer-id-popup"></div>
+                                        <div class="skilehrerResult liveSearchResultStyle skilehrerResultPopup skilehrerResultNeuTermin"></div>
+                                        <div class="skilehrer-id-popup" id="skilehrer-id-popup" data-value="" hidden></div>
                                     </div>
                                 </div>
 
@@ -106,8 +106,9 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                                 <div class="form-group row">
                                     <label for="beginn" class="col-sm-4  col-form-label">Beginn</label>
                                     <div class="col-sm-8 specialFieldFullWidth">
-                                        <input type="date" class="form-control" name="beginn" id="datumbeginnpopup"  required>
+                                        <input type="date" class="form-control" name="beginn" id="datumbeginnpopup" required>
                                         <div id="livesearch"></div>
+                                        <div id="livesearchbeginn"></div>
                                     </div>
                                 </div>
 
@@ -116,7 +117,18 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                                     <div class="col-sm-8 specialFieldFullWidth">
                                         <input type="date" class="form-control" name="ende" id="datumendepopup" value="" required>
                                         <div id="livesearch"></div>
+                                        <div id="livesearchende"></div>
                                     </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <!-- Dropdown Status ändern -->
+                                    <label for="statuspopup" class="col-sm-4 col-form-label">Status</label>
+                                    <select class="form-control col-sm-8" name="statuspopup" id="statuspopup" placeholder="Bitte wählen">
+                                        <option value="item-status-none">OK</option>
+                                        <option value="item-status-one">Rückmeldung</option>
+                                        <option value="item-status-two">Abgelehnt</option>
+                                    </select>
                                 </div>
 
                                 <div class="row">

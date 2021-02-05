@@ -13,13 +13,12 @@ $errors = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  /*   if (empty($_POST["skilehrerid"])) {
+    if (empty($_POST["skilehrerid"])) {
         $errors["skilehrerid"] = "skilehrerid ist erforderlich";
         $validationFailed = true;
     } else {
         $skilehrerid = test_input($_POST["skilehrerid"]);
-    } */
-    $skilehrerid = $_POST["skilehrerid"];
+    }
 
     if (empty($_POST["abholort"])) {
         $errors["abholort"] = "abholort ist erforderlich";
