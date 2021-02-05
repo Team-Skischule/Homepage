@@ -120,7 +120,9 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
 
                                 <div class="row">
                                     <button type="submit" name="submit" class="btn btn-primary" id="submit_btnpopup" value="Send">Speichern</button>
-                                    <div id="deleteTermin" class="btn btn-primary deleteTermin">Delete</div>
+                                </div>
+                                <div class="row">
+                                    <button id="deleteTermin" class="btn btn-primary deleteTermin">Delete</button>
                                 </div>
                             </form>
                         </div>

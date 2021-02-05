@@ -242,7 +242,7 @@ form input.form-control:focus {
   box-shadow: none;
   color: white !important;
   font-weight: 500;
-  font-size: 1.1em;
+  font-size: 1rem;
 }
 
 form .btn {
@@ -412,7 +412,7 @@ footer {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding: 3em;
+  padding: 1em;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -428,10 +428,10 @@ footer {
 .modalbox span.close {
   cursor: pointer;
   opacity: 0.9;
-  font-weight: 400 !important;
-  outline-style: solid;
+  font-weight: 600 !important;
+ /*  outline-style: solid;
   outline-width: thin;
-  outline-color: var(--font-dark);
+  outline-color: var(--font-dark); */
   color: var(--font-dark);
   padding: 0 4px 1px 4px;
   position: relative;
@@ -475,6 +475,11 @@ div#myModal {
   box-shadow: none;
   margin-bottom: 0;
 }
+
+.modalbox button#deleteTermin {
+  font-size: 0.9em;
+}
+
 /* ------------ Modal PopUp Box Ende ------------ */
 
 /* ------------ Skilehrer Termin Übersicht ------------ */
