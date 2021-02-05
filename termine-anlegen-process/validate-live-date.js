@@ -8,7 +8,7 @@ $(document).ready(function(){
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings("#livesearch"); 
-        var skilehrerid = document.getElementById('skilehrerid').textContent;
+        var skilehrerid = document.getElementById('skilehreridNeuTermin').textContent;
 
         if(inputVal.length){ 
             $.get("/Homepage/termine-anlegen-process/validate-date.php", {date: inputVal, id: skilehrerid}).done(function(data){
@@ -18,7 +18,7 @@ $(document).ready(function(){
                     resultDropdown.html('if: ' + data);
                 } else {
                     resultDropdown.html('else: ' + data);
-                   document.getElementsByClassName('skilehrerResult')[0].innerHTML = "<p>Kein Skilehrer mit diesen Anfangsbuchstaben</p>" ;
+                   document.getElementsByClassName('skilehrerResultNeuTermin')[0].innerHTML = "<p>Kein Skilehrer mit diesen Anfangsbuchstaben</p>" ;
                 }
                 resultDropdown.html(data);
             });

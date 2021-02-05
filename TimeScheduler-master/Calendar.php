@@ -75,6 +75,7 @@ $session_value = (isset($_SESSION['id'])) ? $_SESSION['id'] : '';
                     </div>
                     <div class="realtime-info">
                     </div>
+                    <!-- Popup Termin bearbeiten -->
                     <div id="myModal" class="modalbox">
                         <!-- Modal content -->
                         <div class="modalbox-content" id="testme">

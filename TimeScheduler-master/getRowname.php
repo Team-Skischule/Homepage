@@ -2,7 +2,7 @@
     include "../config.php";
     header("Content-Type: application/json; charset=UTF-8");
 
-    $stmt = $link->prepare("SELECT id, concat(firstname,' ', lastname) as fullname FROM skilehrer");
+    $stmt = $link->prepare("SELECT id, concat(firstname,' ', lastname) as fullname, permission FROM skilehrer");
 
     $stmt->execute();
     $result = $stmt->get_result();
@@ -12,7 +12,7 @@
  //sendet JSON als Array
  $outp = array();
     while ($row = $result -> fetch_assoc()){
-        array_push($outp, array("id" => $row['id'], "name" => $row['fullname']));
+        array_push($outp, array("id" => $row['id'], "name" => $row['fullname'], "permission" => $row['permission']));
     }
 
     echo json_encode($outp);

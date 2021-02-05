@@ -11,12 +11,12 @@
 --------------------------------------------------------*/
 
 $(document).ready(function () {
-    $('.btn').click(function (e) {
-  
+    $('.terminxxx').click(function (e) {
       function checkInputValidity() {
         var allObjValid = true;
         // alle InputFelder werden gesammelt und überprüft
-        var inpObj = document.querySelectorAll('input');
+        var inpObj = document.querySelectorAll('.neu-termin-anlegen input');
+
         // Validity Check in Schleife. Wenn nicht Valide dann set allObjValid auf false
         for (i = 0; i < inpObj.length; i++) {
           if (!inpObj[i].checkValidity()) {
@@ -28,13 +28,15 @@ $(document).ready(function () {
   
       if (checkInputValidity() == true) {
         e.preventDefault();
-        var skilehrerid = document.getElementById("skilehrerid").textContent;
-        var abholort = $('#abholort').val();
-        var kundenname = $('#kundenname').val();
-        var beginn = document.getElementById("beginn").value;
-        var ende = document.getElementById("ende").value;
+        var skilehrerid = document.getElementById("skilehreridNeuTermin").value;
+        if(skilehrerid == null){
+          skilehrerid = 0;
+        }
+        var abholort = $('#abholortNeuTermin').val();
+        var kundenname = $('#kundennameNeuTermin').val();
+        var beginn = document.getElementById("beginnNeuTermin").value;
+        var ende = document.getElementById("endeNeuTermin").value;
        // var skilehrername = document.getElementById('skilehrername').value;
-        
         $.ajax
           ({
             type: "POST",

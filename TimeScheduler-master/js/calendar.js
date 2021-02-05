@@ -162,7 +162,7 @@ var Calendar = {
         var id = item.id;
         if ($("#skilehrer-id-popup").val()) {
           skilehrerid = $("#skilehrer-id-popup").val();
-        } else{
+        } else {
           skilehrerid = 0;
         }
         console.log("Search: " + $("#skilehrer-id-popup").val());
@@ -244,13 +244,8 @@ var Calendar = {
     var x = item.end - item.start;
     //richtige Differenz!
     var difference = Math.round(x / (1000 * 3600 * 24));
-    /* console.log("differenz: " + difference);
-    
-    console.log("Test");
-    console.log("start: " + new Date(start)); */
     var xx = new Date(start);
     xx.setDate(xx.getDate() + difference);
-    //console.log("end + diff: " + xx);
 
     item.start = start;
     item.end = end;
@@ -290,10 +285,6 @@ var Calendar = {
     console.log("end: " + terminEnde);
 
     function ajaxCall() {
-      /* console.log("Ajax");
-      console.log(terminStart);
-      console.log(terminEnde); */
-
       $.ajax({
         type: "POST",
         url: "/Homepage/dragItem.php",
@@ -375,27 +366,6 @@ var Calendar = {
       });
     }
     ajaxCall();
-
-    /* if(Math.abs(start.getTime() - end.getTime()) / 1000 / 3600 < 12)
-    {
-    item.start = new Date(start).setHours(+ 0.5);
-    item.end = new Date(end).setHours(+ 23);
-    }
-    item.start = new Date(start).setHours(+ 0.5);
-    item.end = new Date(end).setHours(- 1); */
-
-    /*  for (var i = 0; i < Calendar.Items.length; i++) {
-      foundItem = Calendar.Items[i];
-console.log(foundItem);
-      if (foundItem.id === item.id) {
-        console.log("Item: "+foundItem.id);
-        foundItem.start = start;
-        foundItem.end = end;
-
-        Calendar.Items[i] = foundItem;
-      }
-    } */
-
     TimeScheduler.Init();
   },
 
@@ -422,8 +392,6 @@ console.log(foundItem);
     $(".realtime-info").hide();
   },
 };
-/* console.log("Anfang Inhalt Items");
-console.log(Calendar.Items); */
 
 //Import der Zeilennamen (Sections) von der Datenbank
 function getRowname() {
@@ -436,13 +404,20 @@ function getRowname() {
       /* ---------------
              json ist in mit diesen Spalten befüllt:
                 id,
-                name
+                name,
+                permission
             ---------------- */
 
-      //befüllt Calendar.Sections mit dem JSON Array
-      Calendar.Sections = getRownamearr;
+      //befüllt Calendar.Sections mit dem JSON Array wenn sie Skilehrer sind (permission == 1)
+      for (i = 0; i < getRownamearr.length; i++) {
+        if (getRownamearr[i].permission == 1) {
+          Calendar.Sections.push(getRownamearr[i]);
+        }
+      }
+      //befüllt Spalten mit allen Einträgen aus der Datenbank
+      //Calendar.Sections = getRownamearr;
 
-      //übernimmt die neuen Daten in die Tabelle
+      //aktualisiert Zeilen und Termine
       TimeScheduler.Init(true);
     }
   };
@@ -505,10 +480,6 @@ function getItemsTest() {
         //jedes Objekt entspricht einem neuen Termin
         Calendar.Items.push(newItem);
       }
-
-      /*       console.log("Neuer Inhalt Items");
-      console.log(Calendar.Items); */
-
       TimeScheduler.Init(true);
     }
   };
