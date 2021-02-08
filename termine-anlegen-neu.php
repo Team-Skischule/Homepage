@@ -26,6 +26,7 @@
              <div class="col-sm-8 specialFieldFullWidth">
                  <input type="date" class="form-control" name="beginn" id="beginnNeuTermin" required>
                  <div id="livesearch"></div>
+                 <div id="livesearchNeuTerminBeginn"></div>
              </div>
          </div>
 
@@ -34,6 +35,7 @@
              <div class="col-sm-8 specialFieldFullWidth">
                  <input type="date" class="form-control" name="ende" id="endeNeuTermin" required>
                  <div id="livesearch"></div>
+                 <div id="livesearchNeuTerminEnde"></div>
              </div>
          </div>
 

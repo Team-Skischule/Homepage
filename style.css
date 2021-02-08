@@ -141,7 +141,8 @@ h1 {
 }
 
 .calendar .time-sch-wrapper .time-sch-header-1-current-time {
-  background-color:  rgba(120, 161, 221, 0.37);
+  /*background-color:  rgba(120, 161, 221, 0.37); original*/ 
+background-color: rgba(120, 110, 221, 0.5); /* neu versuch*/
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }

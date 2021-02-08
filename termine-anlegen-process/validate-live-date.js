@@ -22,3 +22,23 @@ $(document).ready(function(){
         }
     });
 });
+
+//check valid Start / End date
+$(document).ready(function () {
+    $("#beginnNeuTermin").on("change input", function () {
+      if (new Date(document.getElementById("beginnNeuTermin").value) > new Date(document.getElementById("endeNeuTermin").value)) {
+        document.getElementById("beginnNeuTermin").value = "";
+        document.getElementById("livesearchNeuTerminBeginn").innerHTML = "Startdatum darf nicht nach Enddatum sein";
+      }else{
+        document.getElementById("livesearchNeuTerminBeginn").innerHTML = "";
+      }
+    }),
+      $("#endeNeuTermin").change(function () {
+        if (new Date(document.getElementById("beginnNeuTermin").value) > new Date(document.getElementById("endeNeuTermin").value)) {
+        document.getElementById("endeNeuTermin").value = "";
+        document.getElementById("livesearchNeuTerminEnde").innerHTML = "Enddatum darf nicht vor Startdatum sein";
+        }else{
+          document.getElementById("livesearchNeuTerminEnde").innerHTML = "";
+        }
+      });
+  });

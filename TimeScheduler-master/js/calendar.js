@@ -5,7 +5,7 @@
 /// <reference path="moment.min.js" />
 /// <reference path="timelineScheduler.js" />
 
-var today = moment().startOf("day");
+var today = moment().startOf("day").add(-2, 'days');
 
 var Calendar = {
   Periods: [
@@ -144,7 +144,7 @@ var Calendar = {
     document.getElementById("statuspopup").value = item.classes;   
 
     //changes the dates for the DB
-    document.getElementById("datumbeginnpopup").value = changeDateStruct(item.start);
+    document.getElementById("datumbeginnpopup").value = changeDateStruct(item.start); //moment(item.start).format('YYYY-MM-DD') also works
     document.getElementById("datumendepopup").value = changeDateStruct(item.end);
 
     //check valid Start / End date
