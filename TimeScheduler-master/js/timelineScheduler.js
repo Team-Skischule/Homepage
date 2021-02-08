@@ -585,6 +585,7 @@ var TimeScheduler = {
     );
   },
 
+  //defines objects and their attributes
   CreateItems: function (items) {
     var item,
       event,

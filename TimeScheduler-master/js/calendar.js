@@ -120,7 +120,7 @@ var Calendar = {
   },
 
   Item_DoubleClick: function (item) {
-    //Holt sich die Skilehrer Id wenn eine Sectionid mit der sectionid eines Items gleich ist
+    //Gets the skilehrer ID, if a sectionID of an Item is the same ID as a Section
     var skilehrerName = "";
     var skilehrerid = "";
 
@@ -132,7 +132,7 @@ var Calendar = {
     }
     var modal = document.getElementById("myModal");
 
-    //zeigt PopupFenster an
+    //shows Popupwindow
     modal.style.display = "block";
 
     console.log("Name: " + skilehrerName);
@@ -141,22 +141,9 @@ var Calendar = {
     document.getElementById("kundennamepopup").value = item.name;
     document.getElementById("abholortpopup").value = item.ort;
     document.getElementById("skilehrernamepopup").value = skilehrerName;
-    document.getElementById("statuspopup").value = item.classes;
-   //document.getElementById("skilehrer-id-popup").value = skilehrerid;
+    document.getElementById("statuspopup").value = item.classes;   
 
-    //Funktion für Datumänderung
-    function changeDateStruct(Datum) {
-      let neuDatum = new Date(Datum);
-      let neuDatumDay = neuDatum.getDate();
-      let neuDatumMonth = neuDatum.getMonth() + 1;
-      let neuDatumYear = neuDatum.getFullYear();
-      neuDatumMonth = (neuDatumMonth < 10 ? "0" : "") + neuDatumMonth;
-      neuDatumDay = (neuDatumDay < 10 ? "0" : "") + neuDatumDay;
-      let neuDatumfull = neuDatumYear + "-" + neuDatumMonth + "-" + neuDatumDay;
-      return neuDatumfull;}
-
-    //Datum bearbeiten damit das Format stimmt
-
+    //changes the dates for the DB
     document.getElementById("datumbeginnpopup").value = changeDateStruct(item.start);
     document.getElementById("datumendepopup").value = changeDateStruct(item.end);
 
@@ -180,7 +167,7 @@ var Calendar = {
         });
     });
 
-    //Funktion wenn Submit-Button im Popupformular gedrückt wird
+    //function for the "Speichern" button, sends the Item attributes to the DB (Ajax)
     $(document).ready(function () {
       $("#submit_btnpopup").click(function (e) {
         e.preventDefault();
@@ -300,19 +287,9 @@ var Calendar = {
     item.end = end;
     item.sectionID = sectionID;
 
-    var terminStart = new Date(start);
-    var d = terminStart.getDate();
-    //monat +1 weil die monate von 0 (januar) gezählt werden, Datenbank speicher Januar mit 01 ab
-    var m = terminStart.getMonth();
-    m += 1;
-    var y = terminStart.getFullYear();
+    var terminStart = changeDateStruct(start);
 
-    if (m < 10) {
-      terminStart = y + "-" + "0" + m + "-" + d;
-    } else {
-      terminStart = y + "-" + m + "-" + d;
-    }
-
+    //for the end date we need the duration of the Item, start date + the difference to the end date
     var terminEnde = new Date(start);
     terminEnde.setDate(terminEnde.getDate() + (difference - 1));
     var x = new Date(terminEnde).getDate();
@@ -326,7 +303,7 @@ var Calendar = {
       terminEnde = z + "-" + h + "-" + x;
     }
 
-    //Darstellung beim Kalender
+    //item.start & end is the visualization on the Website, before new refresh of Items
     item.start = new Date(start);
     item.end = new Date(end);
 
@@ -367,30 +344,8 @@ var Calendar = {
     console.log("ID: ");
     console.log(item.id);
 
-    var terminStart = new Date(start);
-    var d = terminStart.getDate();
-    //monat +1 weil die monate von 0 (januar) gezählt werden, Datenbank speicher Januar mit 01 ab
-    var m = terminStart.getMonth();
-    m += 1;
-    var y = terminStart.getFullYear();
-
-    if (m < 10) {
-      terminStart = y + "-" + "0" + m + "-" + d;
-    } else {
-      terminStart = y + "-" + m + "-" + d;
-    }
-
-    var terminEnde = new Date(end);
-    var x = terminEnde.getDate();
-    var h = terminEnde.getMonth();
-    h += 1;
-    var z = terminEnde.getFullYear();
-
-    if (h < 10) {
-      terminEnde = z + "-" + "0" + h + "-" + x;
-    } else {
-      terminEnde = z + "-" + h + "-" + x;
-    }
+    var terminStart = changeDateStruct(start);
+    var terminEnde = changeDateStruct(end);    
 
     item.start = new Date(start).setHours(-0.5);
     item.end = new Date(end).setHours(+23);
@@ -442,31 +397,29 @@ var Calendar = {
   },
 };
 
-//Import der Zeilennamen (Sections) von der Datenbank
+//import of the rownames (Sections) from the DB
 function getRowname() {
-  // Server Abfrage
+  // Server query
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var getRownamearr = [];
       getRownamearr = JSON.parse(this.responseText);
       /* ---------------
-             json ist in mit diesen Spalten befüllt:
+             json columns:
                 id,
                 name,
                 permission
             ---------------- */
 
-      //befüllt Calendar.Sections mit dem JSON Array wenn sie Skilehrer sind (permission == 1)
+      //fills the Calendar.Sections Array with the JSON Array if they are skiinstructors (permission ==1)
       for (i = 0; i < getRownamearr.length; i++) {
         if (getRownamearr[i].permission == 1) {
           Calendar.Sections.push(getRownamearr[i]);
         }
-      }
-      //befüllt Spalten mit allen Einträgen aus der Datenbank
-      //Calendar.Sections = getRownamearr;
+      }     
 
-      //aktualisiert Zeilen und Termine
+      //refreshes rows and columns
       TimeScheduler.Init(true);
     }
   };
@@ -476,7 +429,7 @@ function getRowname() {
 }
 getRowname();
 
-//Import der Termine (Items) von der Datenbank
+//Import of all Items in the Database
 function getItemsTest() {
   xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
@@ -484,7 +437,7 @@ function getItemsTest() {
       var getItemsArray = JSON.parse(this.responseText);
 
       /* -------------------------------------------
-             json ist in mit diesen Spalten befüllt:
+             json columns:
                 sectionID,
                 name,
                 ort,
@@ -493,29 +446,24 @@ function getItemsTest() {
                 end
             ---------------------------------------- */
 
-      //alle Inhalte von Calendar.Items werden gelöscht und dann neu befüllt
+      //Calendar.Items is emptied and then filled with the Items from the DB
       Calendar.Items = [];
       for (i = 0; i < getItemsArray.length; i++) {
-        //es wird ein neues Objekt newItem mit den Attributen sectionID, classes... erstellt
+        //creates a new object newItem with the attributes sectionID, classes, ort, .... 
         var newItem = [];
         newItem.sectionID = getItemsArray[i].sectionID;
-        //newItem.classes = getItemsArray[i].classes;
-
         newItem.name = getItemsArray[i].kundenname;
         newItem.ort = getItemsArray[i].abholort;
         newItem.id = getItemsArray[i].id;
 
-        //Zuweisung Anfang/Ende Termin
-        //wenn Termin nur ein Tag ist, wird dem End-Datum 23 Stunden zugefügt
-        //ansonsten wird für die graphische Darstellung am Anfang eine 0.5h und am Ende -1h
-
+        //for a better visualization of the Items we add / substract some hours (only for visualization, DB saves Dates YYYY-MM-DD)
+        
         newItem.start = new Date(getItemsArray[i].start);
-        newItem.start.setHours(+1);
+        newItem.start.setHours(-1);
         newItem.end = new Date(getItemsArray[i].end);
-        newItem.end.setHours(+23);
+        newItem.end.setHours(+22);
 
-        //weißt dem Termin die Hintergrundfarbe zu
-        //entsprechend der Status-Spalte in der Datenbank
+        //changes Background of Items according to their class (status)
         if (getItemsArray[i].classes === 1) {
           newItem.classes = "item-status-none";
         }
@@ -525,9 +473,7 @@ function getItemsTest() {
         if (getItemsArray[i].classes === 3) {
           newItem.classes = "item-status-two";
         }
-
-        //newItems Objekt wird dem Array Calendar.Items hinzugefügt
-        //jedes Objekt entspricht einem neuen Termin
+        //newItem object is added to the Calendar.Items Array (every newItem is one appointment)
         Calendar.Items.push(newItem);
       }
       TimeScheduler.Init(true);
@@ -540,3 +486,14 @@ function getItemsTest() {
 getItemsTest();
 
 $(document).ready(Calendar.Init);
+
+ //function to change the dateformat for DB
+ function changeDateStruct(Datum) {
+  let neuDatum = new Date(Datum);
+  let neuDatumDay = neuDatum.getDate();
+  let neuDatumMonth = neuDatum.getMonth() + 1;
+  let neuDatumYear = neuDatum.getFullYear();
+  neuDatumMonth = (neuDatumMonth < 10 ? "0" : "") + neuDatumMonth;
+  neuDatumDay = (neuDatumDay < 10 ? "0" : "") + neuDatumDay;
+  let neuDatumfull = neuDatumYear + "-" + neuDatumMonth + "-" + neuDatumDay;
+  return neuDatumfull;}
