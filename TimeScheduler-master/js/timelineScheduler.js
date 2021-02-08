@@ -788,7 +788,7 @@ var TimeScheduler = {
             this,
             $(this).data("item")
           );
-        });
+        });      
       }
 
     if (TimeScheduler.Options.Events.ItemMouseEnter) {

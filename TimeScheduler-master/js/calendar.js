@@ -21,6 +21,7 @@ var Calendar = {
       Name: "1 week",
       Label: "2 Wochen",
       TimeframePeriod: 60 * 24,
+      //Timeframe: 60  min * 24 hours * 14 days
       TimeframeOverall: 60 * 24 * 14,
       TimeframeHeaders: ["MMM", "DD"],
       Classes: "period-1week",
@@ -179,11 +180,7 @@ var Calendar = {
         let ort = $("#abholortpopup").val();
         let start = $("#datumbeginnpopup").val();
         let end = $("#datumendepopup").val();
-        let id = item.id;
-
-      /*   if($('#skilehrer-id-popup').val()){
-          skilehrerid = $('#skilehrer-id-popup').val();
-        } */
+        let id = item.id;      
 
         if ($("#skilehrer-id-popup").val()) {
           skilehrerid = $("#skilehrer-id-popup").val();
@@ -209,29 +206,36 @@ var Calendar = {
         console.log("id: " + id);
         console.log("skilehrerid: " + skilehrerid);
         console.log("status: " + status);
+        console.log("ENDE Submit Formular");
 
         $.ajax({
           type: "POST",
           url: "termin-update.php",
           data: {
-            name: name,
-            ort: ort,
-            start: start,
-            end: end,
-            id: id,
-            skilehrerid: skilehrerid,
-            status: status
+            "name": name,
+            "ort": ort,
+            "start": start,
+            "end": end,
+            "id": id,
+            "skilehrerid": skilehrerid,
+            "status": status
           },
           success: function (data) {
             $(".resultpopup").html("<div><ol>" + data + "</ol></div>");
             $("#formpopup")[0].reset();
+            console.log("Test Form: " + item.id);
+            item = "";
             //$('#formKommentarSkilehrer').empty();
             //ladet die Termine frisch in den Kalender
-            getItemsTest();
             //versteckt das Popupfenster
-            modal.style.display = "none";
+            
           },
         });
+        setTimeout(() => {
+          getItemsTest();
+        }, 100);
+        modal.style.display = "none";
+        console.log("Termin wurde geändert");
       });
     });
     
@@ -267,6 +271,11 @@ var Calendar = {
       modal.style.display = "none";
       console.log("Termin wurde gelöscht");
     };
+    $('#myModal').on('none.bs.modal', function() {
+      $('.modal-body').find('input,skilehrer-id-popup,value, data-value').val('');
+    })
+    TimeScheduler.Init();
+    console.log("ENDE DOUBLECLICK EVENT");
   },
 
   Item_Dragged: function (item, sectionID, start, end) {
@@ -469,6 +478,7 @@ function getItemsTest() {
              json ist in mit diesen Spalten befüllt:
                 sectionID,
                 name,
+                ort,
                 classes,
                 start,
                 end
