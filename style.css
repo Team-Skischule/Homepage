@@ -482,6 +482,11 @@ div#myModal {
 
 /* ------------ Modal PopUp Box Ende ------------ */
 
+/* ------------ Monatszahlen in der Kalenderansicht ------------ */
+.time-sch-date {
+  text-align: center !important;
+}
+
 /* ------------ Skilehrer Termin Übersicht ------------ */
 div#terminGrid {
   position: relative;

@@ -34,6 +34,14 @@ var Calendar = {
       TimeframeHeaders: ["MMM", "DD"],
       Classes: "period-1month",
     },
+    {
+      Name: "1 month v2",
+      Label: "1 Monat v2",
+      TimeframePeriod: 60 * 24 * 1,
+      TimeframeOverall: 60 * 24 * 40,
+      TimeframeHeaders: ["MMM", "DD"],
+      Classes: "period-1month",
+    },
   ],
 
   Items: [
@@ -108,6 +116,7 @@ var Calendar = {
 
   Item_Clicked: function (item) {
     console.log(item);
+    console.log("start: " + (item.end - item.start));
   },
 
   Item_DoubleClick: function (item) {

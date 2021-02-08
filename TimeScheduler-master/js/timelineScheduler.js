@@ -845,14 +845,14 @@ var TimeScheduler = {
             );
 
             // If the start is before the start of our calendar, add the offset
-            if (item.start < TimeScheduler.Options.Start) {
-              start.tsAdd(
+            if (moment(item.start) < moment(TimeScheduler.Options.Start)) {
+              moment(start).tsAdd(
                 "minutes",
-                item.start.diff(TimeScheduler.Options.Start, "minutes")
+                moment(item.start).diff(TimeScheduler.Options.Start, "minutes")
               );
-              end.tsAdd(
+              moment(end).tsAdd(
                 "minutes",
-                item.start.diff(TimeScheduler.Options.Start, "minutes")
+                moment(item.start).diff(TimeScheduler.Options.Start, "minutes")
               );
             }
 
@@ -924,11 +924,11 @@ var TimeScheduler = {
           if (item.start < TimeScheduler.Options.Start) {
             start.tsAdd(
               "minutes",
-              item.start.diff(TimeScheduler.Options.Start, "minutes")
+              moment(item.start).diff(TimeScheduler.Options.Start, "minutes")
             );
             end.tsAdd(
               "minutes",
-              item.start.diff(TimeScheduler.Options.Start, "minutes")
+              moment(item.start).diff(TimeScheduler.Options.Start, "minutes")
             );
           }
 
