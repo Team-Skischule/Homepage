@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($validationFailed){
         foreach($errors as $x => $value) {
             $msg =  $x . " = " . $value;
-            error_log(date("Y-F-j, G:i").": in termine_submit.php: ".$msg."\n", 3,  "errors-log.log"); 
+            error_log(date("Y-F-j, G:i").": in termine_submit.php: ".$msg."\n", 3,  "../errors-log.log"); 
         }
     } else {
 
