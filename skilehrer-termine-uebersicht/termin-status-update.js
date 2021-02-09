@@ -3,7 +3,7 @@
 --------------------------------------------------------*/
 
 $(document).ready(function () {
-    $('.btn').click(function (e) {
+    $('.submit-btn01').click(function (e) {
 
         const terminId = document.getElementsByClassName('btn-primary');
         const newTerminStatus = document.getElementsByClassName('status')

@@ -28,7 +28,7 @@ var Calendar = {
     },
     {
       Name: "1 month",
-      Label: "1 Monat",
+      Label: "4 Wochen",
       TimeframePeriod: 60 * 24 * 1,
       TimeframeOverall: 60 * 24 * 28,
       TimeframeHeaders: ["MMM", "DD"],
@@ -36,7 +36,7 @@ var Calendar = {
     },
     {
       Name: "1 month v2",
-      Label: "1 Monat v2",
+      Label: "Monatsansicht",
       TimeframePeriod: 60 * 24 * 1,
       TimeframeOverall: 60 * 24 * 40,
       TimeframeHeaders: ["MMM", "DD"],
@@ -259,6 +259,7 @@ var Calendar = {
         },
         success: function (data) {
           $(".result1").html("<div><ol>" + data + "</ol></div>");
+          item="";
         },
       });
       setTimeout(() => {
@@ -322,6 +323,7 @@ var Calendar = {
         },
         success: function (data) {
           $(".result1").html("<div><ol>" + data + "</ol></div>");
+          item="";
         },
       });
       setTimeout(() => {
@@ -366,6 +368,7 @@ var Calendar = {
         },
         success: function (data) {
           $(".result1").html("<div><ol>" + data + "</ol></div>");
+          item = "";
         },
       });
     }
@@ -459,7 +462,7 @@ function getItemsTest() {
         //for a better visualization of the Items we add / substract some hours (only for visualization, DB saves Dates YYYY-MM-DD)
         
         newItem.start = new Date(getItemsArray[i].start);
-        newItem.start.setHours(-1);
+        newItem.start.setHours(+0.5);
         newItem.end = new Date(getItemsArray[i].end);
         newItem.end.setHours(+22);
 
@@ -467,10 +470,10 @@ function getItemsTest() {
         if (getItemsArray[i].classes === 1) {
           newItem.classes = "item-status-none";
         }
-        if (getItemsArray[i].classes === 2) {
+        if (getItemsArray[i].classes === 3) {
           newItem.classes = "item-status-one";
         }
-        if (getItemsArray[i].classes === 3) {
+        if (getItemsArray[i].classes === 2) {
           newItem.classes = "item-status-two";
         }
         //newItem object is added to the Calendar.Items Array (every newItem is one appointment)

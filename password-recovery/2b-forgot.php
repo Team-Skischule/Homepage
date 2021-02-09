@@ -82,8 +82,8 @@
 <body class="home sessionForm">
   <!-- (A) PASSWORD RESET FORM -->
   <div class="form-container">
-        <span class="help-block"><?php echo $result; ?></span>
     <form method="post" target="_self">
+        <span class="help-block"><?php echo $result; ?></span>
       <div class="form-group">
         <label for="email" class="col-sm-4 col-form-label">E&#8209;Mail:</label>
         <input type="email" name="email" required class="form-control col-sm-8" placeholder="skilehrer@arlberg.at"></input>

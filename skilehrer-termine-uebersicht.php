@@ -47,7 +47,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
             <div class="row ">
                 <div class="col-sm-12">
                     <div id="terminGrid">
-                       <p>Deine Termine:</p>
+                       <p>Deine aktuellen Termine:<br>(Termine in der Vergangenheit und abgesagte Termine werden nicht angezeigt)</p>
                        <div class="result"></div>
                     </div>
                     <div id="myModal" class="modalbox">
@@ -55,7 +55,7 @@ $session_value=(isset($_SESSION["id"]))?$_SESSION["id"]:'';
                         <div class="modalbox-content">
                             <span class="close">&times;</span>
                             <p>insert text here</p>
-                            <div class="btn btn-primary">Ja, senden.</div>
+                            <div class="btn btn-primary submit-btn01">Ja, senden.</div>
                             <div class="status"></div>
                         </div>
                     </div>
