@@ -188,10 +188,10 @@ var Calendar = {
           status = 1;
         }
         if(document.getElementById("statuspopup").value == "item-status-one"){
-          status = 2;
+          status = 3;
         }
         if(document.getElementById("statuspopup").value == "item-status-two"){
-          status = 3;
+          status = 2;
         }
 
         console.log("Search: " + $("#skilehrer-id-popup").val());
