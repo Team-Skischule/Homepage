@@ -349,8 +349,8 @@ var Calendar = {
     var terminStart = changeDateStruct(start);
     var terminEnde = changeDateStruct(end);    
 
-    item.start = new Date(start).setHours(-0.5);
-    item.end = new Date(end).setHours(+23);
+    item.start = new Date(start).setHours(+0.5);
+    item.end = new Date(end).setHours(+21);
 
     console.log("start: " + terminStart);
     console.log("end: " + terminEnde);
@@ -464,7 +464,7 @@ function getItemsTest() {
         newItem.start = new Date(getItemsArray[i].start);
         newItem.start.setHours(+0.5);
         newItem.end = new Date(getItemsArray[i].end);
-        newItem.end.setHours(+22);
+        newItem.end.setHours(+21);
 
         //changes Background of Items according to their class (status)
         if (getItemsArray[i].classes === 1) {

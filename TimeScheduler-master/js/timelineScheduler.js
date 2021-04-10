@@ -617,8 +617,8 @@ var TimeScheduler = {
     end = TimeScheduler.GetEndOfPeriod(TimeScheduler.Options.Start, period);
 
     minuteDiff = Math.abs(TimeScheduler.Options.Start.diff(end, "minutes"));
-
-    for (i = 0; i < items.length; i++) {
+      for (i = 0; i < items.length; i++) {
+         
       item = items[i];
       section = TimeScheduler.Sections[item.sectionID];
 
@@ -642,7 +642,7 @@ var TimeScheduler = {
           calcLeft = (itemDiff / minuteDiff) * 100;
           calcWidth = (itemSelfDiff / minuteDiff) * 100;
 
-          itemElem = $(document.createElement("div"))
+            itemElem = $(document.createElement("div"))
             .addClass("time-sch-item " + (item.classes ? item.classes : ""))
             .css({
               top: calcTop,
@@ -651,9 +651,10 @@ var TimeScheduler = {
             })
             .appendTo(section.container);
 
-          itemContent = $(document.createElement("div"))
-            .addClass("time-sch-item-content")
-            .appendTo(itemElem);
+            itemContent = $(document.createElement("div"))
+                .addClass("time-sch-item-content")
+                .appendTo(itemElem)
+                .attr('id', function () { return "Item-" + i;});
 
           if (item.name) {
             $(document.createElement("div"))

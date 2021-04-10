@@ -2,10 +2,10 @@
 // (A) DATABASE SETTINGS
 // ! CHANGE SETTINGS TO YOUR OWN
 $dbhost = "localhost";
-$dbname = "id15628954_skischule1";
+$dbname = "skischule";
 $dbchar = "utf8";
-$dbuser = "id15628954_admin1";
-$dbpass = "adminadmin!Q2w";
+$dbuser = "gast";
+$dbpass = "gast";
 
 // (B) SETTINGS
 $prvalid = 60; // Password reset is valid for 300 seconds //was 300 changed to 60
